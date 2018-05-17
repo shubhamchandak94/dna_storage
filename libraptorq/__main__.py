@@ -3,7 +3,7 @@ from __future__ import print_function
 
 import itertools as it, operator as op, functools as ft
 from os.path import dirname, basename, exists, isdir, join, abspath
-import os, sys, types, math, json, base64, hashlib, logging, time
+import os, sys, types, math, json, base64, hashlib, logging, time, binascii
 
 
 try: import libraptorq
@@ -88,11 +88,16 @@ def encode(opts, data):
 				num_fmt(enc_k), opts.repair_symbols_rate*100,
 				num_fmt(n_drop), opts.drop_rate*100, num_fmt(len(symbols)),
 				num_fmt(sum(len(s[1]) for s in symbols)) )
-
+#	return dict( data_bytes=data_len,
+#		oti_scheme=oti_scheme, oti_common=oti_common,
+#		symbols=list((s[0], b64_encode(s[1])) for s in symbols),
+#		checksums=dict(sha256=b64_encode(data_sha256)) )
 	return dict( data_bytes=data_len,
 		oti_scheme=oti_scheme, oti_common=oti_common,
-		symbols=list((s[0], b64_encode(s[1])) for s in symbols),
-		checksums=dict(sha256=b64_encode(data_sha256)) )
+		symbols=list((s[0], bin(int(binascii.hexlify(s[1]), 16))[2:].zfill(opts.symbol_size*8))\
+				 for s in symbols),
+		checksums=dict(sha256=b64_encode(data_sha256)), 
+		symbol_size=opts.symbol_size)
 
 
 def decode(opts, data):
@@ -117,7 +122,8 @@ def _decode(opts, data):
 		log.debug('Initialized RQDecoder (%.3fs)...', next(timer))
 		err = 'no symbols available'
 		for sym_id, sym in data['symbols']:
-			sym_id, sym = int(sym_id), b64_decode(sym)
+#			sym_id, sym = int(sym_id), b64_decode(sym)
+			sym_id, sym = int(sym_id), binascii.unhexlify(((hex(int(sym,2)))[2:-1]).zfill(2*data['symbol_size']))
 			try: dec.add_symbol(sym, sym_id)
 			except RQError as err: continue
 			n_syms, n_sym_bytes = n_syms + 1, n_sym_bytes + len(sym)
