@@ -4,6 +4,10 @@ import argparse
 import json
 import subprocess
 import sys
+import bchlib
+import binascii
+BCH_POLYNOMIAL = 285
+
 
 def get_argument_parser():
     parser = argparse.ArgumentParser()
@@ -16,6 +20,7 @@ def decode(input_file, recon_file):
 	f_input = open(input_file, "r");
 	data = json.load(f_input)
 	f_input.close()
+	bch = bchlib.BCH(BCH_POLYNOMIAL, data['BCH_bits'])
 	reads_dict = {}
 	# load reads and store according to index
 	for read in data['symbols']:
@@ -23,17 +28,23 @@ def decode(input_file, recon_file):
 			reads_dict[read[0]].append([int(c) for c in read[1]])
 		else:
 			reads_dict[read[0]] = [[int(c) for c in read[1]]]
-	consensus_reads = [] #to store index and consensus bitstring
-	count_dict = {} #to store the number of reads for each index (for sorting later)
-	# convert to numpy arrays and find consensus
+	corrected_reads = [] #to store index and corrected bitstring
+	bitflips_dict = {} #to store the number of bitflips for each index (for sorting later)
+	# convert to numpy arrays, find consensus, do BCH decoding and keep if decoding successful
 	for k in reads_dict.keys():
-		count_dict[k] = len(reads_dict[k])
 		read_array = np.array(reads_dict[k], dtype = int)
 		majority_list = np.array(np.mean(read_array,axis = 0)>0.5,dtype=int)
-		consensus_reads.append([k, ''.join([str(c) for c in majority_list])])
-	consensus_reads.sort(key=lambda x: count_dict[x[0]],reverse=True)
+		majority_str = ''.join([str(c) for c in majority_list])
+		majority_str_bytes = binascii.unhexlify(((hex(int(majority_str,2)))[2:-1]).zfill(2*(data['symbol_size']+data['BCH_bits'])))
+		maj_data, maj_ecc = majority_str_bytes[:-bch.ecc_bytes], majority_str_bytes[-bch.ecc_bytes:]
+		(bitflips, maj_data, maj_ecc) = bch.decode(maj_data, maj_ecc)
+		if bitflips >= 0: #success
+			corrected_str = bin(int(binascii.hexlify(maj_data), 16))[2:].zfill(data['symbol_size']*8)	
+			corrected_reads.append([k, corrected_str])
+			bitflips_dict[k] = bitflips
+	corrected_reads.sort(key=lambda x: bitflips_dict[x[0]])
 	output_data = dict(data)
-	output_data['symbols'] = consensus_reads
+	output_data['symbols'] = corrected_reads
 	f_intermediate = open("tmpfile", "w");
 	f_intermediate.write(json.dumps(output_data, sort_keys = 'False', indent=2, separators=(',', ': ')))
 	f_intermediate.close()
