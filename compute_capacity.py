@@ -11,7 +11,8 @@ def get_argument_parser():
     return parser
 
 def compute_capacity(eps):
-	alpha = np.linspace(0.1,10.0,100)
+#	alpha = np.linspace(0.1,10.0,100)
+	alpha = np.linspace(0.01,1.0,100)	
 	if eps == 0:
 		coverage = (1+alpha)*np.log(1+1/alpha)
 		outfile = "capacity_eps_" + str("%.4f" % round(eps,4))+".csv"
@@ -86,15 +87,43 @@ def compute_capacity(eps):
 		for i in range(np.size(alpha)):
 			idx = np.nonzero(capacity_maj > 1/(1+alpha[i]))[0][0]
 			coverage_maj[i] = lambda_maj[idx]*(1+alpha[i])
-		outfile = "capacity_eps_" + str("%.4f" % round(eps,4))+".csv"
+		
+#		# compute capacity for independent BSC BEC coding
+#		# we assume erasure if we get fewer than k reads
+#		# otherwise we use BSC code
+#		# the capacity is computed by maximizing over k
+#		lamb = np.floor(1/(1+alpha_max)*1/precision)*precision
+#		# round down to resolution
+#		lambda_ind = []
+#		capacity_ind = []
+#		while True:
+#			poisson_cdf = scipy.stats.poisson.cdf(k_array-1, lamb)
+#			
+#			#capacity = np.max((1-poisson_cdf)*(1-bin_ent_eps))
+#			capacity = (1-poisson_cdf[0])*0.8
+#			lambda_ind.append(lamb)
+#			capacity_ind.append(capacity)
+#			if capacity > 1/(1+alpha_min):
+#				break
+#			lamb += precision
+#		lambda_ind = np.array(lambda_ind)
+#		capacity_ind = np.array(capacity_ind)
+#		coverage_ind = np.zeros(np.size(alpha))
+#		for i in range(np.size(alpha)):
+#			idx = np.nonzero(capacity_ind > 1/(1+alpha[i]))[0][0]
+#			coverage_ind[i] = lambda_ind[idx]*(1+alpha[i])
+
+		outfile = "capacity_eps_" + str("%.5f" % round(eps,5))+".csv"
 		f_out = open(outfile,'w')
-		f_out.write("alpha,coverage (for count-based),coverage (for majority-based)\n")
+		f_out.write("alpha,coverage (for count-based),coverage (for majority-based)\n")#,coverage (ind. BEC, BSC)\n")
 		for i in range(np.size(alpha)):
 			f_out.write(str("%.2f" % round(alpha[i],2)))
 			f_out.write(',')
 			f_out.write(str("%.2f" % round(coverage_counts[i],2)))
 			f_out.write(',')
 			f_out.write(str("%.2f" % round(coverage_maj[i],2)))
+#			f_out.write(',')
+#			f_out.write(str("%.2f" % round(coverage_ind[i],2)))
 			f_out.write('\n')
 
 def main():
