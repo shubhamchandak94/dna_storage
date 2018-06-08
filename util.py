@@ -3,6 +3,7 @@ import math
 import numpy as np
 import bchlib
 import binascii
+import random
 
 def bin2dna_2bpb(bin_string):
 	'''
@@ -267,24 +268,32 @@ def remove_index(num_oligos,BCH_bits,infile_name,outfile_data,outfile_index,mode
 		# calculate number of bases used for index
 		num_bases_BCH = int(math.ceil(BCH_bits*6.0/5))*3
 		num_bases_index = block_len + num_bases_BCH
-	# dictionary to generate separator base b/w index and payload
-	d = {'AA':'C','AC':'G','AG':'T','AT':'G',\
-	      'CG':'T','TC':'A','TG':'C','GG':'A',	
-    	      'CC':'A','GT':'C','CT':'A','GC':'T',\
-	      'TA':'G','GA':'T','CA':'G','TT':'C'}
+	else:
+		num_bases_index = block_len	
 	index = 0
 	bin_block_len, rll2_count = generate_rll2_count_arrays(block_len)
-	with open(infile_name) as infile, open(outfile_name, 'w') as outfile:
+	with open(infile_name) as infile, open(outfile_data, 'w') as f_data, open(outfile_index, 'w') as f_index:
 		for line in infile:
-			bin_string = bin(index)[2:].zfill(bin_block_len)
-			dna = bin2dna_rll2_index(bin_string, block_len, bin_block_len, rll2_count)
+			dna_data = line[num_bases_index+1:]
+			dna_index = line[:num_bases_index]		
 			if BCH_bits != 0:
-				dna_ecc = bin2dna_rll2_low_rate((bytes_to_binary_string(bch.encode(binary_string_to_bytes(dna2bin_2bpb(dna))))).zfill(num_bases_BCH*5/3))
-				sep_base = d[dna_ecc[-1]+line[0]]
-				outfile.write(dna+dna_ecc+sep_base+line)
+				dna_ecc = dna_index[-num_bases_BCH:]
+				bin_ecc = dna2bin_rll2_low_rate(dna_ecc,block_len,bin_block_len, rll2_count)
+				(bitflips,cor_index,cor_ecc) = bch.decode(binary_string_to_bytes(bin_ecc))
+				if bitflips >= 0: #success in correction
+					if mode == "detect" and bitflips > 0:
+						continue
+					(status,bin_index) = bin2dna_rll2_index(bin2dna_2bpb(bytes_to_binary_string(cor_index)))
+					if status == 0:
+						if int(bin_index,2) < num_oligos:
+							f_data.write(dna_data)
+							f_index.write(str(int(bin_index,2))+'\n')
 			else:
-				sep_base = d[dna[-1]+line[0]]
-				outfile.write(dna+sep_base+line)
+				(status,bin_index) = bin2dna_rll2_index(bin2dna_2bpb(dna_index))
+				if status == 0:
+					if int(bin_index,2) < num_oligos:
+						f_data.write(dna_data)
+						f_index.write(str(int(bin_index,2))+'\n')	
 			index += 1
 			if index == num_oligos:
 				break
@@ -292,11 +301,12 @@ def remove_index(num_oligos,BCH_bits,infile_name,outfile_data,outfile_index,mode
 def encode_data(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix):
 	'''
 	Encode binary data in infile to oligos written to oufile.
-
+	LDPC_prefix.pchk and LDPC_prefix.gen are the LDPC matrices.
 	'''
-	pass
+	
 
-def decode_data():
+
+def decode_data(infile,oligo_length,):
 	'''
 
 	'''
