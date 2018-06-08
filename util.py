@@ -5,6 +5,13 @@ import bchlib
 import binascii
 import random
 
+#some constants
+LDPC_dim = 256000
+rll2_block_len = 87
+index_block_len = 16
+BCH_POLYNOMIAL = 67
+BCH_bits_per_error = 6
+
 def bin2dna_2bpb(bin_string):
 	'''
 	Generate dna according to mapping 00-A,01-C,10-G,11-T.
@@ -223,12 +230,11 @@ def add_index(num_oligos,BCH_bits,infile_name,outfile_name):
 	'''
 	if num_oligos > 2**30:
 		raise Exception('Too many oligos')
-	block_len = 16
+	block_len = index_block_len
 	if BCH_bits != 0:
-		BCH_POLYNOMIAL = 67
 		bch = bchlib.BCH(BCH_POLYNOMIAL, BCH_bits)
 		# calculate number of bases used for index
-		num_bases_BCH = int(math.ceil(BCH_bits*6.0/5))*3
+		num_bases_BCH = int(math.ceil(1.0*BCH_bits*BCH_bits_per_error/5))*3
 		num_bases_index = block_len + num_bases_BCH
 	# dictionary to generate separator base b/w index and payload
 	d = {'AA':'C','AC':'G','AG':'T','AT':'G',\
@@ -261,12 +267,11 @@ def remove_index(num_oligos,BCH_bits,infile_name,outfile_data,outfile_index,mode
 	'''
 	if num_oligos > 2**30:
 		raise Exception('Too many oligos')
-	block_len = 16
+	block_len = index_block_len
 	if BCH_bits != 0:
-		BCH_POLYNOMIAL = 67
 		bch = bchlib.BCH(BCH_POLYNOMIAL, BCH_bits)
 		# calculate number of bases used for index
-		num_bases_BCH = int(math.ceil(BCH_bits*6.0/5))*3
+		num_bases_BCH = int(math.ceil(1.0*BCH_bits*BCH_bits_per_error/5))*3
 		num_bases_index = block_len + num_bases_BCH
 	else:
 		num_bases_index = block_len	
@@ -298,19 +303,61 @@ def remove_index(num_oligos,BCH_bits,infile_name,outfile_data,outfile_index,mode
 			if index == num_oligos:
 				break
 
+def rll2_pad(dna_str,padded_len):
+'''
+Pad dna_str to padded_len such that the padding does not introduce any runs of >= 3
+'''	
+	extra_len = padded_len - len(dna_str)
+	if extra_len == 0:
+		return dna_str
+	d = {'A':'C','C':'G','G':'T','T':'A'}
+	d1 = {'A':0,'C':1,'G':2,'T':3}
+	d2 = {0:'A',1:'C',2:'G',3:'T'}
+	delta_coded = np.random.choice([1,2,3],extra_len)
+	delta_coded[0] = d1[d[dna_str[-1]]]
+	quaternary_coded = np.mod(np.cumsum(delta_coded),4)
+	return dna_str+''.join([d2[i] for i in quaternary_coded])		
+	
 def encode_data(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix):
 	'''
 	Encode binary data in infile to oligos written to oufile.
 	LDPC_prefix.pchk and LDPC_prefix.gen are the LDPC matrices.
+	int(LDPC_dim*LDPC_alpha) should be the number of parity check bits.
+	infile is a bytestream file.
 	'''
-	
+	f_in = open(infile,'r')
+	data = f_in.read()	
+	bin_data = bytes_to_binary_string(data)
+
+	# calculate various parameters for encoding
+	data_len = len(bin_data)
+	block_len = rll2_block_len
+	bin_block_len, rll2_count = generate_rll2_count_arrays(block_len)
+	coded_blocks_per_LDPC_block = LDPC_dim/(2*block_len)
+	uncoded_bits_per_LDPC_block = coded_blocks_per_LDPC_block*bin_block_len
+	num_LDPC_blocks = int(math.ceil(1.0*data_len/uncoded_bits_per_LDPC_block))
+	parity_bits_per_LDPC_block = int(LDPC_alpha*LDPC_dim)
+	if BCH_bits != 0:
+		bch = bchlib.BCH(BCH_POLYNOMIAL, BCH_bits)
+		# calculate number of bases used for index
+		num_bases_BCH = int(math.ceil(1.0*BCH_bits*BCH_bits_per_error/5))*3
+		num_bases_index = index_block_len + num_bases_BCH
+	else:
+		num_bases_index = index_block_len
+	num_bases_payload = oligo_length - num_bases_index - 1
+	parity_bits_per_oligo = (num_bases_payload/3)*5
+	num_oligos_data_per_LDPC_block = int(math.ceil(1.0*LDPC_dim/(2*num_bases_payload)))
+	num_oligos_parity_per_LDPC_block = int(math.ceil(1.0*parity_bits_per_LDPC_block/parity_bits_per_oligo))
+	num_oligos_per_LDPC_block = num_oligos_data_per_LDPC_block+num_oligos_parity_per_LDPC_block
+	overall_rate = 1.0*data_len/(num_oligos_per_LDPC_block*num_LDPC_blocks*oligo_length)
+	#TODO loop to generate oligos	
+
+	rll2_dna_data = bin2dna_rll2_high_rate(bin_data, block_len, bin_block_len, rll2_count)
+			
 
 
 def decode_data(infile,oligo_length,):
 	'''
-
+	
 	'''
 	pass
-
-
-
