@@ -34,8 +34,8 @@ def main():
     log_data = [];
     log_data.append(["alpha_raptor","BCH_bits","alpha","coverage","success-percentage"]);
 
-    for alpha_raptor in [0.03,0.06,0.09,0.12,0.15,0.18,0.21]:
-        for BCH_bits in [1,2,3,4,5]:
+    for alpha_raptor in [0.28]:
+        for BCH_bits in [4]:
 		#calculate effective alpha and num_chunks
 		read_length = (31-BCH_bits) - (31-BCH_bits)%4 + BCH_bits
 		alpha = (1+alpha_raptor)*float(read_length)/(read_length-BCH_bits) - 1
@@ -54,7 +54,7 @@ def main():
 		subprocess.call([encode_command], shell=True) 
 		assert os.path.isfile(output_file),"The codebook did not get generated"
 		
-		coverage_list = [2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0,8.5,9.0]
+		coverage_list = [2.5]
 		for coverage in coverage_list:
 		    num_success = 0
 		    for iter in range(num_experiments): 

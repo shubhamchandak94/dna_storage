@@ -19,9 +19,9 @@ def main():
 	parser = get_argument_parser()
 	config = parser.parse_args()
 
-	pchk_mat = " LDPC-codes/matrices/ldpc_9.pchk "
-	gen_mat = " LDPC-codes/matrices/ldpc_9.gen "	   
-	alpha = 0.5
+	pchk_mat = " LDPC-codes/matrices/ldpc_33_1.pchk "
+	gen_mat = " LDPC-codes/matrices/ldpc_33_1.gen "	   
+	alpha = 0.1
 	encode_script="./LDPC-codes/encode "
 	sample_script="sample_generation_LDPC.py "
 	decode_script="./LDPC-codes/decode "
@@ -50,13 +50,14 @@ def main():
 	enc_str = f_enc.read().replace('\n', '')
 	f_enc.close()
 
-	coverage_list = [2.0,2.1,2.2,2.3]
+	coverage_list = [2.95,3.02,3.05,3.1,3.15,3.2,3.25,3.3,3.35]
 	for coverage in coverage_list:
 		log_str = "Coverage = " + str(coverage) + "\n"
 		print(log_str)
 		f_log.write(log_str)
 	    	num_success = 0
 	    	for it in range(num_experiments): 
+			print(it)
 			sample_file=" data/received-file "
 
 			### Generate the sample files
@@ -84,8 +85,8 @@ def main():
 			if hamm == 0:
 				num_success += 1
 			log_str = "Bit errors = " + str(hamm) + " (abs), " + str(1.0*hamm/len(recon_str)) +  " (rel)\n"
-			print(log_str)
-			f_log.write(log_str)
+		#	print(log_str)
+		#	f_log.write(log_str)
 
 		success_percentage = int(num_success*100.0/num_experiments)
 		log_str = "Coverage = " + str(coverage) + ", Success percentage = " + str(success_percentage) + "%\n\n"

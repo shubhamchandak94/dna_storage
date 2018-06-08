@@ -1,0 +1,33 @@
+alpha = 0.1
+
+Coverage = 2.8
+50
+49
+Coverage = 2.8, Success percentage = 2.0%
+
+Coverage = 2.9
+50
+42
+Coverage = 2.9, Success percentage = 16.0%
+
+Coverage = 3.02
+50
+26
+Coverage = 3.02, Success percentage = 48.0%
+
+Coverage = 3.1
+55
+10
+Coverage = 3.1, Success percentage = 81.8181818182%
+
+Coverage = 3.2
+232
+10
+Coverage = 3.2, Success percentage = 95.6896551724%
+
+Coverage = 3.3
+2614
+10
+Coverage = 3.3, Success percentage = 99.6174445295%
+
+Coverage = 3.4

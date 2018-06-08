@@ -33,7 +33,7 @@ def main():
     log_data = [];
     log_data.append(["alpha","coverage","success-percentage"]);
 
-    for alpha in [0.1,0.2,0.3,0.5,0.8,1.2,1.5,2.0]:
+    for alpha in [0.5]:
         
         output_file="data/output_" + str(alpha) + "_alpha.txt"
             
@@ -49,7 +49,7 @@ def main():
         subprocess.call([encode_command], shell=True) 
         assert os.path.isfile(output_file),"The codebook did not get generated"
    	optimal_coverage = (1+alpha)*np.log(1+1/alpha)
-	coverage_list = np.around(optimal_coverage + np.array([-0.1,0,0.1,0.2,0.3]),2)
+	coverage_list = np.around(optimal_coverage + np.array([0.1]),2)
         for coverage in coverage_list:
             num_success = 0
             for iter in range(num_experiments): 

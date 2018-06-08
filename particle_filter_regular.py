@@ -5,12 +5,12 @@ import scipy.stats
 def main():
 	N = 100000
 	num_iter = 200
-	k = 63
+	k = 13
 	l = 3
 	alpha = 1.0*l/(k-l)
 	print(alpha)
 	eps = 0.005
-	for cov in [3.58,3.60,3.62]:
+	for cov in [2.20,2.22,2.24,2.26]:
 		print(cov)
 		lamb = cov/(1+alpha)
 		P_b = sampled_DE(lamb, num_iter, N, eps, k, l)
