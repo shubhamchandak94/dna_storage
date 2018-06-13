@@ -528,3 +528,86 @@ def decode_data(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix,file
 	f_out.write(binary_string_to_bytes(decoded_str))
 	f_out.close()
 	return 0
+
+def sample_reads(infile,outfile,num_reads,SNP_prob):
+	'''
+	Sample num_reads from oligos in infile and write to outfile.
+	Each base is flipped indepedently with probability SNP_prob, transitions are equally likely to the 3 remaining.
+	'''
+	dna2int = {'A':0,'C':1,'G':2,'T':3}
+	int2dna = {0:'A',1:'C',2:'G',3:'T'}
+	f_in = open(infile,'r')
+	f_out = open(outfile,'w')
+	input_lines = f_in.readlines();
+	f_in.close()
+	for i in range(num_reads):
+		clean_sample = random.choice(input_lines).rstrip('\n')
+		clean_sample_arr = np.array([dna2int[c] for c in clean_sample])
+		noise = np.random.choice([0,1,2,3],size=len(clean_sample),p=[1.0-SNP_prob,SNP_prob/3.0,SNP_prob/3.0,SNP_prob/3.0])
+		output_sample_arr = np.mod(clean_sample_arr+noise,4)
+		output_sample = ''.join([int2dna[j] for j in output_sample_arr])
+		f_out.write("%s\n" %output_sample)
+	f_out.close()
+	return
+
+def run_experiments(infile_data,infile_oligos,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, coverage, eps, eps_decode, num_experiments, mode = 'correct'):
+	'''
+	Run experiments: infile_data contains original data, infile_oligo contains encoded oligos, number of reads sampled is coverage*file_size*4/oligo_length.
+	Read sampling and decoding is repeated num_experiments times and number of successes is returned.
+	eps and eps_decode are the eps values used for sampling reads and decoding respectively.
+	'''
+	num_reads = int(coverage*file_size*4.0/oligo_length)
+	print 'num_reads:',num_reads
+	outfile_reads = infile_oligos+".reads"
+	outfile_dec = infile_oligos+".dec"
+	with open(infile_data,'r') as f:
+		orig_str = f.read()
+	num_successes = 0
+	for _ in range(num_experiments):
+		sample_reads(infile_oligos,outfile_reads,num_reads,eps)
+		status = decode_data(outfile_reads,oligo_length,outfile_dec,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps, mode)
+		if status == 0:
+			with open(outfile_dec,'r') as f:	
+				dec_str = f.read()
+			if dec_str == orig_str:
+				num_successes += 1
+	os.remove(outfile_reads)
+	os.remove(outfile_dec)
+	return num_successes
+
+
+def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps, eps_decode, num_experiments, mode = 'correct'):
+	'''
+	Find minimum coverage (in steps of 0.2) when we have 100% successes in num_experiment trials with the given parameters. 
+	'''
+	with open(infile_data,'r') as f:
+		orig_str = f.read()
+	# Encode data
+	outfile_oligos = infile_data +'.oligo'
+	outfile_reads = infile_data+".reads"
+	outfile_dec = infile_data+".dec"
+	encode_data(infile_data,oligo_length,outfile_oligos,BCH_bits,LDPC_alpha,LDPC_prefix)
+	coverage = 1.0
+	while True:
+		num_reads = int(coverage*file_size*4.0/oligo_length)
+		print 'coverage:',coverage
+		print 'num_reads:',num_reads
+
+		num_successes = 0
+		for _ in range(num_experiments):
+			sample_reads(outfile_oligos,outfile_reads,num_reads,eps)
+			status = decode_data(outfile_reads,oligo_length,outfile_dec,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps, mode)
+			if status == 0:
+				with open(outfile_dec,'r') as f:	
+					dec_str = f.read()
+				if dec_str == orig_str:
+					num_successes += 1
+			else:
+				break
+		if num_successes == num_experiments:
+			break
+		coverage += 0.2	
+	os.remove(outfile_reads)
+	os.remove(outfile_dec)
+	os.remove(outfile_oligos)
+	return coverage
