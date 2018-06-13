@@ -9,7 +9,7 @@ import subprocess
 
 #some constants
 LDPC_dim = 256000
-rll2_block_len = 87
+rll2_block_len = 173
 index_block_len = 16 
 BCH_POLYNOMIAL = 67
 BCH_bits_per_error = 6
@@ -87,10 +87,11 @@ def generate_rll2_count_arrays(block_len):
 	where bin_block_len is the number of binary bits converted to block_len dna symbols, rll2_count is array used for encoding and decoding.
 	'''
 	rll2_count = [3,12]
-	for i in range(block_len-2):
+	for i in range(block_len-3):
 		rll2_count.append(3*rll2_count[-1]+3*rll2_count[-2])
-	bin_block_len = int(math.floor(math.log(rll2_count[-1],2)))
+	bin_block_len = int(math.floor(math.log(3*rll2_count[-1],2)))
 	# rll_count stores number of 0,1,2,3 strings of that don't start with a 3 and don't contain 33 as a substring
+	# UPDATE: now rll_count is slightly smaller for simpler coding scheme
 	return (bin_block_len,[1]+rll2_count)
 
 
@@ -107,7 +108,6 @@ def bin2dna_rll2_high_rate(bin_string, block_len, bin_block_len, rll2_count):
 		num = int(bin_string[i*bin_block_len:(i+1)*bin_block_len],2)
 		for j in range(block_len):
 			next_symbol = num/rll2_count[block_len-j-1]
-			print next_symbol
 			if next_symbol > 3:
 				raise Exception('next_symbol>3')
 			num -= next_symbol*rll2_count[block_len-j-1]
@@ -123,7 +123,6 @@ def bin2dna_rll2_high_rate(bin_string, block_len, bin_block_len, rll2_count):
 	d = {0:'A',1:'C',2:'G',3:'T'}
 	return ''.join([d[j] for j in quaternary_coded])	
 
-# TODO fix error
 def dna2bin_rll2_high_rate(dna_string, block_len, bin_block_len, rll2_count):
 	'''
 	Decoder for bin2dna_rll2_high_rate.
@@ -143,16 +142,13 @@ def dna2bin_rll2_high_rate(dna_string, block_len, bin_block_len, rll2_count):
 	delta_coded[ind_3] = 0
 	bin_string_array = []
 	delta_coded = delta_coded.tolist()# for inf precision arithmetic
-	print delta_coded
 	for i in range(len(dna_string)/block_len):
 		# check if valid 
 		if delta_coded[i*block_len] == 3 or sum([(delta_coded[i*block_len+j]+delta_coded[i*block_len+j+1]==6) for j in range(block_len-1)]) != 0:
-			print "hello1"
 			return (1,'')
 		num = sum([delta_coded[i*block_len+j]*rll2_count[block_len-j-1] for j in range(block_len)])
-		if num >= rll2_count[block_len]:
+		if num >= 3*rll2_count[block_len-1]:
 			#Error
-			print "hello2"
 			return (1,'')
 		bin_string_array.append((bin(num)[2:]).zfill(bin_block_len))
 	return (0,''.join([s for s in bin_string_array]))
@@ -209,7 +205,7 @@ def dna2bin_rll2_index(dna_string, block_len, bin_block_len, rll2_count):
 	bin_string_array = []
 	delta_coded = delta_coded.tolist()# for inf precision arithmetic
 	num = sum([delta_coded[j]*rll2_count[block_len-j-1] for j in range(block_len)])
-	if num >= rll2_count[block_len]:
+	if num >= 3*rll2_count[block_len-1]:
 		#Error
 		return (1,'')
 	bin_string_array = (bin(num)[2:]).zfill(bin_block_len)
@@ -222,7 +218,7 @@ def binary_string_to_bytes(bin_string):
 	'''
 	if len(bin_string)%8 != 0:
 		raise Exception('binary string length not multiple of 8')
-	return binascii.unhexlify(((hex(int(bin_string,2)))[2:]).zfill(len(bin_string)/4))
+	return binascii.unhexlify((((hex(int(bin_string,2)))[2:]).rstrip('L')).zfill(len(bin_string)/4))
 
 def bytes_to_binary_string(byte_string):
 	'''
@@ -388,8 +384,9 @@ def encode_data(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix):
 		bin_data_block = bin_data[i*uncoded_bits_per_LDPC_block:(i+1)*uncoded_bits_per_LDPC_block]
 		# encode RLL high rate
 		rll2_dna_data_block = bin2dna_rll2_high_rate(bin_data_block, block_len, bin_block_len, rll2_count)
+		rll2_dna_data_block = rll2_pad(rll2_dna_data_block,LDPC_dim/2)
 		f_LDPC_input = open(outfile+'.tmp.1','w')
-		f_LDPC_input.write(dna2bin_2bpb(rll2_pad(rll2_dna_data_block,LDPC_dim/2)))
+		f_LDPC_input.write(dna2bin_2bpb(rll2_dna_data_block))
 		f_LDPC_input.close()
 		# encode LDPC
 		subprocess.call(["./LDPC-codes/encode "+LDPC_prefix+".pchk "+LDPC_prefix+".gen "+outfile+'.tmp.1 '+outfile+'.tmp.2 '], shell=True)
@@ -526,7 +523,7 @@ def decode_data(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix,file
 	os.remove(outfile+".tmp")
 	os.remove(outfile+".tmp.1")
 	decoded_str = ''.join(decoded_data)
-	decoded_str = decoded_str[:data_len] 
+	decoded_str = decoded_str[:data_len]
 	f_out = open(outfile,'w')
 	f_out.write(binary_string_to_bytes(decoded_str))
 	f_out.close()
