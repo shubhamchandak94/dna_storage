@@ -1,0 +1,1900 @@
+Number of bases: 3
+Number of valid strings: 45
+Max number of bits: 5.0
+Rate in bits/base: 1.66666666667
+
+Number of bases: 4
+Number of valid strings: 171
+Max number of bits: 7.0
+Rate in bits/base: 1.75
+
+Number of bases: 5
+Number of valid strings: 648
+Max number of bits: 9.0
+Rate in bits/base: 1.8
+
+Number of bases: 6
+Number of valid strings: 2457
+Max number of bits: 11.0
+Rate in bits/base: 1.83333333333
+
+Number of bases: 7
+Number of valid strings: 9315
+Max number of bits: 13.0
+Rate in bits/base: 1.85714285714
+
+Number of bases: 8
+Number of valid strings: 35316
+Max number of bits: 15.0
+Rate in bits/base: 1.875
+
+Number of bases: 9
+Number of valid strings: 133893
+Max number of bits: 17.0
+Rate in bits/base: 1.88888888889
+
+Number of bases: 10
+Number of valid strings: 507627
+Max number of bits: 18.0
+Rate in bits/base: 1.8
+
+Number of bases: 11
+Number of valid strings: 1924560
+Max number of bits: 20.0
+Rate in bits/base: 1.81818181818
+
+Number of bases: 12
+Number of valid strings: 7296561
+Max number of bits: 22.0
+Rate in bits/base: 1.83333333333
+
+Number of bases: 13
+Number of valid strings: 27663363
+Max number of bits: 24.0
+Rate in bits/base: 1.84615384615
+
+Number of bases: 14
+Number of valid strings: 104879772
+Max number of bits: 26.0
+Rate in bits/base: 1.85714285714
+
+Number of bases: 15
+Number of valid strings: 397629405
+Max number of bits: 28.0
+Rate in bits/base: 1.86666666667
+
+Number of bases: 16
+Number of valid strings: 1507527531
+Max number of bits: 30.0
+Rate in bits/base: 1.875
+
+Number of bases: 17
+Number of valid strings: 5715470808
+Max number of bits: 32.0
+Rate in bits/base: 1.88235294118
+
+Number of bases: 18
+Number of valid strings: 21668995017
+Max number of bits: 34.0
+Rate in bits/base: 1.88888888889
+
+Number of bases: 19
+Number of valid strings: 82153397475
+Max number of bits: 36.0
+Rate in bits/base: 1.89473684211
+
+Number of bases: 20
+Number of valid strings: 311467177476
+Max number of bits: 38.0
+Rate in bits/base: 1.9
+
+Number of bases: 21
+Number of valid strings: 1180861724853
+Max number of bits: 40.0
+Rate in bits/base: 1.90476190476
+
+Number of bases: 22
+Number of valid strings: 4476986706987
+Max number of bits: 42.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 23
+Number of valid strings: 16973545295520
+Max number of bits: 43.0
+Rate in bits/base: 1.86956521739
+
+Number of bases: 24
+Number of valid strings: 64351596007521
+Max number of bits: 45.0
+Rate in bits/base: 1.875
+
+Number of bases: 25
+Number of valid strings: 243975423909123
+Max number of bits: 47.0
+Rate in bits/base: 1.88
+
+Number of bases: 26
+Number of valid strings: 924981059749932
+Max number of bits: 49.0
+Rate in bits/base: 1.88461538462
+
+Number of bases: 27
+Number of valid strings: 3506869450977165
+Max number of bits: 51.0
+Rate in bits/base: 1.88888888889
+
+Number of bases: 28
+Number of valid strings: 13295551532181291
+Max number of bits: 53.0
+Rate in bits/base: 1.89285714286
+
+Number of bases: 29
+Number of valid strings: 50407262949475368
+Max number of bits: 55.0
+Rate in bits/base: 1.89655172414
+
+Number of bases: 30
+Number of valid strings: 191108443444969977
+Max number of bits: 57.0
+Rate in bits/base: 1.9
+
+Number of bases: 31
+Number of valid strings: 724547119183336035
+Max number of bits: 59.0
+Rate in bits/base: 1.90322580645
+
+Number of bases: 32
+Number of valid strings: 2746966687884918036
+Max number of bits: 61.0
+Rate in bits/base: 1.90625
+
+Number of bases: 33
+Number of valid strings: 10414541421204762213
+Max number of bits: 63.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 34
+Number of valid strings: 39484524327269040747
+Max number of bits: 65.0
+Rate in bits/base: 1.91176470588
+
+Number of bases: 35
+Number of valid strings: 149697197245421408880
+Max number of bits: 67.0
+Rate in bits/base: 1.91428571429
+
+Number of bases: 36
+Number of valid strings: 567545164718071348881
+Max number of bits: 68.0
+Rate in bits/base: 1.88888888889
+
+Number of bases: 37
+Number of valid strings: 2151727085890478273283
+Max number of bits: 70.0
+Rate in bits/base: 1.89189189189
+
+Number of bases: 38
+Number of valid strings: 8157816751825648866492
+Max number of bits: 72.0
+Rate in bits/base: 1.89473684211
+
+Number of bases: 39
+Number of valid strings: 30928631513148381419325
+Max number of bits: 74.0
+Rate in bits/base: 1.89743589744
+
+Number of bases: 40
+Number of valid strings: 117259344794922090857451
+Max number of bits: 76.0
+Rate in bits/base: 1.9
+
+Number of bases: 41
+Number of valid strings: 444563928924211416830328
+Max number of bits: 78.0
+Rate in bits/base: 1.90243902439
+
+Number of bases: 42
+Number of valid strings: 1685469821157400523063337
+Max number of bits: 80.0
+Rate in bits/base: 1.90476190476
+
+Number of bases: 43
+Number of valid strings: 6390101250244835819680995
+Max number of bits: 82.0
+Rate in bits/base: 1.90697674419
+
+Number of bases: 44
+Number of valid strings: 24226713214206709028232996
+Max number of bits: 84.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 45
+Number of valid strings: 91850443393354634543741973
+Max number of bits: 86.0
+Rate in bits/base: 1.91111111111
+
+Number of bases: 46
+Number of valid strings: 348231469822684030715924907
+Max number of bits: 88.0
+Rate in bits/base: 1.91304347826
+
+Number of bases: 47
+Number of valid strings: 1320245739648115995779000640
+Max number of bits: 90.0
+Rate in bits/base: 1.91489361702
+
+Number of bases: 48
+Number of valid strings: 5005431628412400079484776641
+Max number of bits: 92.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 49
+Number of valid strings: 18977032104181548225791331843
+Max number of bits: 93.0
+Rate in bits/base: 1.89795918367
+
+Number of bases: 50
+Number of valid strings: 71947391197781844915828325452
+Max number of bits: 95.0
+Rate in bits/base: 1.9
+
+Number of bases: 51
+Number of valid strings: 272773269905890179424858971885
+Max number of bits: 97.0
+Rate in bits/base: 1.90196078431
+
+Number of bases: 52
+Number of valid strings: 1034161983311016073022061892011
+Max number of bits: 99.0
+Rate in bits/base: 1.90384615385
+
+Number of bases: 53
+Number of valid strings: 3920805759650718757340762591688
+Max number of bits: 101.0
+Rate in bits/base: 1.90566037736
+
+Number of bases: 54
+Number of valid strings: 14864903228885204491088473451097
+Max number of bits: 103.0
+Rate in bits/base: 1.90740740741
+
+Number of bases: 55
+Number of valid strings: 56357126965607769745287708128355
+Max number of bits: 105.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 56
+Number of valid strings: 213666090583478922709128544738356
+Max number of bits: 107.0
+Rate in bits/base: 1.91071428571
+
+Number of bases: 57
+Number of valid strings: 810069652647260077363248758600133
+Max number of bits: 109.0
+Rate in bits/base: 1.91228070175
+
+Number of bases: 58
+Number of valid strings: 3071207229692217000217131910015467
+Max number of bits: 111.0
+Rate in bits/base: 1.91379310345
+
+Number of bases: 59
+Number of valid strings: 11643830647018431232741142005846800
+Max number of bits: 113.0
+Rate in bits/base: 1.91525423729
+
+Number of bases: 60
+Number of valid strings: 44145113630131944698874821747586801
+Max number of bits: 115.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 61
+Number of valid strings: 167366832831451127794847891260300803
+Max number of bits: 117.0
+Rate in bits/base: 1.91803278689
+
+Number of bases: 62
+Number of valid strings: 634535839384749217481168139023662812
+Max number of bits: 118.0
+Rate in bits/base: 1.90322580645
+
+Number of bases: 63
+Number of valid strings: 2405708016648601035828048090851890845
+Max number of bits: 120.0
+Rate in bits/base: 1.90476190476
+
+Number of bases: 64
+Number of valid strings: 9120731568100050759927648689626660971
+Max number of bits: 122.0
+Rate in bits/base: 1.90625
+
+Number of bases: 65
+Number of valid strings: 34579318754245955387267090341435655448
+Max number of bits: 124.0
+Rate in bits/base: 1.90769230769
+
+Number of bases: 66
+Number of valid strings: 131100150967038018441584217093186949257
+Max number of bits: 126.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 67
+Number of valid strings: 497038409163851921486553922303867814115
+Max number of bits: 128.0
+Rate in bits/base: 1.91044776119
+
+Number of bases: 68
+Number of valid strings: 1884415680392669819784414418191164290116
+Max number of bits: 130.0
+Rate in bits/base: 1.91176470588
+
+Number of bases: 69
+Number of valid strings: 7144362268669565223812905021485096312693
+Max number of bits: 132.0
+Rate in bits/base: 1.91304347826
+
+Number of bases: 70
+Number of valid strings: 27086333847186705130791958319028781808427
+Max number of bits: 134.0
+Rate in bits/base: 1.91428571429
+
+Number of bases: 71
+Number of valid strings: 102692088347568811063814590021541634363360
+Max number of bits: 136.0
+Rate in bits/base: 1.91549295775
+
+Number of bases: 72
+Number of valid strings: 389335266584266548583819645021711248515361
+Max number of bits: 138.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 73
+Number of valid strings: 1476082064795506078942902705129758648636163
+Max number of bits: 140.0
+Rate in bits/base: 1.91780821918
+
+Number of bases: 74
+Number of valid strings: 5596251994139317882580167050454409691454572
+Max number of bits: 142.0
+Rate in bits/base: 1.91891891892
+
+Number of bases: 75
+Number of valid strings: 21217002176804471884569209266752505020272205
+Max number of bits: 143.0
+Rate in bits/base: 1.90666666667
+
+Number of bases: 76
+Number of valid strings: 80439762512831369301448128951620744135180331
+Max number of bits: 145.0
+Rate in bits/base: 1.90789473684
+
+Number of bases: 77
+Number of valid strings: 304970294068907523558052014655119747466357608
+Max number of bits: 147.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 78
+Number of valid strings: 1156230169745216678578500430820221474804613817
+Max number of bits: 149.0
+Rate in bits/base: 1.91025641026
+
+Number of bases: 79
+Number of valid strings: 4383601391442372606409657336426023666812914275
+Max number of bits: 151.0
+Rate in bits/base: 1.91139240506
+
+Number of bases: 80
+Number of valid strings: 16619494683562767854964473301738735424852584276
+Max number of bits: 153.0
+Rate in bits/base: 1.9125
+
+Number of bases: 81
+Number of valid strings: 63009288225015421384122391914494277274996495653
+Max number of bits: 155.0
+Rate in bits/base: 1.91358024691
+
+Number of bases: 82
+Number of valid strings: 238886348725734567717260595648699038099547239787
+Max number of bits: 157.0
+Rate in bits/base: 1.91463414634
+
+Number of bases: 83
+Number of valid strings: 905686910852249967304148962689579946123631206320
+Max number of bits: 159.0
+Rate in bits/base: 1.9156626506
+
+Number of bases: 84
+Number of valid strings: 3433719778733953605064228675014836952669535338321
+Max number of bits: 161.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 85
+Number of valid strings: 13018220068758610717105132913113250696379499633923
+Max number of bits: 163.0
+Rate in bits/base: 1.91764705882
+
+Number of bases: 86
+Number of valid strings: 49355819542477692966508084764384262947147104916732
+Max number of bits: 165.0
+Rate in bits/base: 1.91860465116
+
+Number of bases: 87
+Number of valid strings: 187122118833708911050839653032492540930579813651965
+Max number of bits: 167.0
+Rate in bits/base: 1.91954022989
+
+Number of bases: 88
+Number of valid strings: 709433815128559812052043213390630411633180755706091
+Max number of bits: 168.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 89
+Number of valid strings: 2689667801886806169308648599269368857691281708074168
+Max number of bits: 170.0
+Rate in bits/base: 1.91011235955
+
+Number of bases: 90
+Number of valid strings: 10197304851046097944082075437979997807973387391340777
+Max number of bits: 172.0
+Rate in bits/base: 1.91111111111
+
+Number of bases: 91
+Number of valid strings: 38660917958798712340172172111748099996994007298244835
+Max number of bits: 174.0
+Rate in bits/base: 1.91208791209
+
+Number of bases: 92
+Number of valid strings: 146574668429534430852762742649184293414902184068756836
+Max number of bits: 176.0
+Rate in bits/base: 1.91304347826
+
+Number of bases: 93
+Number of valid strings: 555706759164999429578804744282797180235688574101005013
+Max number of bits: 178.0
+Rate in bits/base: 1.91397849462
+
+Number of bases: 94
+Number of valid strings: 2106844282783601581294702460795944420951772274509285547
+Max number of bits: 180.0
+Rate in bits/base: 1.91489361702
+
+Number of bases: 95
+Number of valid strings: 7987653125845803032620521615236224803562382545830871680
+Max number of bits: 182.0
+Rate in bits/base: 1.91578947368
+
+Number of bases: 96
+Number of valid strings: 30283492225888213841745672228096507673542464461020471681
+Max number of bits: 184.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 97
+Number of valid strings: 114813436055202050623098581529998197431314541020554030083
+Max number of bits: 186.0
+Rate in bits/base: 1.9175257732
+
+Number of bases: 98
+Number of valid strings: 435290784843270793394532761274284115314571016444723505292
+Max number of bits: 188.0
+Rate in bits/base: 1.91836734694
+
+Number of bases: 99
+Number of valid strings: 1650312662695418532052894028412846938237656672395832606125
+Max number of bits: 190.0
+Rate in bits/base: 1.91919191919
+
+Number of bases: 100
+Number of valid strings: 6256810342616067976342280369061393160656683066521668334251
+Max number of bits: 191.0
+Rate in bits/base: 1.91
+
+Number of bases: 101
+Number of valid strings: 23721369015934459525185523192422720296683019216752502821128
+Max number of bits: 193.0
+Rate in bits/base: 1.91089108911
+
+Number of bases: 102
+Number of valid strings: 89934538075651582504583410684452340372019106849822513466137
+Max number of bits: 195.0
+Rate in bits/base: 1.91176470588
+
+Number of bases: 103
+Number of valid strings: 340967721274758126089306801630625182006106378199725048861795
+Max number of bits: 197.0
+Rate in bits/base: 1.91262135922
+
+Number of bases: 104
+Number of valid strings: 1292706778051229125781670636945232567134376455148642686983796
+Max number of bits: 199.0
+Rate in bits/base: 1.91346153846
+
+Number of bases: 105
+Number of valid strings: 4901023497977961755612932315727573247421448500045103207536773
+Max number of bits: 201.0
+Rate in bits/base: 1.91428571429
+
+Number of bases: 106
+Number of valid strings: 18581190828087572644183808858018417443667474865581237683561707
+Max number of bits: 203.0
+Rate in bits/base: 1.91509433962
+
+Number of bases: 107
+Number of valid strings: 70446642978196603199390223521237972073266770096879022673295440
+Max number of bits: 205.0
+Rate in bits/base: 1.91588785047
+
+Number of bases: 108
+Number of valid strings: 267083501418852527530722097137769168550802734887380781070571441
+Max number of bits: 207.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 109
+Number of valid strings: 1012590433191147392190336961977021421872208514952779411231600643
+Max number of bits: 209.0
+Rate in bits/base: 1.91743119266
+
+Number of bases: 110
+Number of valid strings: 3839021803829999759163177177344371771269033749520480576906516252
+Max number of bits: 211.0
+Rate in bits/base: 1.91818181818
+
+Number of bases: 111
+Number of valid strings: 14554836711063441454060542417964179579423726793419779964414350685
+Max number of bits: 213.0
+Rate in bits/base: 1.91891891892
+
+Number of bases: 112
+Number of valid strings: 55181575544680323639671158785925654052078281628820781623962600811
+Max number of bits: 215.0
+Rate in bits/base: 1.91964285714
+
+Number of bases: 113
+Number of valid strings: 209209236767231295281195103611669500894506025266721684765130854488
+Max number of bits: 216.0
+Rate in bits/base: 1.91150442478
+
+Number of bases: 114
+Number of valid strings: 793172436935734856762598787192785464839752920686627399167280365897
+Max number of bits: 218.0
+Rate in bits/base: 1.91228070175
+
+Number of bases: 115
+Number of valid strings: 3007145021108898456131381672413364897202776837860047251797233661155
+Max number of bits: 220.0
+Rate in bits/base: 1.91304347826
+
+Number of bases: 116
+Number of valid strings: 11400952374133899938681941378818451086127589275640023952893542081156
+Max number of bits: 222.0
+Rate in bits/base: 1.91379310345
+
+Number of bases: 117
+Number of valid strings: 43224292185728395184439969153695447949991098340500213614072327226933
+Max number of bits: 224.0
+Rate in bits/base: 1.91452991453
+
+Number of bases: 118
+Number of valid strings: 163875733679586885369365731597541697108356062848420712700897607924267
+Max number of bits: 226.0
+Rate in bits/base: 1.91525423729
+
+Number of bases: 119
+Number of valid strings: 621300077595945841661417102253711435175041483566762778944909805453600
+Max number of bits: 228.0
+Rate in bits/base: 1.91596638655
+
+Number of bases: 120
+Number of valid strings: 2355527433826598181092348501553759396850192639245550474937422240133601
+Max number of bits: 230.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 121
+Number of valid strings: 8930482534267632068261296811422412496075702368436939761646996136761603
+Max number of bits: 232.0
+Rate in bits/base: 1.9173553719
+
+Number of bases: 122
+Number of valid strings: 33858029904282690748060935938928515678777685023047470709753255130685612
+Max number of bits: 234.0
+Rate in bits/base: 1.91803278689
+
+Number of bases: 3
+Number of valid strings: 36
+Max number of bits: 5.0
+Rate in bits/base: 1.66666666667
+
+Number of bases: 4
+Number of valid strings: 135
+Max number of bits: 7.0
+Rate in bits/base: 1.75
+
+Number of bases: 5
+Number of valid strings: 513
+Max number of bits: 9.0
+Rate in bits/base: 1.8
+
+Number of bases: 6
+Number of valid strings: 1944
+Max number of bits: 10.0
+Rate in bits/base: 1.66666666667
+
+Number of bases: 7
+Number of valid strings: 7371
+Max number of bits: 12.0
+Rate in bits/base: 1.71428571429
+
+Number of bases: 8
+Number of valid strings: 27945
+Max number of bits: 14.0
+Rate in bits/base: 1.75
+
+Number of bases: 9
+Number of valid strings: 105948
+Max number of bits: 16.0
+Rate in bits/base: 1.77777777778
+
+Number of bases: 10
+Number of valid strings: 401679
+Max number of bits: 18.0
+Rate in bits/base: 1.8
+
+Number of bases: 11
+Number of valid strings: 1522881
+Max number of bits: 20.0
+Rate in bits/base: 1.81818181818
+
+Number of bases: 12
+Number of valid strings: 5773680
+Max number of bits: 22.0
+Rate in bits/base: 1.83333333333
+
+Number of bases: 13
+Number of valid strings: 21889683
+Max number of bits: 24.0
+Rate in bits/base: 1.84615384615
+
+Number of bases: 14
+Number of valid strings: 82990089
+Max number of bits: 26.0
+Rate in bits/base: 1.85714285714
+
+Number of bases: 15
+Number of valid strings: 314639316
+Max number of bits: 28.0
+Rate in bits/base: 1.86666666667
+
+Number of bases: 16
+Number of valid strings: 1192888215
+Max number of bits: 30.0
+Rate in bits/base: 1.875
+
+Number of bases: 17
+Number of valid strings: 4522582593
+Max number of bits: 32.0
+Rate in bits/base: 1.88235294118
+
+Number of bases: 18
+Number of valid strings: 17146412424
+Max number of bits: 33.0
+Rate in bits/base: 1.83333333333
+
+Number of bases: 19
+Number of valid strings: 65006985051
+Max number of bits: 35.0
+Rate in bits/base: 1.84210526316
+
+Number of bases: 20
+Number of valid strings: 246460192425
+Max number of bits: 37.0
+Rate in bits/base: 1.85
+
+Number of bases: 21
+Number of valid strings: 934401532428
+Max number of bits: 39.0
+Rate in bits/base: 1.85714285714
+
+Number of bases: 22
+Number of valid strings: 3542585174559
+Max number of bits: 41.0
+Rate in bits/base: 1.86363636364
+
+Number of bases: 23
+Number of valid strings: 13430960120961
+Max number of bits: 43.0
+Rate in bits/base: 1.86956521739
+
+Number of bases: 24
+Number of valid strings: 50920635886560
+Max number of bits: 45.0
+Rate in bits/base: 1.875
+
+Number of bases: 25
+Number of valid strings: 193054788022563
+Max number of bits: 47.0
+Rate in bits/base: 1.88
+
+Number of bases: 26
+Number of valid strings: 731926271727369
+Max number of bits: 49.0
+Rate in bits/base: 1.88461538462
+
+Number of bases: 27
+Number of valid strings: 2774943179249796
+Max number of bits: 51.0
+Rate in bits/base: 1.88888888889
+
+Number of bases: 28
+Number of valid strings: 10520608352931495
+Max number of bits: 53.0
+Rate in bits/base: 1.89285714286
+
+Number of bases: 29
+Number of valid strings: 39886654596543873
+Max number of bits: 55.0
+Rate in bits/base: 1.89655172414
+
+Number of bases: 30
+Number of valid strings: 151221788848426104
+Max number of bits: 57.0
+Rate in bits/base: 1.9
+
+Number of bases: 31
+Number of valid strings: 573325330334909931
+Max number of bits: 58.0
+Rate in bits/base: 1.87096774194
+
+Number of bases: 32
+Number of valid strings: 2173641357550008105
+Max number of bits: 60.0
+Rate in bits/base: 1.875
+
+Number of bases: 33
+Number of valid strings: 8240900063654754108
+Max number of bits: 62.0
+Rate in bits/base: 1.87878787879
+
+Number of bases: 34
+Number of valid strings: 31243624263614286639
+Max number of bits: 64.0
+Rate in bits/base: 1.88235294118
+
+Number of bases: 35
+Number of valid strings: 118453572981807122241
+Max number of bits: 66.0
+Rate in bits/base: 1.88571428571
+
+Number of bases: 36
+Number of valid strings: 449091591736264226640
+Max number of bits: 68.0
+Rate in bits/base: 1.88888888889
+
+Number of bases: 37
+Number of valid strings: 1702635494154214046643
+Max number of bits: 70.0
+Rate in bits/base: 1.89189189189
+
+Number of bases: 38
+Number of valid strings: 6455181257671434819849
+Max number of bits: 72.0
+Rate in bits/base: 1.89473684211
+
+Number of bases: 39
+Number of valid strings: 24473450255476946599476
+Max number of bits: 74.0
+Rate in bits/base: 1.89743589744
+
+Number of bases: 40
+Number of valid strings: 92785894539445144257975
+Max number of bits: 76.0
+Rate in bits/base: 1.9
+
+Number of bases: 41
+Number of valid strings: 351778034384766272572353
+Max number of bits: 78.0
+Rate in bits/base: 1.90243902439
+
+Number of bases: 42
+Number of valid strings: 1333691786772634250490984
+Max number of bits: 80.0
+Rate in bits/base: 1.90476190476
+
+Number of bases: 43
+Number of valid strings: 5056409463472201569190011
+Max number of bits: 82.0
+Rate in bits/base: 1.90697674419
+
+Number of bases: 44
+Number of valid strings: 19170303750734507459042985
+Max number of bits: 83.0
+Rate in bits/base: 1.88636363636
+
+Number of bases: 45
+Number of valid strings: 72680139642620127084698988
+Max number of bits: 85.0
+Rate in bits/base: 1.88888888889
+
+Number of bases: 46
+Number of valid strings: 275551330180063903631225919
+Max number of bits: 87.0
+Rate in bits/base: 1.89130434783
+
+Number of bases: 47
+Number of valid strings: 1044694409468052092147774721
+Max number of bits: 89.0
+Rate in bits/base: 1.89361702128
+
+Number of bases: 48
+Number of valid strings: 3960737218944347987337001920
+Max number of bits: 91.0
+Rate in bits/base: 1.89583333333
+
+Number of bases: 49
+Number of valid strings: 15016294885237200238454329923
+Max number of bits: 93.0
+Rate in bits/base: 1.89795918367
+
+Number of bases: 50
+Number of valid strings: 56931096312544644677373995529
+Max number of bits: 95.0
+Rate in bits/base: 1.9
+
+Number of bases: 51
+Number of valid strings: 215842173593345534747484976356
+Max number of bits: 97.0
+Rate in bits/base: 1.90196078431
+
+Number of bases: 52
+Number of valid strings: 818319809717670538274576915655
+Max number of bits: 99.0
+Rate in bits/base: 1.90384615385
+
+Number of bases: 53
+Number of valid strings: 3102485949933048219066185676033
+Max number of bits: 101.0
+Rate in bits/base: 1.90566037736
+
+Number of bases: 54
+Number of valid strings: 11762417278952156272022287775064
+Max number of bits: 103.0
+Rate in bits/base: 1.90740740741
+
+Number of bases: 55
+Number of valid strings: 44594709686655613473265420353291
+Max number of bits: 105.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 56
+Number of valid strings: 169071380896823309235863124385065
+Max number of bits: 107.0
+Rate in bits/base: 1.91071428571
+
+Number of bases: 57
+Number of valid strings: 640998271750436768127385634215068
+Max number of bits: 108.0
+Rate in bits/base: 1.89473684211
+
+Number of bases: 58
+Number of valid strings: 2430208957941780232089746275800399
+Max number of bits: 110.0
+Rate in bits/base: 1.89655172414
+
+Number of bases: 59
+Number of valid strings: 9213621689076651000651395730046401
+Max number of bits: 112.0
+Rate in bits/base: 1.89830508475
+
+Number of bases: 60
+Number of valid strings: 34931491941055293698223426017540400
+Max number of bits: 114.0
+Rate in bits/base: 1.9
+
+Number of bases: 61
+Number of valid strings: 132435340890395834096624465242760403
+Max number of bits: 116.0
+Rate in bits/base: 1.90163934426
+
+Number of bases: 62
+Number of valid strings: 502100498494353383384543673780902409
+Max number of bits: 118.0
+Rate in bits/base: 1.90322580645
+
+Number of bases: 63
+Number of valid strings: 1903607518154247652443504417070988436
+Max number of bits: 120.0
+Rate in bits/base: 1.90476190476
+
+Number of bases: 64
+Number of valid strings: 7217124049945803107484144272555672535
+Max number of bits: 122.0
+Rate in bits/base: 1.90625
+
+Number of bases: 65
+Number of valid strings: 27362194704300152279782946068879982913
+Max number of bits: 124.0
+Rate in bits/base: 1.90769230769
+
+Number of bases: 66
+Number of valid strings: 103737956262737866161801271024306966344
+Max number of bits: 126.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 67
+Number of valid strings: 393300452901114055324752651279560847771
+Max number of bits: 128.0
+Rate in bits/base: 1.91044776119
+
+Number of bases: 68
+Number of valid strings: 1491115227491555764459661766911603442345
+Max number of bits: 130.0
+Rate in bits/base: 1.91176470588
+
+Number of bases: 69
+Number of valid strings: 5653247041178009459353243254573492870348
+Max number of bits: 132.0
+Rate in bits/base: 1.91304347826
+
+Number of bases: 70
+Number of valid strings: 21433086806008695671438715064455288938079
+Max number of bits: 133.0
+Rate in bits/base: 1.9
+
+Number of bases: 71
+Number of valid strings: 81259001541560115392375874957086345425281
+Max number of bits: 135.0
+Rate in bits/base: 1.9014084507
+
+Number of bases: 72
+Number of valid strings: 308076265042706433191443770064624903090080
+Max number of bits: 137.0
+Rate in bits/base: 1.90277777778
+
+Number of bases: 73
+Number of valid strings: 1168005799752799645751458935065133745546083
+Max number of bits: 139.0
+Rate in bits/base: 1.90410958904
+
+Number of bases: 74
+Number of valid strings: 4428246194386518236828708115389275945908489
+Max number of bits: 141.0
+Rate in bits/base: 1.90540540541
+
+Number of bases: 75
+Number of valid strings: 16788755982417953647740501151363229074363716
+Max number of bits: 143.0
+Rate in bits/base: 1.90666666667
+
+Number of bases: 76
+Number of valid strings: 63651006530413415653707627800257515060816615
+Max number of bits: 145.0
+Rate in bits/base: 1.90789473684
+
+Number of bases: 77
+Number of valid strings: 241319287538494107904344386854862232405540993
+Max number of bits: 147.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 78
+Number of valid strings: 914910882206722570674156043965359242399072824
+Max number of bits: 149.0
+Rate in bits/base: 1.91025641026
+
+Number of bases: 79
+Number of valid strings: 3468690509235650035735501292460664424413841451
+Max number of bits: 151.0
+Rate in bits/base: 1.91139240506
+
+Number of bases: 80
+Number of valid strings: 13150804174327117819228972009278071000438742825
+Max number of bits: 153.0
+Rate in bits/base: 1.9125
+
+Number of bases: 81
+Number of valid strings: 49858484050688303564893419905216206274557752828
+Max number of bits: 155.0
+Rate in bits/base: 1.91358024691
+
+Number of bases: 82
+Number of valid strings: 189027864675046264152367175743482831824989486959
+Max number of bits: 157.0
+Rate in bits/base: 1.91463414634
+
+Number of bases: 83
+Number of valid strings: 716659046177203703151781786946097114298641719361
+Max number of bits: 158.0
+Rate in bits/base: 1.90361445783
+
+Number of bases: 84
+Number of valid strings: 2717060732556749901912446888068739838370893618960
+Max number of bits: 160.0
+Rate in bits/base: 1.90476190476
+
+Number of bases: 85
+Number of valid strings: 10301159336201860815192686025044510858008606014963
+Max number of bits: 162.0
+Rate in bits/base: 1.90588235294
+
+Number of bases: 86
+Number of valid strings: 39054660206275832151315398739339752089138498901769
+Max number of bits: 164.0
+Rate in bits/base: 1.90697674419
+
+Number of bases: 87
+Number of valid strings: 148067458627433078899524254293152788841441314750196
+Max number of bits: 166.0
+Rate in bits/base: 1.90804597701
+
+Number of bases: 88
+Number of valid strings: 561366356501126733152518959097477622791739440955895
+Max number of bits: 168.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 89
+Number of valid strings: 2128301445385679436156129640171891234899542267118273
+Max number of bits: 170.0
+Rate in bits/base: 1.91011235955
+
+Number of bases: 90
+Number of valid strings: 8069003405660418507925945797808106573073845124222504
+Max number of bits: 172.0
+Rate in bits/base: 1.91111111111
+
+Number of bases: 91
+Number of valid strings: 30591914553138293832246226313939993423920162174022331
+Max number of bits: 174.0
+Rate in bits/base: 1.91208791209
+
+Number of bases: 92
+Number of valid strings: 115982753876396137020516516335244299990982021894734505
+Max number of bits: 176.0
+Rate in bits/base: 1.91304347826
+
+Number of bases: 93
+Number of valid strings: 439724005288603292558288227947552880244706552206270508
+Max number of bits: 178.0
+Rate in bits/base: 1.91397849462
+
+Number of bases: 94
+Number of valid strings: 1667120277494998288736414232848391540707065722303015039
+Max number of bits: 180.0
+Rate in bits/base: 1.91489361702
+
+Number of bases: 95
+Number of valid strings: 6320532848350804743884107382387833262855316823527856641
+Max number of bits: 182.0
+Rate in bits/base: 1.91578947368
+
+Number of bases: 96
+Number of valid strings: 23962959377537409097861564845708674410687147637492615040
+Max number of bits: 183.0
+Rate in bits/base: 1.90625
+
+Number of bases: 97
+Number of valid strings: 90850476677664641525237016684289523020627393383061415043
+Max number of bits: 185.0
+Rate in bits/base: 1.90721649485
+
+Number of bases: 98
+Number of valid strings: 344440308165606151869295744589994592293943623061662090249
+Max number of bits: 187.0
+Rate in bits/base: 1.90816326531
+
+Number of bases: 99
+Number of valid strings: 1305872354529812380183598283822852345943713049334170515876
+Max number of bits: 189.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 100
+Number of valid strings: 4950937988086255596158682085238540814712970017187497818375
+Max number of bits: 191.0
+Rate in bits/base: 1.91
+
+Number of bases: 101
+Number of valid strings: 18770431027848203929026841107184179481970049199565005002753
+Max number of bits: 193.0
+Rate in bits/base: 1.91089108911
+
+Number of bases: 102
+Number of valid strings: 71164107047803378575556569577268160890049057650257508463384
+Max number of bits: 195.0
+Rate in bits/base: 1.91176470588
+
+Number of bases: 103
+Number of valid strings: 269803614226954747513750232053357021116057320549467540398411
+Max number of bits: 197.0
+Rate in bits/base: 1.91262135922
+
+Number of bases: 104
+Number of valid strings: 1022903163824274378267920404891875546018319134599175146585385
+Max number of bits: 199.0
+Rate in bits/base: 1.91346153846
+
+Number of bases: 105
+Number of valid strings: 3878120334153687377345011910835697701403129365445928060951388
+Max number of bits: 201.0
+Rate in bits/base: 1.91428571429
+
+Number of bases: 106
+Number of valid strings: 14703070493933885266838796947182719742264345500135309622610319
+Max number of bits: 203.0
+Rate in bits/base: 1.91509433962
+
+Number of bases: 107
+Number of valid strings: 55743572484262717932551426574055252331002424596743713050685121
+Max number of bits: 205.0
+Rate in bits/base: 1.91588785047
+
+Number of bases: 108
+Number of valid strings: 211339928934589809598170670563713916219800310290637068019886320
+Max number of bits: 207.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 109
+Number of valid strings: 801250504256557582592166291413307505652408204662142343211714323
+Max number of bits: 208.0
+Rate in bits/base: 1.90825688073
+
+Number of bases: 110
+Number of valid strings: 3037771299573442176571010885931064265616625544858338233694801929
+Max number of bits: 210.0
+Rate in bits/base: 1.90909090909
+
+Number of bases: 111
+Number of valid strings: 11517065411489999277489531532033115313807101248561441730719548756
+Max number of bits: 212.0
+Rate in bits/base: 1.90990990991
+
+Number of bases: 112
+Number of valid strings: 43664510133190324362181627253892538738271180380259339893243052055
+Max number of bits: 214.0
+Rate in bits/base: 1.91071428571
+
+Number of bases: 113
+Number of valid strings: 165544726634040970919013476357776962156234844886462344871887802433
+Max number of bits: 216.0
+Rate in bits/base: 1.91150442478
+
+Number of bases: 114
+Number of valid strings: 627627710301693885843585310835008502683518075800165054295392563464
+Max number of bits: 218.0
+Rate in bits/base: 1.91228070175
+
+Number of bases: 115
+Number of valid strings: 2379517310807204570287796361578356394519258762059882197501841097691
+Max number of bits: 220.0
+Rate in bits/base: 1.91304347826
+
+Number of bases: 116
+Number of valid strings: 9021435063326695368394145017240094691608330513580141755391700983465
+Max number of bits: 222.0
+Rate in bits/base: 1.91379310345
+
+Number of bases: 117
+Number of valid strings: 34202857122401699816045824136455353258382767826920071858680626243468
+Max number of bits: 224.0
+Rate in bits/base: 1.91452991453
+
+Number of bases: 118
+Number of valid strings: 129672876557185185553319907461086343849973295021500640842216981680799
+Max number of bits: 226.0
+Rate in bits/base: 1.91525423729
+
+Number of bases: 119
+Number of valid strings: 491627201038760656108097194792625091325068188545262138102692823772801
+Max number of bits: 228.0
+Rate in bits/base: 1.91596638655
+
+Number of bases: 120
+Number of valid strings: 1863900232787837524984251306761134305525124450700288336834729416360800
+Max number of bits: 230.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 121
+Number of valid strings: 7066582301479794543277045504661278190550577917736651424812266720400803
+Max number of bits: 232.0
+Rate in bits/base: 1.9173553719
+
+Number of bases: 122
+Number of valid strings: 26791447602802896204783890434267237488227107105310819284940988410284809
+Max number of bits: 233.0
+Rate in bits/base: 1.90983606557
+
+Number of bases: 123
+Number of valid strings: 101574089712848072244182807816785547036333055069142412129259765392056836
+Max number of bits: 235.0
+Rate in bits/base: 1.91056910569
+
+Number of bases: 124
+Number of valid strings: 385096611946952905346900094753158353573680486523359694242602261407024935
+Max number of bits: 237.0
+Rate in bits/base: 1.91129032258
+
+Number of bases: 125
+Number of valid strings: 1460012104979402932773248707709831701830040624777506319115586080397245313
+Max number of bits: 239.0
+Rate in bits/base: 1.912
+
+Number of bases: 126
+Number of valid strings: 5535326150779067514360446407388970166211163333902598040074565025412810744
+Max number of bits: 241.0
+Rate in bits/base: 1.9126984127
+
+Number of bases: 127
+Number of valid strings: 20986014767275411341401085345296405604123611876040313077570453317430168171
+Max number of bits: 243.0
+Rate in bits/base: 1.91338582677
+
+Number of bases: 128
+Number of valid strings: 79564022754163436567284595258056127311004325629828733352935055028528936745
+Max number of bits: 245.0
+Rate in bits/base: 1.9140625
+
+Number of bases: 129
+Number of valid strings: 301650112564316543726057041810057598745383812517607139291516525037877314748
+Max number of bits: 247.0
+Rate in bits/base: 1.91472868217
+
+Number of bases: 130
+Number of valid strings: 1143642405955439940880024911204341178169164414442307617933354740199218754479
+Max number of bits: 249.0
+Rate in bits/base: 1.91538461538
+
+Number of bases: 131
+Number of valid strings: 4335877555559269453818245859043196330743644680879744271674613795711288207681
+Max number of bits: 251.0
+Rate in bits/base: 1.91603053435
+
+Number of bases: 132
+Number of valid strings: 16438559884544128184094812310742612526738427285966155668823905607731520886480
+Max number of bits: 253.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 133
+Number of valid strings: 62323312320310192913739174509357426572446215900537699821495558210328427282483
+Max number of bits: 255.0
+Rate in bits/base: 1.91729323308
+
+Number of bases: 134
+Number of valid strings: 236285616614562963293501960460300117297553929559511566470958391454179844506889
+Max number of bits: 257.0
+Rate in bits/base: 1.91791044776
+
+Number of bases: 135
+Number of valid strings: 895826786804619468621723404908972631610000436380147798877361848993524815368116
+Max number of bits: 258.0
+Rate in bits/base: 1.91111111111
+
+Number of bases: 136
+Number of valid strings: 3396337210257547295745676096107818246722663097818978096044960721343113979625015
+Max number of bits: 260.0
+Rate in bits/base: 1.91176470588
+
+Number of bases: 137
+Number of valid strings: 12876491991186500293102198503050372634997990602597377684766967711009916384979393
+Max number of bits: 262.0
+Rate in bits/base: 1.91240875912
+
+Number of bases: 138
+Number of valid strings: 48818487604332142766543623797474572645161961101249067342435785297059091093813224
+Max number of bits: 264.0
+Rate in bits/base: 1.91304347826
+
+Number of bases: 139
+Number of valid strings: 185084938786555929178937466901574835840479855111539335081608259024207022436377851
+Max number of bits: 266.0
+Rate in bits/base: 1.91366906475
+
+Number of bases: 140
+Number of valid strings: 701710279172664215836443272097148225456925448638365207272132132963798340590573225
+Max number of bits: 268.0
+Rate in bits/base: 1.91428571429
+
+Number of bases: 141
+Number of valid strings: 2660385653877660435046142216996169183892215911249713627061221175964016089080853228
+Max number of bits: 270.0
+Rate in bits/base: 1.91489361702
+
+Number of bases: 142
+Number of valid strings: 10086287799150973952647756467279952228047424079664236503000059926783443289014279359
+Max number of bits: 272.0
+Rate in bits/base: 1.91549295775
+
+Number of bases: 143
+Number of valid strings: 38240020359085903163081696052828364235818919972741850390183843308242378134285397761
+Max number of bits: 274.0
+Rate in bits/base: 1.91608391608
+
+Number of bases: 144
+Number of valid strings: 144978924474710631347188357560324949391599032157218260679551709705077464269899031360
+Max number of bits: 276.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 145
+Number of valid strings: 549656834501389603530810160839459940882253856389880333209206659039959527212553287363
+Max number of bits: 278.0
+Rate in bits/base: 1.91724137931
+
+Number of bases: 146
+Number of valid strings: 2083907276928300704633995555199354670821558665641295781666275106235110974447356956169
+Max number of bits: 280.0
+Rate in bits/base: 1.91780821918
+
+Number of bases: 147
+Number of valid strings: 7900692334289070924494417148116443835111437566093528344626445295825211504979730730596
+Max number of bits: 282.0
+Rate in bits/base: 1.91836734694
+
+Number of bases: 148
+Number of valid strings: 29953798833652114887385238109947395517798988695204472378878161206180967438281263060295
+Max number of bits: 283.0
+Rate in bits/base: 1.91216216216
+
+Number of bases: 149
+Number of valid strings: 113563473503823557435638965774191518058731278783894002170513819506018536829782981372673
+Max number of bits: 285.0
+Rate in bits/base: 1.91275167785
+
+Number of bases: 150
+Number of valid strings: 430551817012427016969072611652416740729590802437295423648175942136598512804192733298904
+Max number of bits: 287.0
+Rate in bits/base: 1.91333333333
+
+Number of bases: 151
+Number of valid strings: 1632345871548751723214134732279824776364966243663568277456069284927851148901927144014731
+Max number of bits: 289.0
+Rate in bits/base: 1.91390728477
+
+Number of bases: 152
+Number of valid strings: 6188693065683536220549622031796724551283671138302591103312735681193348985118359631940905
+Max number of bits: 291.0
+Rate in bits/base: 1.91447368421
+
+Number of bases: 153
+Number of valid strings: 23463116811696863831291270292229647982945912145898478142306414898363600402060860327866908
+Max number of bits: 293.0
+Rate in bits/base: 1.91503267974
+
+Number of bases: 154
+Number of valid strings: 88955429632141200155522676972079117602688749852603207736857451738670848161537659879423439
+Max number of bits: 295.0
+Rate in bits/base: 1.91558441558
+
+Number of bases: 155
+Number of valid strings: 337255639331514191960441841792926296756903985995505057637491599911103345690795560621871041
+Max number of bits: 297.0
+Rate in bits/base: 1.91612903226
+
+Number of bases: 156
+Number of valid strings: 1278633206890966176347893556295016243078778207544324796123047154949322581556999661503883440
+Max number of bits: 299.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 157
+Number of valid strings: 4847666538667441104925006194263827619507046580619489561281616264581277781743385666377263443
+Max number of bits: 301.0
+Rate in bits/base: 1.91719745223
+
+Number of bases: 158
+Number of valid strings: 18378899236675221843818699251676531587757474364491443072213990258591801089901155983643440649
+Max number of bits: 303.0
+Rate in bits/base: 1.91772151899
+
+Number of bases: 159
+Number of valid strings: 69679697326027988846231116337821077621793562835332797900486819569519236614933624950062112276
+Max number of bits: 305.0
+Rate in bits/base: 1.91823899371
+
+Number of bases: 160
+Number of valid strings: 264175789688109632070149446768492827628653111599472722918102429484333113114504342801116658775
+Max number of bits: 307.0
+Rate in bits/base: 1.91875
+
+Number of bases: 161
+Number of valid strings: 1001566461042412862749141689318941715751340023304416562455767747161557049188313903253536313153
+Max number of bits: 308.0
+Rate in bits/base: 1.91304347826
+
+Number of bases: 162
+Number of valid strings: 3797226752191567484457873408262303630139979404711667856121610529937670486908454738163958915784
+Max number of bits: 310.0
+Rate in bits/base: 1.91358024691
+
+Number of bases: 163
+Number of valid strings: 14396379639701941041621045292743736037673958284048253255732134831297682608290305924252485686811
+Max number of bits: 312.0
+Rate in bits/base: 1.91411042945
+
+Number of bases: 164
+Number of valid strings: 54580819175680525578236756103018119003441813066279763335561236083706059285596281987249333807785
+Max number of bits: 314.0
+Rate in bits/base: 1.91463414634
+
+Number of bases: 165
+Number of valid strings: 206931596446147399859573404187285565123347314050984049773880112745011225681659763734505458483788
+Max number of bits: 316.0
+Rate in bits/base: 1.91515151515
+
+Number of bases: 166
+Number of valid strings: 784537246865483776313430480870911052380367381351791439328324046486151854901768137165264376874719
+Max number of bits: 318.0
+Rate in bits/base: 1.9156626506
+
+Number of bases: 167
+Number of valid strings: 2974406529934893528519011655174589852511144086208326467306612477693489241750283702699309506075521
+Max number of bits: 320.0
+Rate in bits/base: 1.91616766467
+
+Number of bases: 168
+Number of valid strings: 11276831330401131914497326408136502714674534402680353719904809572538923289956155519593721648850720
+Max number of bits: 322.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 169
+Number of valid strings: 42753713581008076329049014189933277701557035466666040561634266150697237595119317666879093464778723
+Max number of bits: 324.0
+Rate in bits/base: 1.91715976331
+
+Number of bases: 170
+Number of valid strings: 162091634734227624730639021794209341248694709608039182844617227169708482655226419559418445340888329
+Max number of bits: 326.0
+Rate in bits/base: 1.91764705882
+
+Number of bases: 171
+Number of valid strings: 614536044945707103179064107952427856850755235224115670218754479961217160751037211678892616417001156
+Max number of bits: 328.0
+Rate in bits/base: 1.91812865497
+
+Number of bases: 172
+Number of valid strings: 2329883039039804183729109389239911594298349834496464559190115121392776930218790893714933185273668455
+Max number of bits: 330.0
+Rate in bits/base: 1.91860465116
+
+Number of bases: 173
+Number of valid strings: 8833257251956533860724520491577018353447315209161740688226608804061982272909484316181477405072008833
+Max number of bits: 332.0
+Rate in bits/base: 1.91907514451
+
+Number of bases: 174
+Number of valid strings: 33489420872989014133360889642450789843236995130974615742250171776364277609384825629689231771037031864
+Max number of bits: 333.0
+Rate in bits/base: 1.91379310345
+
+Number of bases: 175
+Number of valid strings: 126968034374836643982256230402083424590052931020409069291430341741278779646882929837612127528327122091
+Max number of bits: 335.0
+Rate in bits/base: 1.91428571429
+
+Number of bases: 176
+Number of valid strings: 481372365743476974346851360133602643299869778454151055101041540552929171768803266401904077898092461865
+Max number of bits: 337.0
+Rate in bits/base: 1.91477272727
+
+Number of bases: 177
+Number of valid strings: 1825021200354940854987322771607058203669768128423680373177415646882623854247058588718548616279258751868
+Max number of bits: 339.0
+Rate in bits/base: 1.91525423729
+
+Number of bases: 178
+Number of valid strings: 6919180698295253488002522395221982540908913720633494284835371562306659078047585565361358082532053641199
+Max number of bits: 341.0
+Rate in bits/base: 1.91573033708
+
+Number of bases: 179
+Number of valid strings: 26232605695950583028969535500487122233736045547171523974038361627567848796883932462239720096433937179201
+Max number of bits: 343.0
+Rate in bits/base: 1.91620111732
+
+Number of bases: 180
+Number of valid strings: 99455359182737509550916173687127314323934877803415054776621199569623523624794554082803234536897972461200
+Max number of bits: 345.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 181
+Number of valid strings: 377063894636064277739657127562843309673012770051759736251978683591574117265035459635128863899995728921203
+Max number of bits: 347.0
+Rate in bits/base: 1.91712707182
+
+Number of bases: 182
+Number of valid strings: 1429557761456405361871719903749911871990842943565524373085799649483592922669490041153796295310681104147209
+Max number of bits: 349.0
+Rate in bits/base: 1.91758241758
+
+Number of bases: 183
+Number of valid strings: 5419864968277408918834131093938265544991567140851852328013334999225501119803576502366775477632030499205236
+Max number of bits: 351.0
+Rate in bits/base: 1.91803278689
+
+Number of bases: 184
+Number of valid strings: 20548268189201442842117552993064532250947230253252130103297403946127282127419199630561715318828134810057335
+Max number of bits: 353.0
+Rate in bits/base: 1.91847826087
+
+Number of bases: 185
+Number of valid strings: 77904399472436555282855052261008393387816392182311947293932216836058349741668328398785472389380495927787713
+Max number of bits: 355.0
+Rate in bits/base: 1.91891891892
+
+Number of bases: 186
+Number of valid strings: 295358002984913994374917815762218776916290867306692232191688862346556895607262584088041563124625892213535144
+Max number of bits: 357.0
+Rate in bits/base: 1.91935483871
+
+Number of bases: 187
+Number of valid strings: 1119787207372051648973318604069681510912321778467012538456863237547845736046792737460481106542019164423968571
+Max number of bits: 358.0
+Rate in bits/base: 1.91443850267
+
+Number of bases: 188
+Number of valid strings: 4245435631070896930044709259495700863485837937321114311945656299683207894962165964645568008999935169912511145
+Max number of bits: 360.0
+Rate in bits/base: 1.91489361702
+
+Number of bases: 189
+Number of valid strings: 16095668515328845737054083590696147123194479147364380551207558611693160893026876106318147346625863003009439148
+Max number of bits: 362.0
+Rate in bits/base: 1.91534391534
+
+Number of bases: 190
+Number of valid strings: 61023312439199228001296378550575543960040951254056484589459644734129106363967126212891146066877394518765850879
+Max number of bits: 364.0
+Rate in bits/base: 1.91578947368
+
+Number of bases: 191
+Number of valid strings: 231356942863584221215051386423815073249706291204262595422001610037466801770982006957627880240509772565325870081
+Max number of bits: 366.0
+Rate in bits/base: 1.91623036649
+
+Number of bases: 192
+Number of valid strings: 877140765908350347649043294923171851629241727374957240034383764314787724404847399511557078922161501252275162880
+Max number of bits: 368.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 193
+Number of valid strings: 3325493126315803706592284044040960774636844055737659506369156123056763578527488219407554877488013821452803098883
+Max number of bits: 370.0
+Rate in bits/base: 1.9170984456
+
+Number of bases: 194
+Number of valid strings: 12607901676672462162723982016892397878798257349337850239210619662114653908797006856757335869230525968115234785289
+Max number of bits: 372.0
+Rate in bits/base: 1.9175257732
+
+Number of bases: 195
+Number of valid strings: 47800184408964797607948798182800075960305304215226529236739327355514252461973485228494672240155619368704113652516
+Max number of bits: 374.0
+Rate in bits/base: 1.91794871795
+
+Number of bases: 196
+Number of valid strings: 181224258256911779312018340599077421517310684693693138427849841052886719112311476255756024328158436010458045313415
+Max number of bits: 376.0
+Rate in bits/base: 1.91836734694
+
+Number of bases: 197
+Number of valid strings: 687073327997629730759901416345632492432847966726759002993767505225202914722854884452752089704942166137486476897793
+Max number of bits: 378.0
+Rate in bits/base: 1.91878172589
+
+Number of bases: 198
+Number of valid strings: 2604892758763624530215759270834129741850475954261356424264852038834268901505499082125524342099301806443833566633624
+Max number of bits: 380.0
+Rate in bits/base: 1.91919191919
+
+Number of bases: 199
+Number of valid strings: 9875898260283762782926982061539286702849971762964346281775858632178415448685061899734829295412731917743960130594251
+Max number of bits: 382.0
+Rate in bits/base: 1.91959798995
+
+Number of bases: 200
+Number of valid strings: 37442373057142161939428223997120249334101343151677108118122132013038053050571682945581060912536101172563381091683625
+Max number of bits: 383.0
+Rate in bits/base: 1.915
+
+Number of bases: 201
+Number of valid strings: 141954813952277774167065618175978608110853944743924363199693971935649405497770234535947670623846499270922023666833628
+Max number of bits: 385.0
+Rate in bits/base: 1.91542288557
+
+Number of bases: 202
+Number of valid strings: 538191561028259808319481526519296572334865863686804413953448311846062375645025752444586194609147801330456214275551759
+Max number of bits: 387.0
+Rate in bits/base: 1.91584158416
+
+Number of bases: 203
+Number of valid strings: 2040439124941612747459641434085825541337159425292186331459426851345135343428387960941601595698982901804134713827156161
+Max number of bits: 389.0
+Rate in bits/base: 1.91625615764
+
+Number of bases: 204
+Number of valid strings: 7735892057909617667337368881815366341016075866936972236238625489573593157220241140158563370924392109403772784308123760
+Max number of bits: 391.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 205
+Number of valid strings: 29328993548553691244391030947703575647059705876687475703094157022756185501945887303300494899870125033623722494405839763
+Max number of bits: 393.0
+Rate in bits/base: 1.91707317073
+
+Number of bases: 206
+Number of valid strings: 111194656819389926735185199488556825964227345230873343817998347536989335977498385330377174812383551429082485836141890569
+Max number of bits: 395.0
+Rate in bits/base: 1.91747572816
+
+Number of bases: 207
+Number of valid strings: 421570951103830853938728691308781204833861153322682458563277513679236564438332817901033009136761029388118624991643190996
+Max number of bits: 397.0
+Rate in bits/base: 1.91787439614
+
+Number of bases: 208
+Number of valid strings: 1598296823769662342021741672392014092394265495660667407143827583648677701247493609694230551847433742451603332483355244695
+Max number of bits: 399.0
+Rate in bits/base: 1.91826923077
+
+Number of bases: 209
+Number of valid strings: 6059603324620479587881411091102385891684379946950049597121315291983742797057479282785790682952584315519165872424995307073
+Max number of bits: 401.0
+Rate in bits/base: 1.91866028708
+
+Number of bases: 210
+Number of valid strings: 22973700445170425789709458290483199952235936327832151012795428626897261494914918677440063704400054173912307614725051655304
+Max number of bits: 403.0
+Rate in bits/base: 1.91904761905
+
+Number of bases: 211
+Number of valid strings: 87099911309372716132772608144756757531760948824346601829750231756643012875917193880677563162057915468294420461450140887131
+Max number of bits: 405.0
+Rate in bits/base: 1.91943127962
+
+Number of bases: 212
+Number of valid strings: 330220835263629425767446199305719872451990655456536258527636981150620823112496337674352880599373908926620184228525577627305
+Max number of bits: 406.0
+Rate in bits/base: 1.91509433962
+
+Number of bases: 213
+Number of valid strings: 1251962239719006425700656422351429889951254812842648581072161638721791507965240594665091331284295473184743814069927155543308
+Max number of bits: 408.0
+Rate in bits/base: 1.91549295775
+
+Number of bases: 214
+Number of valid strings: 4746549224947907554404307864971449287209736404897554518799395859617236993233210797018332635651008146334091994895358199511839
+Max number of bits: 410.0
+Rate in bits/base: 1.91588785047
+
+Number of bases: 215
+Number of valid strings: 17995534394000741940314892861968637531482973653220609299614672495017085503595354175050271900805910858556507426895856065165441
+Max number of bits: 412.0
+Rate in bits/base: 1.91627906977
+
+Number of bases: 216
+Number of valid strings: 68226250856845948484157602180820260456078130174354491455242205063902967490485694916205813609370757014671798265373642794031840
+Max number of bits: 414.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 217
+Number of valid strings: 258665355752540071273417485128366693962683311482725302264570632676760158982243147273768256530530003619684917076808496577591843
+Max number of bits: 416.0
+Rate in bits/base: 1.91705069124
+
+Number of bases: 218
+Number of valid strings: 980674819828158059272725261927560863256284324971239381159438513221989379418186526569922210419702281903070146026546418114871049
+Max number of bits: 418.0
+Rate in bits/base: 1.91743119266
+
+Number of bases: 219
+Number of valid strings: 3718020526742094391638428241167782671656902909361894050272027437696248615201289021531071400850696856568265189310064744077388676
+Max number of bits: 420.0
+Rate in bits/base: 1.91780821918
+
+Number of bases: 220
+Number of valid strings: 14096086039710757352733460509286030604739561702999400294294397852754713983858426644302980833811197415414006006009833486576779175
+Max number of bits: 422.0
+Rate in bits/base: 1.91818181818
+
+Number of bases: 221
+Number of valid strings: 53442319699358555233115666251361439829189393837083883033699275871352887797179146997502156703985682815946813585959694691962503553
+Max number of bits: 424.0
+Rate in bits/base: 1.9185520362
+
+Number of bases: 222
+Number of valid strings: 202615217217207937757547380281942411301786866620249849983981021172322805343112720925415412613390640694082458775908584535617848184
+Max number of bits: 426.0
+Rate in bits/base: 1.91891891892
+
+Number of bases: 223
+Number of valid strings: 768172610749699478971989139599911553392928781372001199053040891131027079420875603768752707952128970530087817085604837682741055211
+Max number of bits: 428.0
+Rate in bits/base: 1.91928251121
+
+Number of bases: 224
+Number of valid strings: 2912363483900722250188609559645561894084146943976753147111065736910049654291964974082504361696558833672510827584540266655076710185
+Max number of bits: 430.0
+Rate in bits/base: 1.91964285714
+
+Number of bases: 225
+Number of valid strings: 11041608283951265187481796097736420342431227176046263038492319884123230201138521733553771208946063412607795934010435313013453296188
+Max number of bits: 431.0
+Rate in bits/base: 1.91555555556
+
+Number of bases: 226
+Number of valid strings: 41861915303555962313011216972145946709546122360069048556810156863099839566291460122908826711927866738840920284784926739005590019119
+Max number of bits: 433.0
+Rate in bits/base: 1.91592920354
+
+Number of bases: 227
+Number of valid strings: 158710570762521682501479039209647101155932048608345934785907430241669209302289945569387793762621790454346148656386086156057129945921
+Max number of bits: 435.0
+Rate in bits/base: 1.91629955947
+
+Number of bases: 228
+Number of valid strings: 601717458198232934443470768545379143596434512905244950028152761314307146605744217076889861423648971579561206823513038685188159895120
+Max number of bits: 437.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 229
+Number of valid strings: 2281284086882263850834849423265078734257099684540772654442180574667929067724102487938832965558812286101722066439697374523735869523123
+Max number of bits: 439.0
+Rate in bits/base: 1.91703056769
+
+Number of bases: 230
+Number of valid strings: 8649004635241490355834960575431373633560602592338052813411000007946708642989540115047168480947383773043849819789631239626772088254729
+Max number of bits: 441.0
+Rate in bits/base: 1.91739130435
+
+Number of bases: 231
+Number of valid strings: 32790866166371262620009429996089357103453106830636476403559541747843913132140927808958004339518588177436715658687985842451523873333556
+Max number of bits: 443.0
+Rate in bits/base: 1.91774891775
+
+Number of bases: 232
+Number of valid strings: 124319612404838258927533171714562192211041128268923587650911625267371865325391403772015518461397915851441696435432851246234887884764855
+Max number of bits: 445.0
+Rate in bits/base: 1.91810344828
+
+Number of bases: 233
+Number of valid strings: 471331435713628564642627805131954647943482705298680192163413501045647335372596994742920568402749512086635236282362511266059235274295233
+Max number of bits: 447.0
+Rate in bits/base: 1.91845493562
+
+Number of bases: 234
+Number of valid strings: 1786953144355400470710482930539550520463571500702811339442975378939057602093965195544808260592442283814230798153386087536882369477180264
+Max number of bits: 449.0
+Rate in bits/base: 1.9188034188
+
+Number of bases: 235
+Number of valid strings: 6774853740207087106059332207014515505221162618004474594819166639954114812399686570863186486985575387702598103307245796408824814254426491
+Max number of bits: 451.0
+Rate in bits/base: 1.91914893617
+
+Number of bases: 236
+Number of valid strings: 25685420653687462730309445412662198077054202356121857802786426056679517243480955299223984242734053014550486704381895651837121551194820265
+Max number of bits: 453.0
+Rate in bits/base: 1.91949152542
+
+Number of bases: 237
+Number of valid strings: 97380823181683649509106332859030140746826094922378997192816778089900896167641925610261512189158885206759254423067424344737839096347740268
+Max number of bits: 455.0
+Rate in bits/base: 1.91983122363
+
+Number of bases: 238
+Number of valid strings: 369198731506113336718247334815077016471640891835502564986809612439741240233368642728456489295678814663929223382347959989724881942627681599
+Max number of bits: 456.0
+Rate in bits/base: 1.91596638655
+
+Number of bases: 239
+Number of valid strings: 1399738664063390958682061003022321471655400960273644686538879171588926409203031705016154004454513099612065433416246153003388163116926265601
+Max number of bits: 458.0
+Rate in bits/base: 1.91631799163
+
+Number of bases: 240
+Number of valid strings: 5306812186708512886200925013512195464381125556327441754577066352086002948309201043233831481250575742827983970395782338979339135178661841600
+Max number of bits: 460.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 241
+Number of valid strings: 20119652552315711534648958049603550808109579549803259323347836571024788072536698244749956457115266527320148211436085475948181894886764321603
+Max number of bits: 462.0
+Rate in bits/base: 1.91701244813
+
+Number of bases: 242
+Number of valid strings: 76279394217072673262549649189347238817472115318392103233774708769332373062537697863951363815097526810444396545495603444782563090196278489609
+Max number of bits: 464.0
+Rate in bits/base: 1.9173553719
+
+Number of bases: 243
+Number of valid strings: 289197140308165154391595821716852368876745084604586087671367636021071483405223188326103960816638380013293634270795066762192234955249128433636
+Max number of bits: 466.0
+Rate in bits/base: 1.91769547325
+
+Number of bases: 244
+Number of valid strings: 1096429603575713482962436412718598823082651599768934572715427034371211569403282658570165973895207720471214092448872010620924394136336220769735
+Max number of bits: 468.0
+Rate in bits/base: 1.91803278689
+
+Number of bases: 245
+Number of valid strings: 4156880231651635912062096703306353575878190053120561981160384011176849158425517540688809804135538301453523180159001232149349887274756047610113
+Max number of bits: 470.0
+Rate in bits/base: 1.91836734694
+
+Number of bases: 246
+Number of valid strings: 15759929505682048185073599348074857196882524958668489661627433136644182183486400597776927334092238065774211817823619728310822844233276805139544
+Max number of bits: 472.0
+Rate in bits/base: 1.91869918699
+
+Number of bases: 247
+Number of valid strings: 59750429212001052291407088154143632318282145035367154928363451443463094025735754415397211414683329101683204993947862881380518194524098558248971
+Max number of bits: 474.0
+Rate in bits/base: 1.91902834008
+
+Number of bases: 248
+Number of valid strings: 226531076153049301429442062506655468545494009982106933769972653740321828627666465039522416246326701502372250435314447829074023116272126090165545
+Max number of bits: 476.0
+Rate in bits/base: 1.91935483871
+
+Number of bases: 249
+Number of valid strings: 858844516095151061162547451982397302591328465052422266095008315551354767960206658364758882983030091812166366287786932131363623932388673945243548
+Max number of bits: 478.0
+Rate in bits/base: 1.91967871486
+
+Number of bases: 250
+Number of valid strings: 3256126776744601087775968543467158313410467425103587599594942907875029789763619370212843897688070379943615850169304139881312941145982400106227279
+Max number of bits: 480.0
+Rate in bits/base: 1.92
+
+Number of bases: 251
+Number of valid strings: 12344913878519256446815547986348666848005387670468029597069853670279153673171478085732808342013301415267346649371273216038029695235113222154412481
+Max number of bits: 481.0
+Rate in bits/base: 1.91633466135
+
+Number of bases: 252
+Number of valid strings: 46803121965791572603774549589447475484247565286714851589994389734462550388805292367836956719104115385632887498621732067758027909143286866781919280
+Max number of bits: 483.0
+Rate in bits/base: 1.91666666667
+
+Number of bases: 253
+Number of valid strings: 177444107532932487151770292727388426996758858871548643561192730214225112185930311360709295183352250402700702443979015851388172813135200266808995283
+Max number of bits: 485.0
+Rate in bits/base: 1.91699604743
+
+Number of bases: 254
+Number of valid strings: 672741688496172179266634526950507707443019272474790485453561359846062987724206811185638755707369097365000769827802243757438602166835461400772743689
+Max number of bits: 487.0
+Rate in bits/base: 1.91732283465
+
+Number of bases: 255
+Number of valid strings: 2550557388087313999255214459033688403319334394039017387044262270180864299730411367639044152672164043303104416815343778826480324939911985002745216916
+Max number of bits: 489.0
+Rate in bits/base: 1.91764705882
+
+Number of bases: 256
+Number of valid strings: 9669897229750458535565546957952588332287060999541423617493470890080781862363854536474048725138599422004315559929438067751756781320242339210553881815
+Max number of bits: 491.0
+Rate in bits/base: 1.91796875
+
+Number of bases: 257
+Number of valid strings: 36661363853513317604462284250958830206819186180741323013613199480784938486282797712339278633432290395922259930234345539734711318780462972639897296193
+Max number of bits: 493.0
+Rate in bits/base: 1.91828793774
+
+Number of bases: 258
+Number of valid strings: 138993783249791328420083493626734255617318741540848239893320011112597161045939956746439982075712669453779726470491350822459404300302115935551353534024
+Max number of bits: 495.0
+Rate in bits/base: 1.91860465116
+
+Number of bases: 259
+Number of valid strings: 526965441309913938073637333633079257472413783164768688720799631780146298596668263376337782127434879549105959202177089086582346857247736724573752490651
+Max number of bits: 497.0
+Rate in bits/base: 1.91891891892
+
+Number of bases: 260
+Number of valid strings: 1997877673679115799481162481779440539269197574116850785842358928678230378927824660368333292609442647008657057018005319727125253472649557980375318074025
+Max number of bits: 499.0
+Rate in bits/base: 1.91923076923
+
+Number of bases: 261
+Number of valid strings: 7574529344967089212664399446237559390224834071844858423689475681375130032573478771234013224210632579673289048660547226441122800989691884114847211694028
+Max number of bits: 501.0
+Rate in bits/base: 1.91954022989
+
+Number of bases: 262
+Number of valid strings: 28717221055938615036436685784050999788482094937885127628595503830160081234503910294807039550460225680045838317035657638504744163387024326285667589304159
+Max number of bits: 503.0
+Rate in bits/base: 1.91984732824
+
