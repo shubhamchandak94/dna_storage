@@ -466,7 +466,7 @@ def decode_data(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix,file
 	parity_pos = np.nonzero(mask)[0]
 	
 	# first decode index	
-	remove_index(num_LDPC_blocks*num_oligos_per_LDPC_block,BCH_bits,infile,infile+'.tmp.data',infile+'.tmp.index')
+	remove_index(num_LDPC_blocks*num_oligos_per_LDPC_block,BCH_bits,infile,infile+'.tmp.data',infile+'.tmp.index',mode)
 	
 	# Now store counts in an array
 	total_counts = np.zeros((num_LDPC_blocks,LDPC_dim+parity_bits_per_LDPC_block))
