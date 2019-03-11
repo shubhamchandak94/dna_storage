@@ -408,7 +408,7 @@ def add_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_name):
 			if index == num_oligos:
 				break
 			
-def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_index,mode="correct"):
+def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_index,mode="correct",attempt_del_cor=False, oligo_length=100):
 	'''
 	Decode index from a collection of (noisy) reads in infile_name and write data and index to outfile_data and outfile_index, line by line, skipping positions where index failed to decode.
 	Mode can be "correct" or "detect":
@@ -427,6 +427,7 @@ def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_inde
 	else:
 		num_bases_index = block_len	
 	count = 0
+        deletion_corrected = 0
 	with open(infile_name) as infile, open(outfile_data, 'w') as f_data, open(outfile_index, 'w') as f_index:
 		for line in infile:
 			dna_data = line[num_bases_index:]
@@ -448,6 +449,38 @@ def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_inde
 						f_data.write(dna_data)
 						f_index.write(str(index)+'\n')
 						count += 1
+                                else: 
+                                    if len(line) <= oligo_length and attempt_del_cor:
+                                        # len <= because it includes new line
+                                        # deletion correction mode
+                                        # try to correct 1 deletion by inserting each base at each possible position
+                                        # and try BCH decoding with 0 errors 
+                                        dna_index = line[:num_bases_index-1]
+                                        bases_index = [b for b in dna_index]
+                                        successful_indices = []
+                                        for pos in range(num_bases_index):
+                                            for new_base in ['A','C','G','T']:
+                                                new_dna_index = ''.join(dna_index[:pos]+new_base+dna_index[pos:])
+				                dna_ecc = new_dna_index[-num_bases_BCH:]
+				                bin_ecc = dna2bin_2bpb(dna_ecc)
+				                bin_ecc = bin_ecc[-BCH_bits*BCH_bits_per_error:]
+				                extra_len = 8*int(math.ceil(1.0*BCH_bits*BCH_bits_per_error/8))-len(bin_ecc)
+				                bin_ecc = bin_ecc+'0'*extra_len
+				                (bitflips,cor_index,cor_ecc) = bch.decode(binary_string_to_bytes(dna2bin_2bpb(new_dna_index[:-num_bases_BCH])),binary_string_to_bytes(bin_ecc))
+                                                if bitflips == 0:
+                                                    successful_indices.append(cor_index)
+                                        if len(successful_indices) == 1:
+                                            # exactly one successful decoding
+                                            cor_index= successful_indices[0]
+                                            bin_index = bytes_to_binary_string(cor_index)
+                                            index_prp = int(bin_index,2) 
+                                            index = (prp_a_inv*(index_prp-prp_b))%MAX_OLIGOS_NO_RLL
+                                            if index < num_oligos:
+                                                dna_data = line[num_bases_index-1:]
+                                                f_data.write(dna_data)
+                                                f_index.write(str(index)+'\n')
+                                                count += 1
+                                                deletion_corrected += 1
 			else:
 				bin_index =  dna2bin_2bpb(dna_index)
 				if status == 0:
@@ -458,6 +491,7 @@ def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_inde
 						f_index.write(str(index)+'\n')	
 						count += 1
 	print "Successfully decoded",count,"indices"		
+        print("Deletion corrected",deletion_corrected)
 
 def rll2_pad(dna_str,padded_len):
 	'''
@@ -832,14 +866,22 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
 	parity_pos = np.nonzero(mask)[0]
 	
 	# first decode index	
-	remove_index_noRLL(num_LDPC_blocks*num_oligos_per_LDPC_block,BCH_bits,infile,infile+'.tmp.data',infile+'.tmp.index',mode)
+	remove_index_noRLL(num_LDPC_blocks*num_oligos_per_LDPC_block,BCH_bits,infile,infile+'.tmp.data',infile+'.tmp.index',mode,attempt_del_cor=True)
 	
 	# Now store counts in an array
 	total_counts = np.zeros((num_LDPC_blocks,LDPC_dim+parity_bits_per_LDPC_block))
 	zero_counts = np.zeros((num_LDPC_blocks,LDPC_dim+parity_bits_per_LDPC_block))
+        # count number of oligos with correct length after index removal
+        num_correct_length = 0
+        num_incorrect_length = 0
 	with open(infile+'.tmp.data','r') as infile_data, open(infile+'.tmp.index','r') as infile_index:
 		for line_data, line_index in zip(infile_data,infile_index):
 			index = int(line_index)
+                        # TODO: change this
+                        if len(line_data) != num_bases_payload+1:
+                            num_incorrect_length += 1
+                            continue
+                        num_correct_length += 1
 			block_number = index/num_oligos_per_LDPC_block
 			index_in_block = index%num_oligos_per_LDPC_block
 			if index_in_block < num_oligos_data_per_LDPC_block:
@@ -862,8 +904,11 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
 				bin_arr = np.array([int(c) for c in bin_str])
 				total_counts[block_number][parity_pos[start_pos:end_pos]] += 1
 				zero_counts[block_number][parity_pos[start_pos:end_pos]] += 1-bin_arr[:end_pos-start_pos]
-	os.remove(infile+'.tmp.data')
-	os.remove(infile+'.tmp.index')
+
+        print('Number of oligos with correct length after index removal', num_correct_length)
+        print('Number of oligos with incorrect length after index removal', num_incorrect_length)
+#	os.remove(infile+'.tmp.data')
+#	os.remove(infile+'.tmp.index')
 	# log likelihood ratio
 	llr = (2*zero_counts-total_counts)*np.log((1-eps)/eps)
 	# Now decode LDPC blocks one by one	
@@ -948,8 +993,8 @@ def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,f
 	outfile_oligos = infile_data +'.oligo'
 	outfile_reads = infile_data+".reads"
 	outfile_dec = infile_data+".dec"
-	encode_data(infile_data,oligo_length,outfile_oligos,BCH_bits,LDPC_alpha,LDPC_prefix)
-	coverage = 1.0
+	encode_data_noRLL(infile_data,oligo_length,outfile_oligos,BCH_bits,LDPC_alpha,LDPC_prefix)
+	coverage = 3.2
 	while True:
 		num_reads = int(coverage*file_size*4.0/oligo_length)
 		print 'coverage:',coverage
@@ -958,7 +1003,7 @@ def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,f
 		num_successes = 0
 		for _ in range(num_experiments):
 			sample_reads(outfile_oligos,outfile_reads,num_reads,eps)
-			status = decode_data(outfile_reads,oligo_length,outfile_dec,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps_decode, mode)
+			status = decode_data_noRLL(outfile_reads,oligo_length,outfile_dec,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps_decode, mode)
 			if status == 0:
 				with open(outfile_dec,'r') as f:	
 					dec_str = f.read()
@@ -1012,9 +1057,9 @@ def remove_barcodes(infile_reads, payload_len, start_barcode, end_barcode, outfi
             else:
                 start_bc_len = barcode_len
 #            start_bc_len = barcode_len
-            levenshtein_distances = [distance.levenshtein(end_bc,read[payload_len+start_bc_len-shift:payload_len+start_bc_len+barcode_len-shift]) for shift in range(MAX_SHIFT)]
+            levenshtein_distances = [distance.levenshtein(end_bc,read[payload_len+start_bc_len-shift:min(payload_len+start_bc_len+barcode_len-shift,len(read))]) for shift in range(-1,MAX_SHIFT)]
 #            levenshtein_distances = [distance.hamming(end_bc,read[payload_len+start_bc_len-shift:payload_len+start_bc_len+barcode_len-shift]) for shift in range(MAX_SHIFT)]
-            best_shift = levenshtein_distances.index(min(levenshtein_distances))
+            best_shift = levenshtein_distances.index(min(levenshtein_distances))-1
             trimmed_read = read[start_bc_len:start_bc_len+payload_len-best_shift]
             if rc:
                 trimmed_read = reverse_complement(trimmed_read)
