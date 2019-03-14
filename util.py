@@ -46,6 +46,72 @@ def reverse_complement(dna):
     complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A', 'N': 'N'}
     return ''.join([complement[base] for base in dna[::-1]])
 
+# functions for reading Kalign consensus
+def one_hot(row, alphabet):
+    _temp = np.zeros((len(row),alphabet))
+    _temp[np.arange(len(row)),np.array(row)] = 1.0
+    return _temp
+
+def read_in_kalign_fasta(file_name):
+    f = open(file_name)
+    reads = []
+    for i, line in enumerate(f):
+        if i%2 == 1:
+            reads.append(line.rstrip('\n'))
+    f.close()
+    return reads
+
+def get_read_counts(reads):
+    mapping_dict = {'A': 0, 'C': 1, 'G':2, 'T':3 , '-':4}
+    reads_id = [[mapping_dict[c] for c in read] for read in reads]
+    reads_one_hot = np.array([one_hot(read_id,5) for read_id in reads_id])
+    read_counts = np.sum(reads_one_hot,axis=0)
+    return read_counts
+
+def filter_counts(read_counts, payload_length):
+    # returns numpy arrays total_count and zero_count of size 2*payload_length each
+    # returns None if size does not match 
+    total_counts = np.zeros(2*payload_length)  
+    zero_counts = np.zeros(2*payload_length)
+    pos_in_count_array = 0
+
+    if len(read_counts) < payload_length:
+        return None # failed
+    elif len(read_counts) > payload_length:
+        read_count_w_index = [(i,read_counts[i]) for i in range(len(read_counts))]
+        read_count_w_index.sort(key=lambda a: a[1][4]) # sort by increasing number of blanks
+        if read_count_w_index[payload_length][1][4] == read_count_w_index[payload_length-1][1][4]:
+            # bad: here we are unable to precisely separate and so we fail
+            return None
+        threshold = read_count_w_index[payload_length-1][1][4]
+        # we'll keep positions where the number of blanks is leq to the threshold
+    else:
+        threshold = np.sum(read_counts[0])
+        # chosen so that all positions are picked 
+    for row in read_counts:
+        if row[4] <= threshold:
+            total_counts[pos_in_count_array] += np.sum(row[:4])
+            total_counts[pos_in_count_array+1] += np.sum(row[:4])
+            zero_counts[pos_in_count_array] += row[0] + row[1] # A and C have 0 at first bit
+            zero_counts[pos_in_count_array+1] += row[0] + row[2] # A and G have 0 at second bit
+            pos_in_count_array += 2 
+    assert pos_in_count_array == 2*payload_length
+        
+#    for row in read_counts:
+#        argmax = np.argmax(row)
+#        if np.argmax(row) != 4:
+#            # i.e. dashes not in majority (that would likely indicate insertion)
+#            if pos_in_count_array == 2*payload_length:
+#                return None # length above
+#            total_counts[pos_in_count_array] += np.sum(row[:4])
+#            total_counts[pos_in_count_array+1] += np.sum(row[:4])
+#            zero_counts[pos_in_count_array] += row[0] + row[1] # A and C have 0 at first bit
+#            zero_counts[pos_in_count_array+1] += row[0] + row[2] # A and G have 0 at second bit
+#            pos_in_count_array += 2
+#    if pos_in_count_array != 2*payload_length:
+#        return None # length below 
+    return (total_counts, zero_counts) 
+
 def bin2dna_2bpb(bin_string):
 	'''
 	Generate dna according to mapping 00-A,01-C,10-G,11-T.
@@ -816,7 +882,7 @@ def encode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
 	os.remove(outfile+'.tmp.2')
 	return
 
-def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps, mode = 'correct'):
+def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps, mode = 'correct', MSA=False):
 	'''
 	Decoder corresponding to encoder encode_data. Need same parameters as that.
 	infile is file containing reads of the same length as the oligo_length.
@@ -864,51 +930,125 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
 	mask[sys_pos] = True
 	mask = ~mask
 	parity_pos = np.nonzero(mask)[0]
-	
+	tmp_index_file = infile+'.tmp.index'
+	tmp_data_file = infile+'.tmp.data'
 	# first decode index	
-	remove_index_noRLL(num_LDPC_blocks*num_oligos_per_LDPC_block,BCH_bits,infile,infile+'.tmp.data',infile+'.tmp.index',mode,attempt_del_cor=True)
+	remove_index_noRLL(num_LDPC_blocks*num_oligos_per_LDPC_block,BCH_bits,infile,tmp_data_file,tmp_index_file,mode,attempt_del_cor=True)
 	
 	# Now store counts in an array
 	total_counts = np.zeros((num_LDPC_blocks,LDPC_dim+parity_bits_per_LDPC_block))
 	zero_counts = np.zeros((num_LDPC_blocks,LDPC_dim+parity_bits_per_LDPC_block))
-        # count number of oligos with correct length after index removal
-        num_correct_length = 0
-        num_incorrect_length = 0
-	with open(infile+'.tmp.data','r') as infile_data, open(infile+'.tmp.index','r') as infile_index:
-		for line_data, line_index in zip(infile_data,infile_index):
-			index = int(line_index)
+
+        if MSA == False:
+            # count number of oligos with correct length after index removal
+            num_correct_length = 0
+            num_incorrect_length = 0
+            index_set = set([])
+            index_with_correct_length = set([])
+            with open(tmp_data_file,'r') as infile_data, open(tmp_index_file,'r') as infile_index:
+                    for line_data, line_index in zip(infile_data,infile_index):
+                        index = int(line_index)
+                        index_set.add(index)
                         # TODO: change this
                         if len(line_data) != num_bases_payload+1:
                             num_incorrect_length += 1
                             continue
+                        index_with_correct_length.add(index)
                         num_correct_length += 1
-			block_number = index/num_oligos_per_LDPC_block
-			index_in_block = index%num_oligos_per_LDPC_block
-			if index_in_block < num_oligos_data_per_LDPC_block:
-				# data oligo
-				start_pos = index_in_block*bits_per_oligo
-				end_pos = (index_in_block+1)*bits_per_oligo
-				if end_pos > LDPC_dim:
-					end_pos = LDPC_dim
-				total_counts[block_number][sys_pos[start_pos:end_pos]] += 1
-				bin_str = dna2bin_2bpb(line_data[:(end_pos-start_pos)/2])
-				bin_arr = np.array([int(c) for c in bin_str])
-				zero_counts[block_number][sys_pos[start_pos:end_pos]] += 1-bin_arr
-			else:
-				# parity oligo
-				start_pos = bits_per_oligo*(index_in_block-num_oligos_data_per_LDPC_block)
-				end_pos = start_pos + bits_per_oligo
-				if end_pos > parity_bits_per_LDPC_block:
-					end_pos = parity_bits_per_LDPC_block
+                        block_number = index/num_oligos_per_LDPC_block
+                        index_in_block = index%num_oligos_per_LDPC_block
+                        if index_in_block < num_oligos_data_per_LDPC_block:
+                                # data oligo
+                                start_pos = index_in_block*bits_per_oligo
+                                end_pos = (index_in_block+1)*bits_per_oligo
+                                if end_pos > LDPC_dim:
+                                        end_pos = LDPC_dim
+                                total_counts[block_number][sys_pos[start_pos:end_pos]] += 1
+                                bin_str = dna2bin_2bpb(line_data[:(end_pos-start_pos)/2])
+                                bin_arr = np.array([int(c) for c in bin_str])
+                                zero_counts[block_number][sys_pos[start_pos:end_pos]] += 1-bin_arr
+                        else:
+                                # parity oligo
+                                start_pos = bits_per_oligo*(index_in_block-num_oligos_data_per_LDPC_block)
+                                end_pos = start_pos + bits_per_oligo
+                                if end_pos > parity_bits_per_LDPC_block:
+                                        end_pos = parity_bits_per_LDPC_block
                                 bin_str = dna2bin_2bpb(line_data[:num_bases_payload])
-				bin_arr = np.array([int(c) for c in bin_str])
-				total_counts[block_number][parity_pos[start_pos:end_pos]] += 1
-				zero_counts[block_number][parity_pos[start_pos:end_pos]] += 1-bin_arr[:end_pos-start_pos]
+                                bin_arr = np.array([int(c) for c in bin_str])
+                                total_counts[block_number][parity_pos[start_pos:end_pos]] += 1
+                                zero_counts[block_number][parity_pos[start_pos:end_pos]] += 1-bin_arr[:end_pos-start_pos]
 
-        print('Number of oligos with correct length after index removal', num_correct_length)
-        print('Number of oligos with incorrect length after index removal', num_incorrect_length)
-#	os.remove(infile+'.tmp.data')
-#	os.remove(infile+'.tmp.index')
+            print('Number of oligos with correct length after index removal', num_correct_length)
+            print('Number of oligos with incorrect length after index removal', num_incorrect_length)
+            print('Number of unique indices seen:', len(index_set))
+            print('Number of unique indices seen with at least one correct length oligo:',len(index_with_correct_length))
+        else:
+            # Do MSA using Kalign
+            index_set = set([])
+            tmp_dir = infile+'tmp.splitted_read'
+            os.mkdir(tmp_dir)
+            with open(tmp_data_file,'r') as infile_data, open(tmp_index_file,'r') as infile_index:
+                for line_data, line_index in zip(infile_data,infile_index): 
+                    index = int(line_index)
+                    index_set.add(index)
+                    fout = open(tmp_dir+'/'+str(index)+'.fasta','a+')
+                    fout.write('>\n'+line_data)
+                    fout.close()
+            print('Number of unique indices:', len(index_set))
+            suffix_fasta = '.fasta'
+            suffix_kalign = '.kalign.fasta'
+            print('Running Kalign for MSA for each index')
+            for index in index_set:
+                subprocess.call(['./kalign2_current/kalign '+tmp_dir+'/'+str(index)+suffix_fasta+' ' + tmp_dir+'/'+str(index)+suffix_kalign+' -quiet'],shell=True)
+            f_tmp_log = open('tmp.1.log','w')
+            num_indices_correct_len = 0
+            num_reads_utilized = 0
+            num_indices_wrong_len = 0
+            num_reads_wasted = 0
+            print('Computing counts from Kalign output')
+            for index in index_set:
+                if os.path.isfile(tmp_dir+'/'+str(index)+suffix_kalign):
+                    reads = read_in_kalign_fasta(tmp_dir+'/'+str(index)+suffix_kalign)
+                else:
+                    # kalign does not create new file if only one read
+                    reads = read_in_kalign_fasta(tmp_dir+'/'+str(index)+suffix_fasta)
+                read_counts = get_read_counts(reads)
+                ret = filter_counts(read_counts,num_bases_payload)
+                if ret == None:
+                    num_indices_wrong_len += 1
+                    num_reads_wasted += len(reads)
+                    f_tmp_log.write('FAILURE\n')
+                    f_tmp_log.write(''.join([read+'\n' for read in reads]))
+                else:
+                    num_indices_correct_len += 1
+                    num_reads_utilized += len(reads)
+                    block_number = index/num_oligos_per_LDPC_block
+                    index_in_block = index%num_oligos_per_LDPC_block
+                    if index_in_block < num_oligos_data_per_LDPC_block:
+                        # data oligo
+                        start_pos = index_in_block*bits_per_oligo
+                        end_pos = (index_in_block+1)*bits_per_oligo
+                        if end_pos > LDPC_dim:
+                                end_pos = LDPC_dim
+                        total_counts[block_number][sys_pos[start_pos:end_pos]] += ret[0][:end_pos-start_pos]
+                        zero_counts[block_number][sys_pos[start_pos:end_pos]] += ret[1][:end_pos-start_pos]
+                    else:
+                        # parity oligo
+                        start_pos = bits_per_oligo*(index_in_block-num_oligos_data_per_LDPC_block)
+                        end_pos = start_pos + bits_per_oligo
+                        if end_pos > parity_bits_per_LDPC_block:
+                                end_pos = parity_bits_per_LDPC_block
+                        total_counts[block_number][parity_pos[start_pos:end_pos]] += ret[0][:end_pos-start_pos]
+                        zero_counts[block_number][parity_pos[start_pos:end_pos]] += ret[1][:end_pos-start_pos]
+            f_tmp_log.close()
+            print('Number of indices with correct length consensus:',num_indices_correct_len)        
+            print('Number of indices with incorrect length consensus:',num_indices_wrong_len)        
+            print('Number of reads utilized in the counts',num_reads_utilized)
+            print('Number of reads not utilized in the counts',num_reads_wasted)
+#            os.rmdir(tmp_dir)
+#	os.remove(tmp_index_file)
+#	os.remove(tmp_data_file)
+
 	# log likelihood ratio
 	llr = (2*zero_counts-total_counts)*np.log((1-eps)/eps)
 	# Now decode LDPC blocks one by one	
@@ -1048,19 +1188,29 @@ def remove_barcodes(infile_reads, payload_len, start_barcode, end_barcode, outfi
                 end_bc = end_barcode_RC
                 rc = True
 
-            # try to detect one deletion in start barcode
-            lev_full = distance.levenshtein(start_bc,read[:barcode_len])
-            lev_one_less = distance.levenshtein(start_bc,read[:barcode_len-1])
-            if lev_one_less < lev_full:
-                # note that lev_one_less has inherent disadvantage due to length. If it is still smaller, then that's most likely because of a deletion 
-                start_bc_len = barcode_len-1
-            else:
-                start_bc_len = barcode_len
-#            start_bc_len = barcode_len
-            levenshtein_distances = [distance.levenshtein(end_bc,read[payload_len+start_bc_len-shift:min(payload_len+start_bc_len+barcode_len-shift,len(read))]) for shift in range(-1,MAX_SHIFT)]
+
+            # find best start barcode 
+            levenshtein_distances = [distance.levenshtein(start_bc,read[max(0,shift):barcode_len+shift]) for shift in range(-MAX_SHIFT,MAX_SHIFT)]
+            start_bc_len = barcode_len + (levenshtein_distances.index(min(levenshtein_distances))-MAX_SHIFT)
+            levenshtein_distances = [distance.levenshtein(end_bc,read[payload_len+start_bc_len-shift:min(payload_len+start_bc_len+barcode_len-shift,len(read))]) for shift in range(-MAX_SHIFT,MAX_SHIFT)]
 #            levenshtein_distances = [distance.hamming(end_bc,read[payload_len+start_bc_len-shift:payload_len+start_bc_len+barcode_len-shift]) for shift in range(MAX_SHIFT)]
-            best_shift = levenshtein_distances.index(min(levenshtein_distances))-1
+            best_shift = levenshtein_distances.index(min(levenshtein_distances))-MAX_SHIFT # we give priority to right most match
+            # with minimum edit distance (for start barcode give priority to left most). This helps because 
             trimmed_read = read[start_bc_len:start_bc_len+payload_len-best_shift]
+
+#            # try to detect one deletion in start barcode
+#            lev_full = distance.levenshtein(start_bc,read[:barcode_len])
+#            lev_one_less = distance.levenshtein(start_bc,read[:barcode_len-1])
+#            if lev_one_less <= lev_full:
+#                # note that lev_one_less has inherent disadvantage due to length. If it is still smaller, then that's most likely because of a deletion 
+#                start_bc_len = barcode_len-1
+#            else:
+#                start_bc_len = barcode_len
+##            start_bc_len = barcode_len
+#            levenshtein_distances = [distance.levenshtein(end_bc,read[payload_len+start_bc_len-shift:min(payload_len+start_bc_len+barcode_len-shift,len(read))]) for shift in range(-1,MAX_SHIFT)]
+##            levenshtein_distances = [distance.hamming(end_bc,read[payload_len+start_bc_len-shift:payload_len+start_bc_len+barcode_len-shift]) for shift in range(MAX_SHIFT)]
+#            best_shift = levenshtein_distances.index(min(levenshtein_distances))-1
+#            trimmed_read = read[start_bc_len:start_bc_len+payload_len-best_shift]
             if rc:
                 trimmed_read = reverse_complement(trimmed_read)
             fout.write(trimmed_read+'\n')
