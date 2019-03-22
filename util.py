@@ -7,6 +7,7 @@ import random
 import os
 import subprocess
 import distance
+import shutil 
 
 #some constants
 LDPC_dim = 256000
@@ -71,6 +72,7 @@ def get_read_counts(reads):
 def filter_counts(read_counts, payload_length):
     # returns numpy arrays total_count and zero_count of size 2*payload_length each
     # returns None if size does not match 
+    int2base = {0:'A',1:'C',2:'G',3:'T'}
     total_counts = np.zeros(2*payload_length)  
     zero_counts = np.zeros(2*payload_length)
     pos_in_count_array = 0
@@ -87,7 +89,8 @@ def filter_counts(read_counts, payload_length):
         # we'll keep positions where the number of blanks is leq to the threshold
     else:
         threshold = np.sum(read_counts[0])
-        # chosen so that all positions are picked 
+        # chosen so that all positions are picked
+    consensus = ''
     for row in read_counts:
         if row[4] <= threshold:
             total_counts[pos_in_count_array] += np.sum(row[:4])
@@ -95,6 +98,7 @@ def filter_counts(read_counts, payload_length):
             zero_counts[pos_in_count_array] += row[0] + row[1] # A and C have 0 at first bit
             zero_counts[pos_in_count_array+1] += row[0] + row[2] # A and G have 0 at second bit
             pos_in_count_array += 2 
+            consensus = consensus + int2base[np.argmax(row[:4])]
     assert pos_in_count_array == 2*payload_length
         
 #    for row in read_counts:
@@ -110,7 +114,7 @@ def filter_counts(read_counts, payload_length):
 #            pos_in_count_array += 2
 #    if pos_in_count_array != 2*payload_length:
 #        return None # length below 
-    return (total_counts, zero_counts) 
+    return (total_counts, zero_counts, consensus) 
 
 def bin2dna_2bpb(bin_string):
 	'''
@@ -474,7 +478,7 @@ def add_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_name):
 			if index == num_oligos:
 				break
 			
-def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_index,mode="correct",attempt_del_cor=False, oligo_length=100):
+def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_index,mode="correct",attempt_indel_cor=False):
 	'''
 	Decode index from a collection of (noisy) reads in infile_name and write data and index to outfile_data and outfile_index, line by line, skipping positions where index failed to decode.
 	Mode can be "correct" or "detect":
@@ -491,9 +495,11 @@ def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_inde
 		num_bases_BCH = BCH_bits*BCH_bits_per_error/2
 		num_bases_index = block_len + num_bases_BCH
 	else:
-		num_bases_index = block_len	
+		num_bases_index = block_len
 	count = 0
         deletion_corrected = 0
+        f_failed = open('failed_indices.'+str(np.random.randint(1000000)),'w')
+        count_failed = 0
 	with open(infile_name) as infile, open(outfile_data, 'w') as f_data, open(outfile_index, 'w') as f_index:
 		for line in infile:
 			dna_data = line[num_bases_index:]
@@ -515,18 +521,21 @@ def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_inde
 						f_data.write(dna_data)
 						f_index.write(str(index)+'\n')
 						count += 1
+                                        else:
+                                            f_failed.write('@BCH_success_but_not_within_num_oligos_'+str(count_failed)+'\n'+line)
+                                            count_failed+=1 
                                 else: 
-                                    if len(line) <= oligo_length and attempt_del_cor:
+                                    if attempt_indel_cor:
                                         # len <= because it includes new line
                                         # deletion correction mode
                                         # try to correct 1 deletion by inserting each base at each possible position
                                         # and try BCH decoding with 0 errors 
                                         dna_index = line[:num_bases_index-1]
-                                        bases_index = [b for b in dna_index]
                                         successful_indices = []
+                                        ins_flag = False # found in insertion
                                         for pos in range(num_bases_index):
                                             for new_base in ['A','C','G','T']:
-                                                new_dna_index = ''.join(dna_index[:pos]+new_base+dna_index[pos:])
+                                                new_dna_index = dna_index[:pos]+new_base+dna_index[pos:]
 				                dna_ecc = new_dna_index[-num_bases_BCH:]
 				                bin_ecc = dna2bin_2bpb(dna_ecc)
 				                bin_ecc = bin_ecc[-BCH_bits*BCH_bits_per_error:]
@@ -535,6 +544,25 @@ def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_inde
 				                (bitflips,cor_index,cor_ecc) = bch.decode(binary_string_to_bytes(dna2bin_2bpb(new_dna_index[:-num_bases_BCH])),binary_string_to_bytes(bin_ecc))
                                                 if bitflips == 0:
                                                     successful_indices.append(cor_index)
+                                                if len(successful_indices) > 1:
+                                                    break # fail
+                                        if len(successful_indices) == 0:
+                                            ins_flag = True
+                                            # try insertion (i.e., delete positions one by one and see if it satisfies BCH w/o error)
+                                            dna_index = line[:num_bases_index+1]
+                                            for pos in range(num_bases_index):
+                                                new_dna_index = dna_index[:pos]+dna_index[pos+1:]
+                                                dna_ecc = new_dna_index[-num_bases_BCH:]
+                                                bin_ecc = dna2bin_2bpb(dna_ecc)
+                                                bin_ecc = bin_ecc[-BCH_bits*BCH_bits_per_error:] 
+                                                extra_len = 8*int(math.ceil(1.0*BCH_bits*BCH_bits_per_error/8))-len(bin_ecc)
+                                                bin_ecc = bin_ecc+'0'*extra_len 
+                                                (bitflips,cor_index,cor_ecc) = bch.decode(binary_string_to_bytes(dna2bin_2bpb(new_dna_index[:-num_bases_BCH])),binary_string_to_bytes(bin_ecc))
+                                                if bitflips == 0: 
+                                                    successful_indices.append(cor_index)
+                                                if len(successful_indices) > 1:   
+                                                    break # fail
+                                            
                                         if len(successful_indices) == 1:
                                             # exactly one successful decoding
                                             cor_index= successful_indices[0]
@@ -542,11 +570,26 @@ def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_inde
                                             index_prp = int(bin_index,2) 
                                             index = (prp_a_inv*(index_prp-prp_b))%MAX_OLIGOS_NO_RLL
                                             if index < num_oligos:
-                                                dna_data = line[num_bases_index-1:]
+                                                if ins_flag:
+                                                    dna_data = line[num_bases_index+1:]
+                                                else:
+                                                    dna_data = line[num_bases_index-1:]
                                                 f_data.write(dna_data)
                                                 f_index.write(str(index)+'\n')
                                                 count += 1
                                                 deletion_corrected += 1
+                                            else:
+                                                f_failed.write('@del_corr_failed_one_found_but_not_within_num_oligos_'+str(count_failed)+'\n'+line)
+                                                count_failed += 1
+                                        elif len(successful_indices) == 0:
+                                            f_failed.write('@del_corr_failed_none_found_'+str(count_failed)+'\n'+line)
+                                            count_failed+=1
+                                        else:
+                                            f_failed.write('@del_corr_failed_more_than_one_found_'+str(count_failed)+'\n'+line)
+                                            count_failed+=1 
+                                    else:
+                                            f_failed.write('@BCH_failed_del_cor_not_attempted_'+str(count_failed)+'\n'+line)
+                                            count_failed+=1
 			else:
 				bin_index =  dna2bin_2bpb(dna_index)
 				if status == 0:
@@ -556,6 +599,7 @@ def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_inde
 						f_data.write(dna_data)
 						f_index.write(str(index)+'\n')	
 						count += 1
+        f_failed.close()
 	print "Successfully decoded",count,"indices"		
         print("Deletion corrected",deletion_corrected)
 
@@ -933,7 +977,7 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
 	tmp_index_file = infile+'.tmp.index'
 	tmp_data_file = infile+'.tmp.data'
 	# first decode index	
-	remove_index_noRLL(num_LDPC_blocks*num_oligos_per_LDPC_block,BCH_bits,infile,tmp_data_file,tmp_index_file,mode,attempt_del_cor=True)
+	remove_index_noRLL(num_LDPC_blocks*num_oligos_per_LDPC_block,BCH_bits,infile,tmp_data_file,tmp_index_file,mode,attempt_indel_cor=True)
 	
 	# Now store counts in an array
 	total_counts = np.zeros((num_LDPC_blocks,LDPC_dim+parity_bits_per_LDPC_block))
@@ -983,6 +1027,16 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
             print('Number of unique indices seen:', len(index_set))
             print('Number of unique indices seen with at least one correct length oligo:',len(index_with_correct_length))
         else:
+            filename_index_success = 'outfile.success.index'
+            filename_consensus_success = 'outfile.success.consensus'
+            filename_failure = 'outfile.failure'
+            filename_success = 'outfile.success'
+            filename_index_failure = 'outfile.failure.index'
+            fout_index_success = open(filename_index_success,'w')
+            fout_consensus_success = open(filename_consensus_success,'w')
+            fout_failure = open(filename_failure,'w')
+            fout_success = open(filename_success,'w')
+            fout_index_failure = open(filename_index_failure,'w')
             # Do MSA using Kalign
             index_set = set([])
             tmp_dir = infile+'tmp.splitted_read'
@@ -1000,7 +1054,6 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
             print('Running Kalign for MSA for each index')
             for index in index_set:
                 subprocess.call(['./kalign2_current/kalign '+tmp_dir+'/'+str(index)+suffix_fasta+' ' + tmp_dir+'/'+str(index)+suffix_kalign+' -quiet'],shell=True)
-            f_tmp_log = open('tmp.1.log','w')
             num_indices_correct_len = 0
             num_reads_utilized = 0
             num_indices_wrong_len = 0
@@ -1017,9 +1070,15 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
                 if ret == None:
                     num_indices_wrong_len += 1
                     num_reads_wasted += len(reads)
-                    f_tmp_log.write('FAILURE\n')
-                    f_tmp_log.write(''.join([read+'\n' for read in reads]))
+                    fout_failure.write(str(index)+'\n')
+                    fout_failure.write(''.join([reads[i]+'\n' for i in range(len(reads))]))
+                    fout_failure.write('\n')
+                    fout_index_failure.write(str(index)+'\n')
                 else:
+                    fout_success.write(''.join([reads[i]+'\n' for i in range(len(reads))]))
+                    fout_success.write('Consensus:\n'+ret[2]+'\n\n')
+                    fout_index_success.write(str(index)+'\n')
+                    fout_consensus_success.write(ret[2]+'\n')
                     num_indices_correct_len += 1
                     num_reads_utilized += len(reads)
                     block_number = index/num_oligos_per_LDPC_block
@@ -1040,14 +1099,13 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
                                 end_pos = parity_bits_per_LDPC_block
                         total_counts[block_number][parity_pos[start_pos:end_pos]] += ret[0][:end_pos-start_pos]
                         zero_counts[block_number][parity_pos[start_pos:end_pos]] += ret[1][:end_pos-start_pos]
-            f_tmp_log.close()
             print('Number of indices with correct length consensus:',num_indices_correct_len)        
             print('Number of indices with incorrect length consensus:',num_indices_wrong_len)        
             print('Number of reads utilized in the counts',num_reads_utilized)
             print('Number of reads not utilized in the counts',num_reads_wasted)
-#            os.rmdir(tmp_dir)
-#	os.remove(tmp_index_file)
-#	os.remove(tmp_data_file)
+            shutil.rmtree(tmp_dir)
+	os.remove(tmp_index_file)
+	os.remove(tmp_data_file)
 
 	# log likelihood ratio
 	llr = (2*zero_counts-total_counts)*np.log((1-eps)/eps)
@@ -1072,6 +1130,59 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
 	f_out.write(binary_string_to_bytes(decoded_str))
 	f_out.close()
 	return 0
+
+
+def simulate_indelsubs(read, sub_prob = 0.0, del_prob = 0.0, ins_prob = 0.0):
+    '''
+    add iid indels and substitions to read (copied from flappie_new/viterbi/util.py)
+    '''
+    char_list = [c for c in read]
+    pos_in_char_list = 0
+    new_char_list = []
+    alphabet = {}
+    alphabet['all'] = ['A','C','G','T']
+    alphabet['A'] = ['C','G','T']
+    alphabet['C'] = ['A','G','T']
+    alphabet['G'] = ['C','A','T']
+    alphabet['T'] = ['C','G','A']
+    while True:
+        ins = (np.random.random_sample()<ins_prob)
+        if ins:
+            new_char_list.append(np.random.choice(alphabet['all']))
+        else:
+            if pos_in_char_list == len(char_list):# end of original read and not inserting
+                break
+            _del = (np.random.random_sample()<del_prob) 
+            if _del:
+                pos_in_char_list += 1
+            else:
+                sub = (np.random.random_sample()<sub_prob)
+                if sub:
+                    new_char_list.append(np.random.choice(alphabet[char_list[pos_in_char_list]]))
+                else:
+                    new_char_list.append(char_list[pos_in_char_list])
+                pos_in_char_list += 1
+    return ''.join(new_char_list)
+
+def sample_reads_indel(infile,outfile,num_reads,sub_prob = 0.0, del_prob = 0.0, ins_prob = 0.0):
+	'''
+	Sample num_reads (with indels and substitutions) from oligos in infile and write to outfile.
+	'''
+	dna2int = {'A':0,'C':1,'G':2,'T':3}
+	int2dna = {0:'A',1:'C',2:'G',3:'T'}
+	f_in = open(infile,'r')
+	f_out = open(outfile,'w')
+	input_lines = f_in.readlines();
+	f_in.close()
+        unique_reads = set([])
+	for i in range(num_reads):
+		clean_sample = random.choice(input_lines).rstrip('\n')
+                unique_reads.add(clean_sample)
+                output_sample = simulate_indelsubs(clean_sample, sub_prob, del_prob, ins_prob)
+		f_out.write("%s\n" %output_sample)
+	f_out.close()
+        print('Number of unique oligos = ', len(unique_reads))
+	return
 
 def sample_reads(infile,outfile,num_reads,SNP_prob):
 	'''
@@ -1123,7 +1234,7 @@ def run_experiments(infile_data,infile_oligos,oligo_length,BCH_bits,LDPC_alpha,L
 	return num_successes
 
 
-def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps, eps_decode, num_experiments, mode = 'correct'):
+def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, sub_prob, eps_decode, num_experiments, mode = 'correct',ins_prob=0.0,del_prob=0.0,start_coverage=1.0):
 	'''
 	Find minimum coverage (in steps of 0.2) when we have 100% successes in num_experiment trials with the given parameters. 
 	'''
@@ -1134,7 +1245,7 @@ def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,f
 	outfile_reads = infile_data+".reads"
 	outfile_dec = infile_data+".dec"
 	encode_data_noRLL(infile_data,oligo_length,outfile_oligos,BCH_bits,LDPC_alpha,LDPC_prefix)
-	coverage = 3.2
+	coverage = start_coverage
 	while True:
 		num_reads = int(coverage*file_size*4.0/oligo_length)
 		print 'coverage:',coverage
@@ -1142,8 +1253,8 @@ def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,f
 
 		num_successes = 0
 		for _ in range(num_experiments):
-			sample_reads(outfile_oligos,outfile_reads,num_reads,eps)
-			status = decode_data_noRLL(outfile_reads,oligo_length,outfile_dec,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps_decode, mode)
+			sample_readsi_indel(outfile_oligos,outfile_reads,num_reads,sub_prob,ins_prob,del_prob)
+			status = decode_data_noRLL(outfile_reads,oligo_length,outfile_dec,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps_decode, mode,MSA=True)
 			if status == 0:
 				with open(outfile_dec,'r') as f:	
 					dec_str = f.read()
@@ -1160,6 +1271,87 @@ def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,f
 	os.remove(outfile_dec)
 	os.remove(outfile_oligos)
 	return coverage
+
+def remove_barcodes_kalign(infile_reads, payload_len, start_barcode, end_barcode, outfile_reads):
+    MAX_DEVIATION_ALLOWED = payload_len/2 # max deviation allowed from the actual read length
+    assert len(start_barcode) == len(end_barcode) # not critical, just for convenience
+    barcode_len = len(start_barcode)
+    start_barcode_RC = reverse_complement(end_barcode)
+    numreads = 0
+    numreads_forward = 0
+    numreads_reverse = 0
+    numreads_failed = 0
+    filename_success = 'outfile_read.success'
+    fout_success = open(filename_success,'w')
+    filename_failure = 'outfile_read.failure'
+    fout_failure = open(filename_failure,'w')
+    fout = open(outfile_reads,'w')
+    with open(infile_reads,'r') as f:
+        for line in f:
+            numreads += 1
+            read = line.rstrip('\n')
+            if distance.levenshtein(start_barcode,read[:barcode_len]) < distance.levenshtein(start_barcode_RC,read[:barcode_len]):
+                # forward read
+                rc = False
+            else:
+                # reverse read
+                read = reverse_complement(read)
+                rc = True
+
+            # now write to file and run kalign
+            barcodes = [start_barcode, end_barcode]
+            kalign_read_arr = []
+            kalign_barcode_arr = []
+            for i in range(2):
+                # i = 0: start barcode
+                # i = 1: end_barcode
+                file_name_fasta = 'tmp.'+str(np.random.randint(100000000))+'.fasta'
+                file_name_kalign = file_name_fasta + '.kalign'
+                with open(file_name_fasta,'w') as f:
+                    f.write('>\n'+read+'\n>\n'+barcodes[i]+'\n')
+                
+                subprocess.call(['./kalign2_current/kalign '+file_name_fasta+' ' + file_name_kalign+' -t 0 -quiet'],shell=True)
+                # -t 0 sets gap termination penalty to 0, without which the barcode gets split up and part of it aligns
+                # to the end of the read
+                with open(file_name_kalign) as f:
+                    [_,kalign_read,_,kalign_barcode,_] = f.read().split('\n')
+                kalign_read_arr.append(kalign_read)
+                kalign_barcode_arr.append(kalign_barcode)
+                if i == 0:
+                    # start barcode
+                    st_barcode_end_pos_in_MSA = len(kalign_barcode.rstrip('-'))
+                    st_barcode_end_pos_in_read = st_barcode_end_pos_in_MSA - kalign_read[:st_barcode_end_pos_in_MSA].count('-')
+                else:
+                    # end barcode
+                    end_barcode_start_pos_in_MSA = len(kalign_barcode) - len(kalign_barcode.lstrip('-'))
+                    end_barcode_start_pos_in_read = end_barcode_start_pos_in_MSA - kalign_read[:end_barcode_start_pos_in_MSA:].count('-')
+                os.remove(file_name_fasta)
+                os.remove(file_name_kalign)
+            gap = end_barcode_start_pos_in_read - st_barcode_end_pos_in_read
+            if abs(gap - payload_len) > MAX_DEVIATION_ALLOWED:
+                numreads_failed += 1
+                fout_failure.write(read+'\n')
+                fout_failure.write(kalign_read_arr[0]+'\n')
+                fout_failure.write(kalign_barcode_arr[0]+'\n')
+                fout_failure.write(kalign_read_arr[1]+'\n')
+                fout_failure.write(kalign_barcode_arr[1]+'\n\n')
+            else:
+                if rc:
+                    numreads_reverse += 1
+                else:
+                    numreads_forward += 1
+                fout_success.write(read+'\n')
+                fout_success.write(kalign_read_arr[0]+'\n')
+                fout_success.write(kalign_barcode_arr[0]+'\n')
+                fout_success.write(kalign_read_arr[1]+'\n')
+                fout_success.write(kalign_barcode_arr[1]+'\n')
+                fout_success.write(read[st_barcode_end_pos_in_read:end_barcode_start_pos_in_read]+'\n\n')
+                fout.write(read[st_barcode_end_pos_in_read:end_barcode_start_pos_in_read]+'\n')
+    print('numreads',numreads)
+    print('numreads_forward',numreads_forward)
+    print('numreads_reverse',numreads_reverse)
+    print('numreads_failed',numreads_failed)
+    return
 
 def remove_barcodes(infile_reads, payload_len, start_barcode, end_barcode, outfile_reads):
     assert len(start_barcode) == len(end_barcode) # not critical, just for convenience
@@ -1217,4 +1409,99 @@ def remove_barcodes(infile_reads, payload_len, start_barcode, end_barcode, outfi
     print('numreads',numreads)
     print('numreads_forward',numreads_forward)
     print('numreads_reverse',numreads_reverse)
+    return
+
+
+def remove_barcodes_flexbar(infile_reads, start_barcode, end_barcode, outfile_reads):
+    start_barcode_RC = reverse_complement(end_barcode)
+    end_barcode_RC = reverse_complement(start_barcode)
+    start_barcode_list = [start_barcode,start_barcode_RC]
+    end_barcode_list = [end_barcode,end_barcode_RC]
+    numreads = 0
+    numreads_forward = 0
+    numreads_reverse = 0
+    numreads_failed = 0
+    fout = open(outfile_reads,'w')
+    flexbarinfile = infile_reads+'.flexbar.in'
+    flexbaroutfile = infile_reads+'.flexbar.out'
+
+    # first write all reads to a fasta format
+    with open(infile_reads,'r') as f, open(flexbarinfile+'.fasta','w') as f1:
+        for line in f:
+            numreads += 1
+            f1.write('>'+str(numreads)+'\n'+line)
+
+    del_penalty = -1 # penalty for deletion/gap (note : mismatch penalty is -1, match gain is 1)
+    min_adapter_overlap = 10 # minimum overlap required between adapter and read
+    min_read_length = 50 # minimum read length after adapter removal
+    max_error_rate = 0.2 # max error rate (indel+substitution) for adapter
+    for i in range(2):
+        # i = 0: forward, i = 1: reverse
+        # call flexbar with the appropriate parameters
+        # start barcode
+        subprocess.call(['flexbar '+
+                        '-r '+flexbarinfile+'.fasta '+
+                        '-as '+start_barcode_list[i]+' '+
+                        '-t '+flexbaroutfile+' '+
+                        '-ag '+str(del_penalty)+' '+
+                        '-ao '+str(min_adapter_overlap)+' '+
+                        '-m '+str(min_read_length)+' '+
+                        '-at '+str(max_error_rate)+' '+
+                        '-ae LEFT '+
+                        '-g' # to tag reads with barcode removed
+                        ],
+                        shell=True)
+        os.rename(flexbaroutfile+'.fasta',flexbarinfile+'.fasta')
+        # end barcode
+        subprocess.call(['flexbar '+
+                        '-r '+flexbarinfile+'.fasta '+
+                        '-as '+end_barcode_list[i]+' '+
+                        '-t '+flexbaroutfile+' '+
+                        '-ag '+str(del_penalty)+' '+
+                        '-ao '+str(min_adapter_overlap)+' '+
+                        '-m '+str(min_read_length)+' '+
+                        '-at '+str(max_error_rate)+' '+
+                        '-ae RIGHT '+
+                        '-g' # to tag reads with barcode removed
+                        ],
+                        shell=True)
+        os.rename(flexbaroutfile+'.fasta',flexbarinfile+'.fasta')
+        # now divide reads into reads that had both adapters removed and those that didn't
+        with open(flexbarinfile+'.fasta','r') as f1, open(flexbaroutfile+'.fasta','w') as f2:
+            index_line = f1.readline()
+            tmp_counter = 0
+            while True:
+                index_line = index_line.rstrip('\n')
+                # get entire read
+                trimmed_read = ''
+                while True:
+                    trimmed_read_line = f1.readline()
+                    if trimmed_read_line == '':
+                        next_index_line = ''
+                        break
+                    if trimmed_read_line[0] == '>':
+                        next_index_line = trimmed_read_line
+                        break
+                    trimmed_read += trimmed_read_line.rstrip('\n')
+                if index_line.endswith('_Flexbar_removal_cmdline_Flexbar_removal_cmdline'):
+                    if i == 0:
+                        numreads_forward += 1
+                        fout.write(trimmed_read+'\n')
+                    else:
+                        numreads_reverse += 1
+                        fout.write(reverse_complement(trimmed_read)+'\n')
+                else:
+                    tmp_counter += 1
+                    f2.write('>'+str(tmp_counter)+'\n'+trimmed_read+'\n')
+                index_line = next_index_line
+                if index_line == '': # end of file
+                    break
+        os.rename(flexbaroutfile+'.fasta',flexbarinfile+'.fasta')
+    fout.close()
+    print('numreads',numreads)
+    print('numreads_forward',numreads_forward)
+    print('numreads_reverse',numreads_reverse)
+    print('numreads_failed',numreads-numreads_forward-numreads_reverse)
+    
+#    os.remove(flexbarinfile+'.fasta')
     return

@@ -1,0 +1,14 @@
+('numreads', 67500)
+('numreads_failed', 3407)
+
+num oligos: 12026
+oligo length: 100 bases
+bases per oligo for index + index parity: 18
+number of LDPC blocks: 7
+Successfully decoded 55795 indices
+('Deletion corrected', 2676)
+('Number of unique indices:', 11752)
+('Number of indices with correct length consensus:', 11278)
+('Number of indices with incorrect length consensus:', 474)
+('Number of reads utilized in the counts', 55108)
+('Number of reads not utilized in the counts', 687)
