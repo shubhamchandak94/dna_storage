@@ -69,38 +69,70 @@ def get_read_counts(reads):
     read_counts = np.sum(reads_one_hot,axis=0)
     return read_counts
 
-def filter_counts(read_counts, payload_length):
+def filter_counts(read_counts, payload_length, sync, sync_pos):
     # returns numpy arrays total_count and zero_count of size 2*payload_length each
-    # returns None if size does not match 
+    # returns None if size does not match
+    payload_length_after_sync = payload_length + len(sync)
     int2base = {0:'A',1:'C',2:'G',3:'T'}
-    total_counts = np.zeros(2*payload_length)  
+    total_counts = np.zeros(2*payload_length)
     zero_counts = np.zeros(2*payload_length)
     pos_in_count_array = 0
 
-    if len(read_counts) < payload_length:
-        return None # failed
-    elif len(read_counts) > payload_length:
+    failure_flag = False
+    if len(read_counts) < payload_length_after_sync:
+        failure_flag = True # failed
+    elif len(read_counts) > payload_length_after_sync:
         read_count_w_index = [(i,read_counts[i]) for i in range(len(read_counts))]
         read_count_w_index.sort(key=lambda a: a[1][4]) # sort by increasing number of blanks
-        if read_count_w_index[payload_length][1][4] == read_count_w_index[payload_length-1][1][4]:
+        if read_count_w_index[payload_length_after_sync][1][4] == read_count_w_index[payload_length_after_sync-1][1][4]:
             # bad: here we are unable to precisely separate and so we fail
-            return None
-        threshold = read_count_w_index[payload_length-1][1][4]
+            failure_flag = True 
+        threshold = read_count_w_index[payload_length_after_sync-1][1][4]
         # we'll keep positions where the number of blanks is leq to the threshold
     else:
         threshold = np.sum(read_counts[0])
         # chosen so that all positions are picked
-    consensus = ''
-    for row in read_counts:
-        if row[4] <= threshold:
-            total_counts[pos_in_count_array] += np.sum(row[:4])
-            total_counts[pos_in_count_array+1] += np.sum(row[:4])
-            zero_counts[pos_in_count_array] += row[0] + row[1] # A and C have 0 at first bit
-            zero_counts[pos_in_count_array+1] += row[0] + row[2] # A and G have 0 at second bit
-            pos_in_count_array += 2 
-            consensus = consensus + int2base[np.argmax(row[:4])]
-    assert pos_in_count_array == 2*payload_length
-        
+    if not failure_flag:
+        consensus = ''
+        num_done = 0
+        for row in read_counts:
+            if row[4] <= threshold:
+                consensus = consensus + int2base[np.argmax(row[:4])] 
+                if sync != '' and (num_done in [sync_pos+i for i in range(len(sync))]):
+                    num_done += 1
+                    continue # no need to add sync positions to LDPC counts
+                num_done += 1
+                total_counts[pos_in_count_array] += np.sum(row[:4])
+                total_counts[pos_in_count_array+1] += np.sum(row[:4])
+                zero_counts[pos_in_count_array] += row[0] + row[1] # A and C have 0 at first bit
+                zero_counts[pos_in_count_array+1] += row[0] + row[2] # A and G have 0 at second bit
+                pos_in_count_array += 2
+
+        assert pos_in_count_array == 2*payload_length
+    else:
+        if sync == '':
+            return None 
+        else:
+            # try to recover using sync (see if part before or after sync marker is likely to be good)
+            consensus = ''.join([int2base[np.argmax(row[:4])] for row in read_counts])
+            sync_pos_from_end = payload_length_after_sync-sync_pos
+            if len(consensus) >= sync_pos+len(sync) and consensus[sync_pos:sync_pos+len(sync)] == sync:
+                pos_in_count_array = 0
+                pos_read_counts_start = 0
+                pos_read_counts_end = sync_pos
+            elif len(consensus) >= sync_pos_from_end and consensus[-sync_pos_from_end:-sync_pos_from_end+len(sync)] == sync:
+                pos_in_count_array = 2*sync_pos
+                pos_read_counts_start = -sync_pos_from_end+len(sync)
+                pos_read_counts_end = -1
+            else:
+                return None
+            for row in read_counts[pos_read_counts_start:pos_read_counts_end]:
+                total_counts[pos_in_count_array] += np.sum(row[:4])
+                total_counts[pos_in_count_array+1] += np.sum(row[:4])
+                zero_counts[pos_in_count_array] += row[0] + row[1] # A and C have 0 at first bit
+                zero_counts[pos_in_count_array+1] += row[0] + row[2] # A and G have 0 at second bit
+                pos_in_count_array += 2 
+                
 #    for row in read_counts:
 #        argmax = np.argmax(row)
 #        if np.argmax(row) != 4:
@@ -115,6 +147,78 @@ def filter_counts(read_counts, payload_length):
 #    if pos_in_count_array != 2*payload_length:
 #        return None # length below 
     return (total_counts, zero_counts, consensus) 
+
+def remove_index_1_edit(infile, oligo_file, oligo_fasta_file, index_len, frac_error_not_detected):
+    correct_index = []
+    with open(oligo_file) as f:
+        for line in f:
+            correct_index.append(line[:index_len])
+
+    file_fasta = infile+'.tmp.fasta'
+    file_sam = infile+'.tmp.sam'
+
+    with open(infile) as f:
+        reads_list = [line.rstrip('\n') for line in f.readlines()]
+
+    with open(file_fasta,'w') as f:
+        f.write(''.join(['@'+str(i)+'\n'+reads_list[i]+'\n' for i in range(len(reads_list))]))
+    subprocess.call(['/raid/shubham/minimap2/minimap2 -ax sr '+oligo_fasta_file+' '+file_fasta+' -t 20 > '+file_sam],shell=True)
+    
+    f_index = open(infile+'.tmp.index','w')
+    f_data = open(infile+'.tmp.data','w')
+    count_unaligned = 0
+    count_perfect = 0
+    count_1_sub = 0
+    count_1_ins = 0
+    count_1_del = 0
+    count_aligned_others = 0
+    with open(file_sam) as f:
+        for line in f:
+            if line[0] == '@':
+                continue
+            else:
+                arr = line.split()
+                ref = arr[2]
+                read_id = int(arr[0]) 
+                if ref == '*':
+                    count_unaligned += 1
+                    if np.random.random() < frac_error_not_detected:
+                        f_index.write(str(np.random.randint(len(correct_index)))+'\n')
+                        f_data.write(reads_list[read_id][index_len:]+'\n')
+                else:
+                    ref_id = int((ref.split('_'))[-1])
+                    if distance.levenshtein(reads_list[read_id][:index_len],correct_index[ref_id]) == 0:
+                        count_perfect += 1 
+                        f_index.write(str(ref_id)+'\n')
+                        f_data.write(reads_list[read_id][index_len:]+'\n')
+                    elif distance.levenshtein(reads_list[read_id][:index_len],correct_index[ref_id]) == 1:
+                        count_1_sub += 1 
+                        f_index.write(str(ref_id)+'\n')
+                        f_data.write(reads_list[read_id][index_len:]+'\n')
+                    elif distance.levenshtein(reads_list[read_id][:index_len-1],correct_index[ref_id]) == 1:
+                        count_1_del += 1 
+                        f_index.write(str(ref_id)+'\n')
+                        f_data.write(reads_list[read_id][index_len-1:]+'\n')
+                    elif distance.levenshtein(reads_list[read_id][:index_len+1],correct_index[ref_id]) == 1:
+                        count_1_ins += 1 
+                        f_index.write(str(ref_id)+'\n')
+                        f_data.write(reads_list[read_id][index_len+1:]+'\n')
+                    else:
+                        count_aligned_others += 1
+                        if np.random.random() < frac_error_not_detected:
+                            f_index.write(str(np.random.randint(len(correct_index)))+'\n')
+                            f_data.write(reads_list[read_id][index_len:]+'\n')
+    f_data.close()
+    f_index.close()
+    print('count_unaligned:',count_unaligned)
+    print('count_perfect:',count_perfect)
+    print('count_1_sub:',count_1_sub)
+    print('count_1_ins:',count_1_ins)
+    print('count_1_del:',count_1_del)
+    print('count_aligned_others:',count_aligned_others)
+    os.remove(file_fasta)
+    os.remove(file_sam)
+
 
 def bin2dna_2bpb(bin_string):
 	'''
@@ -498,7 +602,7 @@ def remove_index_noRLL(num_oligos,BCH_bits,infile_name,outfile_data,outfile_inde
 		num_bases_index = block_len
 	count = 0
         deletion_corrected = 0
-        f_failed = open('failed_indices.'+str(np.random.randint(1000000)),'w')
+        f_failed = open('failed_indices','w')
         count_failed = 0
 	with open(infile_name) as infile, open(outfile_data, 'w') as f_data, open(outfile_index, 'w') as f_index:
 		for line in infile:
@@ -836,13 +940,14 @@ def decode_data(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix,file
 	f_out.close()
 	return 0
 
-def encode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix):
+def encode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix,sync='',sync_pos=-1):
 	'''
 	Encode binary data in infile to oligos written to oufile.
 	LDPC_prefix.pchk and LDPC_prefix.gen are the LDPC matrices. LDPC_prefix.systematic contains positions of systematic bits.
 	int(LDPC_dim*LDPC_alpha) should be the number of parity check bits.
 	infile is a bytestream file.
 	'''
+        oligo_length_before_sync = oligo_length-len(sync)
 	f_in = open(infile,'r')
 	data = f_in.read()	
 	bin_data = bytes_to_binary_string(data)
@@ -860,7 +965,7 @@ def encode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
 	else:
 		num_bases_index = index_block_len_noRLL
 
-	num_bases_payload = oligo_length - num_bases_index
+	num_bases_payload = oligo_length_before_sync - num_bases_index
 	bits_per_oligo = num_bases_payload*2
 	num_oligos_data_per_LDPC_block = int(math.ceil(1.0*LDPC_dim/(bits_per_oligo)))
 	num_oligos_parity_per_LDPC_block = int(math.ceil(1.0*parity_bits_per_LDPC_block/bits_per_oligo))
@@ -920,13 +1025,19 @@ def encode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
 			f_out.write(bin2dna_2bpb(parity_bits_block[j*bits_per_oligo:(j+1)*bits_per_oligo])+'\n')
 	f_out.close()
         f_LDPC_output.close()
-	add_index_noRLL(num_oligos_per_LDPC_block*num_LDPC_blocks,BCH_bits,outfile+'.tmp',outfile)
+	add_index_noRLL(num_oligos_per_LDPC_block*num_LDPC_blocks,BCH_bits,outfile+'.tmp',outfile+'.tmp.1')
+        if sync != '':
+            with open(outfile+'.tmp.1') as fin, open(outfile,'w') as fout:
+                for line in fin:
+                    fout.write(line[:sync_pos]+sync+line[sync_pos:])
+            os.remove(outfile+'.tmp.1')
+        else:
+            os.rename(outfile+'.tmp.1',outfile)
 	os.remove(outfile+'.tmp')
-	os.remove(outfile+'.tmp.1')
 	os.remove(outfile+'.tmp.2')
 	return
 
-def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps, mode = 'correct', MSA=False):
+def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps, mode = 'correct', MSA=False, sync='',sync_pos=-1,tmp_index=False):
 	'''
 	Decoder corresponding to encoder encode_data. Need same parameters as that.
 	infile is file containing reads of the same length as the oligo_length.
@@ -951,8 +1062,8 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
 		num_bases_index = index_block_len_noRLL + num_bases_BCH
 	else:
 		num_bases_index = index_block_len_noRLL
-
-	num_bases_payload = oligo_length - num_bases_index
+        oligo_length_before_sync = oligo_length - len(sync)
+	num_bases_payload = oligo_length_before_sync - num_bases_index
 	bits_per_oligo = num_bases_payload*2
 	num_oligos_data_per_LDPC_block = int(math.ceil(1.0*LDPC_dim/(bits_per_oligo)))
 	num_oligos_parity_per_LDPC_block = int(math.ceil(1.0*parity_bits_per_LDPC_block/bits_per_oligo))
@@ -976,9 +1087,9 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
 	parity_pos = np.nonzero(mask)[0]
 	tmp_index_file = infile+'.tmp.index'
 	tmp_data_file = infile+'.tmp.data'
-	# first decode index	
-	remove_index_noRLL(num_LDPC_blocks*num_oligos_per_LDPC_block,BCH_bits,infile,tmp_data_file,tmp_index_file,mode,attempt_indel_cor=True)
-	
+	# first decode index
+        if not tmp_index:
+    	    remove_index_noRLL(num_LDPC_blocks*num_oligos_per_LDPC_block,BCH_bits,infile,tmp_data_file,tmp_index_file,mode,attempt_indel_cor=True)
 	# Now store counts in an array
 	total_counts = np.zeros((num_LDPC_blocks,LDPC_dim+parity_bits_per_LDPC_block))
 	zero_counts = np.zeros((num_LDPC_blocks,LDPC_dim+parity_bits_per_LDPC_block))
@@ -1066,7 +1177,7 @@ def decode_data_noRLL(infile,oligo_length,outfile,BCH_bits,LDPC_alpha,LDPC_prefi
                     # kalign does not create new file if only one read
                     reads = read_in_kalign_fasta(tmp_dir+'/'+str(index)+suffix_fasta)
                 read_counts = get_read_counts(reads)
-                ret = filter_counts(read_counts,num_bases_payload)
+                ret = filter_counts(read_counts,num_bases_payload,sync,sync_pos-num_bases_index)
                 if ret == None:
                     num_indices_wrong_len += 1
                     num_reads_wasted += len(reads)
@@ -1178,7 +1289,7 @@ def sample_reads_indel(infile,outfile,num_reads,sub_prob = 0.0, del_prob = 0.0, 
 	for i in range(num_reads):
 		clean_sample = random.choice(input_lines).rstrip('\n')
                 unique_reads.add(clean_sample)
-                output_sample = simulate_indelsubs(clean_sample, sub_prob, del_prob, ins_prob)
+                output_sample = simulate_indelsubs(clean_sample, sub_prob=sub_prob, del_prob=del_prob, ins_prob=ins_prob)
 		f_out.write("%s\n" %output_sample)
 	f_out.close()
         print('Number of unique oligos = ', len(unique_reads))
@@ -1234,7 +1345,7 @@ def run_experiments(infile_data,infile_oligos,oligo_length,BCH_bits,LDPC_alpha,L
 	return num_successes
 
 
-def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, sub_prob, eps_decode, num_experiments, mode = 'correct',ins_prob=0.0,del_prob=0.0,start_coverage=1.0):
+def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, sub_prob, eps_decode, num_experiments, mode = 'correct',ins_prob=0.0,del_prob=0.0,start_coverage=1.0,sync='',sync_pos=-1):
 	'''
 	Find minimum coverage (in steps of 0.2) when we have 100% successes in num_experiment trials with the given parameters. 
 	'''
@@ -1244,7 +1355,7 @@ def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,f
 	outfile_oligos = infile_data +'.oligo'
 	outfile_reads = infile_data+".reads"
 	outfile_dec = infile_data+".dec"
-	encode_data_noRLL(infile_data,oligo_length,outfile_oligos,BCH_bits,LDPC_alpha,LDPC_prefix)
+	encode_data_noRLL(infile_data,oligo_length,outfile_oligos,BCH_bits,LDPC_alpha,LDPC_prefix,sync=sync,sync_pos=sync_pos)
 	coverage = start_coverage
 	while True:
 		num_reads = int(coverage*file_size*4.0/oligo_length)
@@ -1253,8 +1364,8 @@ def find_min_coverage(infile_data,oligo_length,BCH_bits,LDPC_alpha,LDPC_prefix,f
 
 		num_successes = 0
 		for _ in range(num_experiments):
-			sample_readsi_indel(outfile_oligos,outfile_reads,num_reads,sub_prob,ins_prob,del_prob)
-			status = decode_data_noRLL(outfile_reads,oligo_length,outfile_dec,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps_decode, mode,MSA=True)
+			sample_reads_indel(outfile_oligos,outfile_reads,num_reads,sub_prob=sub_prob,del_prob=del_prob,ins_prob=ins_prob)
+			status = decode_data_noRLL(outfile_reads,oligo_length,outfile_dec,BCH_bits,LDPC_alpha,LDPC_prefix,file_size, eps_decode, mode,MSA=True,sync=sync,sync_pos=sync_pos)
 			if status == 0:
 				with open(outfile_dec,'r') as f:	
 					dec_str = f.read()
@@ -1503,5 +1614,6 @@ def remove_barcodes_flexbar(infile_reads, start_barcode, end_barcode, outfile_re
     print('numreads_reverse',numreads_reverse)
     print('numreads_failed',numreads-numreads_forward-numreads_reverse)
     
-#    os.remove(flexbarinfile+'.fasta')
+    os.remove(flexbarinfile+'.fasta')
+    os.remove(flexbaroutfile+'.log')
     return
