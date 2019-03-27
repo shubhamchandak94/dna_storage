@@ -1,11 +1,11 @@
 import distance
 
-infile_correct = 'ill_code_3_33_2'
-infile_index = 'coded_15.read.1.shuf.200000.trimmed.tmp.index'
-infile_data = 'coded_15.read.1.shuf.200000.trimmed.tmp.data'
-outfile_error_free = 'coded_15.read.1.shuf.200000.trimmed.error_free'
+infile_correct = 'reads_myfile_160K_9_2'
+infile_index = 'analysis_9_39000_flexbar/outfile.success.index'
+infile_data = 'analysis_9_39000_flexbar/outfile.success.consensus'
+outfile_error_free = 'L007406_S1_L001_R1_001.reads.shuf.50000.trimmed.new.error_free'
 
-payload_length = 74
+payload_length = 82
 correct_payloads = []
 correct_index = []
 with open(infile_correct) as f:
@@ -27,6 +27,11 @@ with open(infile_index) as f_index, open(infile_data) as f_data:
             continue
         ham = distance.hamming(l,correct_payloads[index])
         lev = distance.levenshtein(l,correct_payloads[index])
+        if lev >= 1:
+            print('Correct:\n'+correct_payloads[index])
+            print('Read:\n'+l)
+            print('Diff:\n')
+            print(''.join([str(int(l[i] == correct_payloads[index][i])) for i in range(payload_length)]))
         hamming_distances.append(ham)
         hamming_distances_per_index[index].append(ham)
         levenshtein_distances.append(lev)
