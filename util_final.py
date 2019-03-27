@@ -196,15 +196,13 @@ def add_index(num_oligos, BCH_bits, infile_name, outfile_name, bin_index_len):
     '''
     if bin_index_len not in prp_a:
         raise Exception('Invalid index_len (see prp_a dict for valid options)')
-    MAX_OLIGOS = 2**index_len
+    MAX_OLIGOS = 2**bin_index_len
     if num_oligos > MAX_OLIGOS:
         raise Exception('Too many oligos for index len')
 
     num_bytes_BCH_input = math.ceil(bin_index_len/8)
 
     if BCH_bits != 0:
-        if BCH_bits_per_error*BCH_bits + num_bytes*8 >= 2**BCH_bits_per_error:
-            raise Exception('Invalid BCH parameters')
         bch = bchlib.BCH(BCH_POLYNOMIAL, BCH_bits)
     index = 0
     with open(infile_name) as infile, open(outfile_name, 'w') as outfile:
@@ -230,7 +228,7 @@ def decode_index_prp(BCH_cor_index, bin_index_len, prp_a_inv_param, prp_b_param,
     '''
     Apply inverse pseudorandom transformation 
     '''
-    bin_index = (bytes_to_binary_string(cor_index))[-bin_index_len:]
+    bin_index = (bytes_to_binary_string(BCH_cor_index))[-bin_index_len:]
     index_prp = int(bin_index, 2)
     return ((prp_a_inv_param*(index_prp-prp_b_param)) % MAX_OLIGOS)
 
@@ -260,7 +258,7 @@ def remove_index(num_oligos, BCH_bits, infile_name, outfile_data, outfile_index,
         max_bitflips_sub = BCH_bits
     if bin_index_len not in prp_a:
         raise Exception('Invalid index_len (see prp_a dict for valid options)')
-    MAX_OLIGOS = 2**index_len
+    MAX_OLIGOS = 2**bin_index_len
     if num_oligos > MAX_OLIGOS:
         raise Exception('Too many oligos for index len')
     dna_index_len = bin_index_len//2
@@ -333,6 +331,8 @@ def remove_index(num_oligos, BCH_bits, infile_name, outfile_data, outfile_index,
                     f_data.write(successful_indices[0][1])
                     f_index.write(str(successful_indices[0][0])+'\n')
                     count_success += 1
+                    if indel_corrected:
+                        count_indel_corrected += 1
                 else:
                     count_failed += 1
             else:
@@ -345,11 +345,9 @@ def remove_index(num_oligos, BCH_bits, infile_name, outfile_data, outfile_index,
                         f_data.write(dna_data)
                         f_index.write(str(index)+'\n')
                         count_success += 1
-                        if indel_corrected:
-                            count_indel_corrected += 1
                     else:
                         count_failed += 1
-    print("Successfully decoded "+count_success+" indices")
+    print("Successfully decoded", count_success, "indices")
     print("Deletion corrected", count_indel_corrected)
     print("Failed to decode", count_failed, "indices")
 
@@ -362,7 +360,7 @@ def encode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
     infile is a bytestream file.
     '''
     oligo_length_before_sync = oligo_length-len(sync)
-    f_in = open(infile, 'r')
+    f_in = open(infile, 'rb')
     data = f_in.read()
     bin_data = bytes_to_binary_string(data)
 
@@ -388,7 +386,7 @@ def encode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
         num_oligos_parity_per_LDPC_block
     overall_rate = data_len / \
         (num_oligos_per_LDPC_block*num_LDPC_blocks*oligo_length)
-    print('overall rate: '+overall_rate+' bpb')
+    print('overall rate:',overall_rate,'bpb')
     print('num oligos:', num_LDPC_blocks*num_oligos_per_LDPC_block)
     print('oligo length:', oligo_length, 'bases')
     print('bases per oligo for index + index parity:', num_bases_index)
@@ -416,7 +414,7 @@ def encode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
     f_LDPC_input.write(bin_data)
     f_LDPC_input.close()
     subprocess.call(["./LDPC-codes/encode "+LDPC_prefix+".pchk " +
-                     LDPC_prefix+".gen "+outfile+'.tmp.1 '+outfile+'.tmp.2 '], shell=True)
+                     LDPC_prefix+".gen "+outfile+'.tmp.1 '+outfile+'.tmp.2'], shell=True)
     # read parity bits
     f_LDPC_output = open(outfile+'.tmp.2', 'r')
     for i in range(num_LDPC_blocks):
@@ -445,8 +443,8 @@ def encode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
                 parity_bits_block[j*bits_per_oligo:(j+1)*bits_per_oligo])+'\n')
     f_out.close()
     f_LDPC_output.close()
-    add_index_noRLL(num_oligos_per_LDPC_block*num_LDPC_blocks,
-                    BCH_bits, outfile+'.tmp', outfile+'.tmp.1')
+    add_index(num_oligos_per_LDPC_block*num_LDPC_blocks,
+              BCH_bits, outfile+'.tmp', outfile+'.tmp.1', bin_index_len)
     if sync != '':
         with open(outfile+'.tmp.1') as fin, open(outfile, 'w') as fout:
             for line in fin:
@@ -459,7 +457,7 @@ def encode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
     return
 
 
-def decode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix, file_size, eps, mode='correct', sync='', sync_pos=-1):
+def decode_data(infile, oligo_length, outfile, bin_index_len, BCH_bits, LDPC_alpha, LDPC_prefix, file_size, eps, sync='', sync_pos=-1, max_bitflips_sub=None, max_bitflips_indel=0):
     '''
     Decoder corresponding to encoder encode_data. Need same parameters as that.
     infile is file containing reads of the same length as the oligo_length.
@@ -479,9 +477,10 @@ def decode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
     if BCH_bits != 0:
         # calculate number of bases used for index
         num_bases_BCH = BCH_bits*BCH_bits_per_error//2
-        num_bases_index = index_block_len_noRLL + num_bases_BCH
+        num_bases_index = bin_index_len//2 + num_bases_BCH
     else:
-        num_bases_index = index_block_len_noRLL
+        num_bases_index = bin_index_len//2
+
     oligo_length_before_sync = oligo_length - len(sync)
     num_bases_payload = oligo_length_before_sync - num_bases_index
     bits_per_oligo = num_bases_payload*2
@@ -515,7 +514,7 @@ def decode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
     tmp_data_file = infile+'.tmp.data'
     # first decode index
     remove_index(num_LDPC_blocks*num_oligos_per_LDPC_block, BCH_bits,
-                 infile, tmp_data_file, tmp_index_file, mode, attempt_indel_cor=True)
+                 infile, tmp_data_file, tmp_index_file, bin_index_len, attempt_indel_cor=True, max_bitflips_sub=max_bitflips_sub, max_bitflips_indel=max_bitflips_indel)
     # Now store counts in an array
     total_counts = np.zeros(
         (num_LDPC_blocks, LDPC_dim+parity_bits_per_LDPC_block))
@@ -524,7 +523,7 @@ def decode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
 
     # Do MSA using Kalign
     index_set = set([])
-    tmp_dir = infile+'tmp.splitted_read'
+    tmp_dir = infile+'.tmp.splitted_read'
     os.mkdir(tmp_dir)
     with open(tmp_data_file, 'r') as infile_data, open(tmp_index_file, 'r') as infile_index:
         for line_data, line_index in zip(infile_data, infile_index):
@@ -539,7 +538,7 @@ def decode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
     print('Running Kalign for MSA for each index')
     for index in index_set:
         subprocess.run(['./kalign2_current/kalign', tmp_dir+'/'+str(index)+suffix_fasta,
-                        ' ' + tmp_dir+'/'+str(index)+suffix_kalign, '-quiet'], shell=True)
+                        tmp_dir+'/'+str(index)+suffix_kalign, '-quiet'])
     num_indices_correct_len = 0
     num_reads_utilized = 0
     num_indices_wrong_len = 0
@@ -560,7 +559,7 @@ def decode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
         else:
             num_indices_correct_len += 1
             num_reads_utilized += len(reads)
-            block_number = index/num_oligos_per_LDPC_block
+            block_number = index//num_oligos_per_LDPC_block
             index_in_block = index % num_oligos_per_LDPC_block
             if index_in_block < num_oligos_data_per_LDPC_block:
                 # data oligo
@@ -601,8 +600,8 @@ def decode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
         for j in range(LDPC_dim+parity_bits_per_LDPC_block):
             f_out.write(str(llr[i][j])+' ')
         f_out.close()
-        subprocess.run(["./LDPC-codes/decode", LDPC_prefix+".pchk ", outfile+'.tmp ',
-                        outfile+'.tmp.1', "misc", '0.0', 'prprp', str(LDPC_max_iter)], shell=True)
+        subprocess.run(["./LDPC-codes/decode "+LDPC_prefix+".pchk "+outfile+'.tmp ' +
+                        outfile+'.tmp.1 '+"misc 0.0 prprp "+str(LDPC_max_iter)], shell=True)
         f_in = open(outfile+'.tmp.1', 'r')
         LDPC_decoded_str = f_in.read().rstrip('\n')
         f_in.close()
@@ -613,7 +612,7 @@ def decode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
     os.remove(outfile+".tmp.1")
     decoded_str = ''.join(decoded_data)
     decoded_str = decoded_str[:data_len]
-    f_out = open(outfile, 'w')
+    f_out = open(outfile, 'wb')
     f_out.write(binary_string_to_bytes(decoded_str))
     f_out.close()
     return 0
@@ -676,21 +675,21 @@ def sample_reads_indel(infile, outfile, num_reads, sub_prob=0.0, del_prob=0.0, i
     return
 
 
-def find_min_coverage(infile_data, oligo_length, BCH_bits, LDPC_alpha, LDPC_prefix, file_size, sub_prob, eps_decode, num_experiments, mode='correct', ins_prob=0.0, del_prob=0.0, start_coverage=1.0, sync='', sync_pos=-1):
+def find_min_coverage(infile_data, oligo_length, BCH_bits, LDPC_alpha, LDPC_prefix, bin_index_len, file_size, sub_prob, eps_decode, num_experiments, ins_prob=0.0, del_prob=0.0, start_coverage=1.0, sync='', sync_pos=-1, max_bitflips_sub=None, max_bitflips_indel=0):
     '''
-    Find minimum coverage (in steps of 0.2) when we have 100% successes in num_experiment trials with the given parameters.
+    Find minimum coverage (in steps of 0.1) (coverage in base/bit) when we have 100% successes in num_experiment trials with the given parameters.
     '''
-    with open(infile_data, 'r') as f:
+    with open(infile_data, 'rb') as f:
         orig_str = f.read()
     # Encode data
     outfile_oligos = infile_data + '.tmp.oligo'
     outfile_reads = infile_data+".tmp.reads"
     outfile_dec = infile_data+".tmp.dec"
-    encode_data_noRLL(infile_data, oligo_length, outfile_oligos,
-                      BCH_bits, LDPC_alpha, LDPC_prefix, sync=sync, sync_pos=sync_pos)
+    encode_data(infile_data, oligo_length, outfile_oligos,
+                      BCH_bits, LDPC_alpha, LDPC_prefix, sync=sync, sync_pos=sync_pos, bin_index_len = bin_index_len)
     coverage = start_coverage
     while True:
-        num_reads = int(coverage*file_size*4.0/oligo_length)
+        num_reads = int(coverage*file_size*8.0/oligo_length)
         print('coverage:', coverage)
         print('num_reads:', num_reads)
 
@@ -698,10 +697,10 @@ def find_min_coverage(infile_data, oligo_length, BCH_bits, LDPC_alpha, LDPC_pref
         for _ in range(num_experiments):
             sample_reads_indel(outfile_oligos, outfile_reads, num_reads,
                                sub_prob=sub_prob, del_prob=del_prob, ins_prob=ins_prob)
-            status = decode_data_noRLL(outfile_reads, oligo_length, outfile_dec, BCH_bits, LDPC_alpha,
-                                       LDPC_prefix, file_size, eps_decode, mode, MSA=True, sync=sync, sync_pos=sync_pos)
+            status = decode_data(outfile_reads, oligo_length, outfile_dec, bin_index_len, BCH_bits, LDPC_alpha,
+                                       LDPC_prefix, file_size, eps_decode, sync=sync, sync_pos=sync_pos, max_bitflips_sub = max_bitflips_sub, max_bitflips_indel=max_bitflips_indel)
             if status == 0:
-                with open(outfile_dec, 'r') as f:
+                with open(outfile_dec, 'rb') as f:
                     dec_str = f.read()
                 if dec_str == orig_str:
                     num_successes += 1
@@ -711,7 +710,7 @@ def find_min_coverage(infile_data, oligo_length, BCH_bits, LDPC_alpha, LDPC_pref
                 break
         if num_successes == num_experiments:
             break
-        coverage += 0.2
+        coverage += 0.1
     os.remove(outfile_reads)
     os.remove(outfile_dec)
     os.remove(outfile_oligos)
@@ -756,8 +755,7 @@ def remove_barcodes_flexbar(infile_reads, start_barcode, end_barcode, outfile_re
                         '-at', str(max_error_rate),
                         '-ae', 'LEFT',
                         '-g'  # to tag reads with barcode removed
-                        ],
-                       shell=True)
+                        ])
         os.rename(flexbaroutfile+'.fasta', flexbarinfile+'.fasta')
         # end barcode
         subprocess.run(['flexbar',
@@ -770,8 +768,7 @@ def remove_barcodes_flexbar(infile_reads, start_barcode, end_barcode, outfile_re
                         '-at', str(max_error_rate),
                         '-ae', 'RIGHT',
                         '-g'  # to tag reads with barcode removed
-                        ],
-                       shell=True)
+                        ])
         os.rename(flexbaroutfile+'.fasta', flexbarinfile+'.fasta')
         # now divide reads into reads that had both adapters removed and those that didn't
         with open(flexbarinfile+'.fasta', 'r') as f1, open(flexbaroutfile+'.fasta', 'w') as f2:
