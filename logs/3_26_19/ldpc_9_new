@@ -1,0 +1,1802 @@
+frac_random_reads: 0.15
+BCH_bits: 1
+sync: 
+del_prob: 0.01
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Encoded 5 blocks, source block size 256000, encoded block size 384000
+coverage: 2.5
+num_reads: 32000
+Number of unique oligos = 9881
+Number of random reads = 4800
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 27714 indices
+Deletion corrected 1829
+Failed to decode 4286 indices
+Number of unique indices: 9907
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7112
+Number of indices with incorrect length consensus: 2795
+Number of reads utilized in the counts 22573
+Number of reads not utilized in the counts 5141
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 18% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 18% bit changes
+coverage: 2.6
+num_reads: 33280
+Number of unique oligos = 9897
+Number of random reads = 4992
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 28836 indices
+Deletion corrected 1908
+Failed to decode 4444 indices
+Number of unique indices: 9952
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7266
+Number of indices with incorrect length consensus: 2686
+Number of reads utilized in the counts 23703
+Number of reads not utilized in the counts 5133
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+coverage: 2.7
+num_reads: 34560
+Number of unique oligos = 9971
+Number of random reads = 5184
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 30088 indices
+Deletion corrected 2062
+Failed to decode 4472 indices
+Number of unique indices: 10037
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7444
+Number of indices with incorrect length consensus: 2593
+Number of reads utilized in the counts 24961
+Number of reads not utilized in the counts 5127
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+coverage: 2.8000000000000003
+num_reads: 35840
+Number of unique oligos = 10066
+Number of random reads = 5376
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 31117 indices
+Deletion corrected 2087
+Failed to decode 4723 indices
+Number of unique indices: 10121
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7573
+Number of indices with incorrect length consensus: 2548
+Number of reads utilized in the counts 25987
+Number of reads not utilized in the counts 5130
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+coverage: 2.9000000000000004
+num_reads: 37120
+Number of unique oligos = 10157
+Number of random reads = 5568
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 32232 indices
+Deletion corrected 2190
+Failed to decode 4888 indices
+Number of unique indices: 10201
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7694
+Number of indices with incorrect length consensus: 2507
+Number of reads utilized in the counts 27163
+Number of reads not utilized in the counts 5069
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+coverage: 3.0000000000000004
+num_reads: 38400
+Number of unique oligos = 10169
+Number of random reads = 5760
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 33340 indices
+Deletion corrected 2141
+Failed to decode 5060 indices
+Number of unique indices: 10203
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7822
+Number of indices with incorrect length consensus: 2381
+Number of reads utilized in the counts 28297
+Number of reads not utilized in the counts 5043
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+coverage: 3.1000000000000005
+num_reads: 39680
+Number of unique oligos = 10232
+Number of random reads = 5952
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 34449 indices
+Deletion corrected 2338
+Failed to decode 5231 indices
+Number of unique indices: 10238
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7966
+Number of indices with incorrect length consensus: 2272
+Number of reads utilized in the counts 29598
+Number of reads not utilized in the counts 4851
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+coverage: 3.2000000000000006
+num_reads: 40960
+Number of unique oligos = 10247
+Number of random reads = 6144
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 35543 indices
+Deletion corrected 2382
+Failed to decode 5417 indices
+Number of unique indices: 10274
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8062
+Number of indices with incorrect length consensus: 2212
+Number of reads utilized in the counts 30774
+Number of reads not utilized in the counts 4769
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+coverage: 3.3000000000000007
+num_reads: 42240
+Number of unique oligos = 10316
+Number of random reads = 6336
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 36729 indices
+Deletion corrected 2424
+Failed to decode 5511 indices
+Number of unique indices: 10335
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8200
+Number of indices with incorrect length consensus: 2135
+Number of reads utilized in the counts 32035
+Number of reads not utilized in the counts 4694
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+coverage: 3.400000000000001
+num_reads: 43520
+Number of unique oligos = 10308
+Number of random reads = 6528
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 37705 indices
+Deletion corrected 2425
+Failed to decode 5815 indices
+Number of unique indices: 10348
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8341
+Number of indices with incorrect length consensus: 2007
+Number of reads utilized in the counts 33277
+Number of reads not utilized in the counts 4428
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+coverage: 3.500000000000001
+num_reads: 44800
+Number of unique oligos = 10359
+Number of random reads = 6720
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 38967 indices
+Deletion corrected 2687
+Failed to decode 5833 indices
+Number of unique indices: 10419
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8453
+Number of indices with incorrect length consensus: 1966
+Number of reads utilized in the counts 34586
+Number of reads not utilized in the counts 4381
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 23.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+coverage: 3.600000000000001
+num_reads: 46080
+Number of unique oligos = 10413
+Number of random reads = 6912
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 39998 indices
+Deletion corrected 2649
+Failed to decode 6082 indices
+Number of unique indices: 10424
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8650
+Number of indices with incorrect length consensus: 1774
+Number of reads utilized in the counts 35931
+Number of reads not utilized in the counts 4067
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 21.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 30.0 iterations, 11% bit changes
+Number of unique oligos = 10391
+Number of random reads = 6912
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 39964 indices
+Deletion corrected 2684
+Failed to decode 6116 indices
+Number of unique indices: 10403
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8602
+Number of indices with incorrect length consensus: 1801
+Number of reads utilized in the counts 35842
+Number of reads not utilized in the counts 4122
+Decoded 1 blocks, 1 valid.  Average 40.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 10% bit changes
+coverage: 3.700000000000001
+num_reads: 47360
+Number of unique oligos = 10433
+Number of random reads = 7104
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 41112 indices
+Deletion corrected 2685
+Failed to decode 6248 indices
+Number of unique indices: 10442
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8658
+Number of indices with incorrect length consensus: 1784
+Number of reads utilized in the counts 36872
+Number of reads not utilized in the counts 4240
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 24.0 iterations, 11% bit changes
+Number of unique oligos = 10429
+Number of random reads = 7104
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 41089 indices
+Deletion corrected 2742
+Failed to decode 6271 indices
+Number of unique indices: 10436
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8637
+Number of indices with incorrect length consensus: 1799
+Number of reads utilized in the counts 36879
+Number of reads not utilized in the counts 4210
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 21.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 10% bit changes
+Number of unique oligos = 10447
+Number of random reads = 7104
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 41219 indices
+Deletion corrected 2757
+Failed to decode 6141 indices
+Number of unique indices: 10458
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8595
+Number of indices with incorrect length consensus: 1863
+Number of reads utilized in the counts 36867
+Number of reads not utilized in the counts 4352
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 30.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+coverage: 3.800000000000001
+num_reads: 48640
+Number of unique oligos = 10474
+Number of random reads = 7296
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 42099 indices
+Deletion corrected 2719
+Failed to decode 6541 indices
+Number of unique indices: 10475
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8707
+Number of indices with incorrect length consensus: 1768
+Number of reads utilized in the counts 37889
+Number of reads not utilized in the counts 4210
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 10% bit changes
+Number of unique oligos = 10460
+Number of random reads = 7296
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 42208 indices
+Deletion corrected 2804
+Failed to decode 6432 indices
+Number of unique indices: 10476
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8708
+Number of indices with incorrect length consensus: 1768
+Number of reads utilized in the counts 37932
+Number of reads not utilized in the counts 4276
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 10% bit changes
+Number of unique oligos = 10445
+Number of random reads = 7296
+overall rate: 1.199063231850117 bpb
+num oligos: 10675
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3334894613583138
+number of LDPC blocks: 5
+Successfully decoded 42200 indices
+Deletion corrected 2836
+Failed to decode 6440 indices
+Number of unique indices: 10488
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8657
+Number of indices with incorrect length consensus: 1831
+Number of reads utilized in the counts 37832
+Number of reads not utilized in the counts 4368
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 11% bit changes
+min_coverage 3.800000000000001
+BCH_bits: 1
+sync: AGT
+del_prob: 0.01
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Encoded 5 blocks, source block size 256000, encoded block size 384000
+coverage: 2.5
+num_reads: 32000
+Number of unique oligos = 10090
+Number of random reads = 4800
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 27992 indices
+Deletion corrected 1872
+Failed to decode 4008 indices
+Number of unique indices: 10168
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9105
+Number of indices with incorrect length consensus: 1063
+Number of reads utilized in the counts 25895
+Number of reads not utilized in the counts 2097
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+coverage: 2.6
+num_reads: 33280
+Number of unique oligos = 10167
+Number of random reads = 4992
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 28920 indices
+Deletion corrected 1877
+Failed to decode 4360 indices
+Number of unique indices: 10232
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9240
+Number of indices with incorrect length consensus: 992
+Number of reads utilized in the counts 26964
+Number of reads not utilized in the counts 1956
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+coverage: 2.7
+num_reads: 34560
+Number of unique oligos = 10240
+Number of random reads = 5184
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 30056 indices
+Deletion corrected 2023
+Failed to decode 4504 indices
+Number of unique indices: 10284
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9304
+Number of indices with incorrect length consensus: 980
+Number of reads utilized in the counts 28103
+Number of reads not utilized in the counts 1953
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+coverage: 2.8000000000000003
+num_reads: 35840
+Number of unique oligos = 10356
+Number of random reads = 5376
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 31203 indices
+Deletion corrected 2075
+Failed to decode 4637 indices
+Number of unique indices: 10372
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9414
+Number of indices with incorrect length consensus: 958
+Number of reads utilized in the counts 29240
+Number of reads not utilized in the counts 1963
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+coverage: 2.9000000000000004
+num_reads: 37120
+Number of unique oligos = 10382
+Number of random reads = 5568
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 32314 indices
+Deletion corrected 2156
+Failed to decode 4806 indices
+Number of unique indices: 10426
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9525
+Number of indices with incorrect length consensus: 901
+Number of reads utilized in the counts 30385
+Number of reads not utilized in the counts 1929
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+coverage: 3.0000000000000004
+num_reads: 38400
+Number of unique oligos = 10530
+Number of random reads = 5760
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 33519 indices
+Deletion corrected 2214
+Failed to decode 4881 indices
+Number of unique indices: 10541
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9662
+Number of indices with incorrect length consensus: 879
+Number of reads utilized in the counts 31650
+Number of reads not utilized in the counts 1869
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+coverage: 3.1000000000000005
+num_reads: 39680
+Number of unique oligos = 10521
+Number of random reads = 5952
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 34467 indices
+Deletion corrected 2236
+Failed to decode 5213 indices
+Number of unique indices: 10551
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9670
+Number of indices with incorrect length consensus: 881
+Number of reads utilized in the counts 32613
+Number of reads not utilized in the counts 1854
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+coverage: 3.2000000000000006
+num_reads: 40960
+Number of unique oligos = 10591
+Number of random reads = 6144
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 35710 indices
+Deletion corrected 2352
+Failed to decode 5250 indices
+Number of unique indices: 10632
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9765
+Number of indices with incorrect length consensus: 867
+Number of reads utilized in the counts 33678
+Number of reads not utilized in the counts 2032
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+coverage: 3.3000000000000007
+num_reads: 42240
+Number of unique oligos = 10634
+Number of random reads = 6336
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 36760 indices
+Deletion corrected 2470
+Failed to decode 5480 indices
+Number of unique indices: 10667
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9783
+Number of indices with incorrect length consensus: 884
+Number of reads utilized in the counts 34786
+Number of reads not utilized in the counts 1974
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 21.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 27.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+coverage: 3.400000000000001
+num_reads: 43520
+Number of unique oligos = 10640
+Number of random reads = 6528
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 37909 indices
+Deletion corrected 2546
+Failed to decode 5611 indices
+Number of unique indices: 10686
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9893
+Number of indices with incorrect length consensus: 793
+Number of reads utilized in the counts 36133
+Number of reads not utilized in the counts 1776
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 10% bit changes
+Number of unique oligos = 10636
+Number of random reads = 6528
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 37838 indices
+Deletion corrected 2474
+Failed to decode 5682 indices
+Number of unique indices: 10656
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9871
+Number of indices with incorrect length consensus: 785
+Number of reads utilized in the counts 36038
+Number of reads not utilized in the counts 1800
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 10% bit changes
+coverage: 3.500000000000001
+num_reads: 44800
+Number of unique oligos = 10710
+Number of random reads = 6720
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 38951 indices
+Deletion corrected 2515
+Failed to decode 5849 indices
+Number of unique indices: 10726
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 10009
+Number of indices with incorrect length consensus: 717
+Number of reads utilized in the counts 37311
+Number of reads not utilized in the counts 1640
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 9% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 9% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 9% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 9% bit changes
+Number of unique oligos = 10674
+Number of random reads = 6720
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 39129 indices
+Deletion corrected 2538
+Failed to decode 5671 indices
+Number of unique indices: 10724
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9917
+Number of indices with incorrect length consensus: 807
+Number of reads utilized in the counts 37210
+Number of reads not utilized in the counts 1919
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 9% bit changes
+Decoded 1 blocks, 1 valid.  Average 21.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 9% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 9% bit changes
+Number of unique oligos = 10690
+Number of random reads = 6720
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 38973 indices
+Deletion corrected 2653
+Failed to decode 5827 indices
+Number of unique indices: 10706
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9949
+Number of indices with incorrect length consensus: 757
+Number of reads utilized in the counts 37150
+Number of reads not utilized in the counts 1823
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 9% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 9% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 9% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 9% bit changes
+min_coverage 3.500000000000001
+BCH_bits: 2
+sync: 
+del_prob: 0.01
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Encoded 5 blocks, source block size 256000, encoded block size 384000
+coverage: 2.5
+num_reads: 32000
+Number of unique oligos = 10108
+Number of random reads = 4800
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 26048 indices
+Deletion corrected 1343
+Failed to decode 5952 indices
+Number of unique indices: 10015
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7549
+Number of indices with incorrect length consensus: 2466
+Number of reads utilized in the counts 22311
+Number of reads not utilized in the counts 3737
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+coverage: 2.6
+num_reads: 33280
+Number of unique oligos = 10178
+Number of random reads = 4992
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 27047 indices
+Deletion corrected 1438
+Failed to decode 6233 indices
+Number of unique indices: 10057
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7746
+Number of indices with incorrect length consensus: 2311
+Number of reads utilized in the counts 23565
+Number of reads not utilized in the counts 3482
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+coverage: 2.7
+num_reads: 34560
+Number of unique oligos = 10240
+Number of random reads = 5184
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 28107 indices
+Deletion corrected 1445
+Failed to decode 6453 indices
+Number of unique indices: 10151
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7953
+Number of indices with incorrect length consensus: 2198
+Number of reads utilized in the counts 24648
+Number of reads not utilized in the counts 3459
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+coverage: 2.8000000000000003
+num_reads: 35840
+Number of unique oligos = 10338
+Number of random reads = 5376
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 29162 indices
+Deletion corrected 1504
+Failed to decode 6678 indices
+Number of unique indices: 10283
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8106
+Number of indices with incorrect length consensus: 2177
+Number of reads utilized in the counts 25718
+Number of reads not utilized in the counts 3444
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+coverage: 2.9000000000000004
+num_reads: 37120
+Number of unique oligos = 10430
+Number of random reads = 5568
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 30175 indices
+Deletion corrected 1621
+Failed to decode 6945 indices
+Number of unique indices: 10348
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8277
+Number of indices with incorrect length consensus: 2071
+Number of reads utilized in the counts 26891
+Number of reads not utilized in the counts 3284
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 1 valid.  Average 33.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+coverage: 3.0000000000000004
+num_reads: 38400
+Number of unique oligos = 10482
+Number of random reads = 5760
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 31218 indices
+Deletion corrected 1661
+Failed to decode 7182 indices
+Number of unique indices: 10410
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8432
+Number of indices with incorrect length consensus: 1978
+Number of reads utilized in the counts 28028
+Number of reads not utilized in the counts 3190
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 26.0 iterations, 13% bit changes
+Decoded 1 blocks, 1 valid.  Average 26.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 21.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 22.0 iterations, 12% bit changes
+Number of unique oligos = 10450
+Number of random reads = 5760
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 31303 indices
+Deletion corrected 1665
+Failed to decode 7097 indices
+Number of unique indices: 10381
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8395
+Number of indices with incorrect length consensus: 1986
+Number of reads utilized in the counts 28023
+Number of reads not utilized in the counts 3280
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 1 valid.  Average 23.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+coverage: 3.1000000000000005
+num_reads: 39680
+Number of unique oligos = 10491
+Number of random reads = 5952
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 32366 indices
+Deletion corrected 1798
+Failed to decode 7314 indices
+Number of unique indices: 10434
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8570
+Number of indices with incorrect length consensus: 1864
+Number of reads utilized in the counts 29308
+Number of reads not utilized in the counts 3058
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 27.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 11% bit changes
+coverage: 3.2000000000000006
+num_reads: 40960
+Number of unique oligos = 10554
+Number of random reads = 6144
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 33303 indices
+Deletion corrected 1795
+Failed to decode 7657 indices
+Number of unique indices: 10483
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8580
+Number of indices with incorrect length consensus: 1903
+Number of reads utilized in the counts 30074
+Number of reads not utilized in the counts 3229
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Number of unique oligos = 10543
+Number of random reads = 6144
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 33393 indices
+Deletion corrected 1770
+Failed to decode 7567 indices
+Number of unique indices: 10481
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8667
+Number of indices with incorrect length consensus: 1814
+Number of reads utilized in the counts 30385
+Number of reads not utilized in the counts 3008
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 12% bit changes
+Number of unique oligos = 10554
+Number of random reads = 6144
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 33325 indices
+Deletion corrected 1794
+Failed to decode 7635 indices
+Number of unique indices: 10483
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8584
+Number of indices with incorrect length consensus: 1899
+Number of reads utilized in the counts 30191
+Number of reads not utilized in the counts 3134
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 12% bit changes
+coverage: 3.3000000000000007
+num_reads: 42240
+Number of unique oligos = 10620
+Number of random reads = 6336
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 34392 indices
+Deletion corrected 1752
+Failed to decode 7848 indices
+Number of unique indices: 10563
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8803
+Number of indices with incorrect length consensus: 1760
+Number of reads utilized in the counts 31342
+Number of reads not utilized in the counts 3050
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Number of unique oligos = 10604
+Number of random reads = 6336
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 34438 indices
+Deletion corrected 1824
+Failed to decode 7802 indices
+Number of unique indices: 10531
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8759
+Number of indices with incorrect length consensus: 1772
+Number of reads utilized in the counts 31463
+Number of reads not utilized in the counts 2975
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 11% bit changes
+Number of unique oligos = 10617
+Number of random reads = 6336
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 34393 indices
+Deletion corrected 1763
+Failed to decode 7847 indices
+Number of unique indices: 10555
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8746
+Number of indices with incorrect length consensus: 1809
+Number of reads utilized in the counts 31237
+Number of reads not utilized in the counts 3156
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+min_coverage 3.3000000000000007
+BCH_bits: 2
+sync: AGT
+del_prob: 0.01
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Encoded 5 blocks, source block size 256000, encoded block size 384000
+coverage: 2.5
+num_reads: 32000
+Number of unique oligos = 10362
+Number of random reads = 4800
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 26045 indices
+Deletion corrected 1334
+Failed to decode 5955 indices
+Number of unique indices: 10263
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9644
+Number of indices with incorrect length consensus: 619
+Number of reads utilized in the counts 25167
+Number of reads not utilized in the counts 878
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 25.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+coverage: 2.6
+num_reads: 33280
+Number of unique oligos = 10496
+Number of random reads = 4992
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 27120 indices
+Deletion corrected 1482
+Failed to decode 6160 indices
+Number of unique indices: 10375
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9816
+Number of indices with incorrect length consensus: 559
+Number of reads utilized in the counts 26299
+Number of reads not utilized in the counts 821
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+coverage: 2.7
+num_reads: 34560
+Number of unique oligos = 10554
+Number of random reads = 5184
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 28193 indices
+Deletion corrected 1406
+Failed to decode 6367 indices
+Number of unique indices: 10449
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9902
+Number of indices with incorrect length consensus: 547
+Number of reads utilized in the counts 27385
+Number of reads not utilized in the counts 808
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 11% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+coverage: 2.8000000000000003
+num_reads: 35840
+Number of unique oligos = 10560
+Number of random reads = 5376
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 29263 indices
+Deletion corrected 1552
+Failed to decode 6577 indices
+Number of unique indices: 10480
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9928
+Number of indices with incorrect length consensus: 552
+Number of reads utilized in the counts 28461
+Number of reads not utilized in the counts 802
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 27.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 11% bit changes
+Number of unique oligos = 10645
+Number of random reads = 5376
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 29188 indices
+Deletion corrected 1467
+Failed to decode 6652 indices
+Number of unique indices: 10533
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 10026
+Number of indices with incorrect length consensus: 507
+Number of reads utilized in the counts 28443
+Number of reads not utilized in the counts 745
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 21.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 11% bit changes
+Number of unique oligos = 10603
+Number of random reads = 5376
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 13
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 29184 indices
+Deletion corrected 1515
+Failed to decode 6656 indices
+Number of unique indices: 10525
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9980
+Number of indices with incorrect length consensus: 545
+Number of reads utilized in the counts 28376
+Number of reads not utilized in the counts 808
+Decoded 1 blocks, 1 valid.  Average 24.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 11% bit changes
+min_coverage 2.8000000000000003
+BCH_bits: 3
+sync: 
+del_prob: 0.01
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Encoded 5 blocks, source block size 256000, encoded block size 384000
+coverage: 2.5
+num_reads: 32000
+Number of unique oligos = 10417
+Number of random reads = 4800
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 25505 indices
+Deletion corrected 1387
+Failed to decode 6495 indices
+Number of unique indices: 10212
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7666
+Number of indices with incorrect length consensus: 2546
+Number of reads utilized in the counts 21785
+Number of reads not utilized in the counts 3720
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 17% bit changes
+coverage: 2.6
+num_reads: 33280
+Number of unique oligos = 10466
+Number of random reads = 4992
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 26524 indices
+Deletion corrected 1537
+Failed to decode 6756 indices
+Number of unique indices: 10295
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 7871
+Number of indices with incorrect length consensus: 2424
+Number of reads utilized in the counts 22892
+Number of reads not utilized in the counts 3632
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 16% bit changes
+coverage: 2.7
+num_reads: 34560
+Number of unique oligos = 10585
+Number of random reads = 5184
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 27609 indices
+Deletion corrected 1553
+Failed to decode 6951 indices
+Number of unique indices: 10425
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8133
+Number of indices with incorrect length consensus: 2292
+Number of reads utilized in the counts 24168
+Number of reads not utilized in the counts 3441
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+coverage: 2.8000000000000003
+num_reads: 35840
+Number of unique oligos = 10612
+Number of random reads = 5376
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 28537 indices
+Deletion corrected 1609
+Failed to decode 7303 indices
+Number of unique indices: 10476
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8181
+Number of indices with incorrect length consensus: 2295
+Number of reads utilized in the counts 25005
+Number of reads not utilized in the counts 3532
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 15% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+coverage: 2.9000000000000004
+num_reads: 37120
+Number of unique oligos = 10699
+Number of random reads = 5568
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 29568 indices
+Deletion corrected 1658
+Failed to decode 7552 indices
+Number of unique indices: 10542
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8296
+Number of indices with incorrect length consensus: 2246
+Number of reads utilized in the counts 26090
+Number of reads not utilized in the counts 3478
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+coverage: 3.0000000000000004
+num_reads: 38400
+Number of unique oligos = 10738
+Number of random reads = 5760
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 30678 indices
+Deletion corrected 1692
+Failed to decode 7722 indices
+Number of unique indices: 10603
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8461
+Number of indices with incorrect length consensus: 2142
+Number of reads utilized in the counts 27346
+Number of reads not utilized in the counts 3332
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+coverage: 3.1000000000000005
+num_reads: 39680
+Number of unique oligos = 10838
+Number of random reads = 5952
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 31646 indices
+Deletion corrected 1888
+Failed to decode 8034 indices
+Number of unique indices: 10715
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8648
+Number of indices with incorrect length consensus: 2067
+Number of reads utilized in the counts 28415
+Number of reads not utilized in the counts 3231
+Decoded 1 blocks, 1 valid.  Average 50.0 iterations, 13% bit changes
+Decoded 1 blocks, 1 valid.  Average 40.0 iterations, 13% bit changes
+Decoded 1 blocks, 1 valid.  Average 23.0 iterations, 13% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+coverage: 3.2000000000000006
+num_reads: 40960
+Number of unique oligos = 10879
+Number of random reads = 6144
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 32671 indices
+Deletion corrected 1904
+Failed to decode 8289 indices
+Number of unique indices: 10774
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8818
+Number of indices with incorrect length consensus: 1956
+Number of reads utilized in the counts 29550
+Number of reads not utilized in the counts 3121
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 12% bit changes
+Number of unique oligos = 10882
+Number of random reads = 6144
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 32737 indices
+Deletion corrected 1796
+Failed to decode 8223 indices
+Number of unique indices: 10794
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8786
+Number of indices with incorrect length consensus: 2008
+Number of reads utilized in the counts 29504
+Number of reads not utilized in the counts 3233
+Decoded 1 blocks, 1 valid.  Average 25.0 iterations, 13% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 12% bit changes
+Number of unique oligos = 10844
+Number of random reads = 6144
+overall rate: 1.1198600174978128 bpb
+num oligos: 11430
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5
+Successfully decoded 32748 indices
+Deletion corrected 1860
+Failed to decode 8212 indices
+Number of unique indices: 10730
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 8765
+Number of indices with incorrect length consensus: 1965
+Number of reads utilized in the counts 29495
+Number of reads not utilized in the counts 3253
+Decoded 1 blocks, 1 valid.  Average 26.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 12% bit changes
+min_coverage 3.2000000000000006
+BCH_bits: 3
+sync: AGT
+del_prob: 0.01
+overall rate: 1.0792580101180438 bpb
+num oligos: 11860
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.33347386172006743
+number of LDPC blocks: 5
+Encoded 5 blocks, source block size 256000, encoded block size 384000
+coverage: 2.5
+num_reads: 32000
+Number of unique oligos = 10608
+Number of random reads = 4800
+overall rate: 1.0792580101180438 bpb
+num oligos: 11860
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.33347386172006743
+number of LDPC blocks: 5
+Successfully decoded 25522 indices
+Deletion corrected 1373
+Failed to decode 6478 indices
+Number of unique indices: 10421
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 9742
+Number of indices with incorrect length consensus: 679
+Number of reads utilized in the counts 24624
+Number of reads not utilized in the counts 898
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 14% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+coverage: 2.6
+num_reads: 33280
+Number of unique oligos = 10828
+Number of random reads = 4992
+overall rate: 1.0792580101180438 bpb
+num oligos: 11860
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.33347386172006743
+number of LDPC blocks: 5
+Successfully decoded 26615 indices
+Deletion corrected 1494
+Failed to decode 6665 indices
+Number of unique indices: 10666
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 10108
+Number of indices with incorrect length consensus: 558
+Number of reads utilized in the counts 25860
+Number of reads not utilized in the counts 755
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 13% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 35.0 iterations, 12% bit changes
+coverage: 2.7
+num_reads: 34560
+Number of unique oligos = 10824
+Number of random reads = 5184
+overall rate: 1.0792580101180438 bpb
+num oligos: 11860
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.33347386172006743
+number of LDPC blocks: 5
+Successfully decoded 27610 indices
+Deletion corrected 1532
+Failed to decode 6950 indices
+Number of unique indices: 10683
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 10127
+Number of indices with incorrect length consensus: 556
+Number of reads utilized in the counts 26858
+Number of reads not utilized in the counts 752
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 21.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 31.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 28.0 iterations, 12% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+coverage: 2.8000000000000003
+num_reads: 35840
+Number of unique oligos = 10983
+Number of random reads = 5376
+overall rate: 1.0792580101180438 bpb
+num oligos: 11860
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.33347386172006743
+number of LDPC blocks: 5
+Successfully decoded 28555 indices
+Deletion corrected 1590
+Failed to decode 7285 indices
+Number of unique indices: 10816
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 10238
+Number of indices with incorrect length consensus: 578
+Number of reads utilized in the counts 27756
+Number of reads not utilized in the counts 799
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 34.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 22.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 12% bit changes
+Number of unique oligos = 10967
+Number of random reads = 5376
+overall rate: 1.0792580101180438 bpb
+num oligos: 11860
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.33347386172006743
+number of LDPC blocks: 5
+Successfully decoded 28595 indices
+Deletion corrected 1605
+Failed to decode 7245 indices
+Number of unique indices: 10831
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 10263
+Number of indices with incorrect length consensus: 568
+Number of reads utilized in the counts 27806
+Number of reads not utilized in the counts 789
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 12% bit changes
+coverage: 2.9000000000000004
+num_reads: 37120
+Number of unique oligos = 11059
+Number of random reads = 5568
+overall rate: 1.0792580101180438 bpb
+num oligos: 11860
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.33347386172006743
+number of LDPC blocks: 5
+Successfully decoded 29655 indices
+Deletion corrected 1647
+Failed to decode 7465 indices
+Number of unique indices: 10918
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 10396
+Number of indices with incorrect length consensus: 522
+Number of reads utilized in the counts 28925
+Number of reads not utilized in the counts 730
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 10% bit changes
+Number of unique oligos = 11062
+Number of random reads = 5568
+overall rate: 1.0792580101180438 bpb
+num oligos: 11860
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.33347386172006743
+number of LDPC blocks: 5
+Successfully decoded 29641 indices
+Deletion corrected 1585
+Failed to decode 7479 indices
+Number of unique indices: 10939
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 10380
+Number of indices with incorrect length consensus: 559
+Number of reads utilized in the counts 28859
+Number of reads not utilized in the counts 782
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 10% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 11% bit changes
+Number of unique oligos = 11025
+Number of random reads = 5568
+overall rate: 1.0792580101180438 bpb
+num oligos: 11860
+oligo length: 100 bases
+bases per oligo for index + index parity: 16
+fraction of oligos used for parity check: 0.33347386172006743
+number of LDPC blocks: 5
+Successfully decoded 29573 indices
+Deletion corrected 1634
+Failed to decode 7547 indices
+Number of unique indices: 10875
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 10302
+Number of indices with incorrect length consensus: 573
+Number of reads utilized in the counts 28790
+Number of reads not utilized in the counts 783
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 12% bit changes
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 11% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 11% bit changes
+min_coverage 2.9000000000000004

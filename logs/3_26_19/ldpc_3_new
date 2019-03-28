@@ -1,0 +1,10 @@
+frac_random_reads: 0.15
+BCH_bits: 1
+sync: AGT
+del_prob: 0.01
+overall rate: 1.1594202898550725 bpb
+num oligos: 11040
+oligo length: 100 bases
+bases per oligo for index + index parity: 10
+fraction of oligos used for parity check: 0.3333333333333333
+number of LDPC blocks: 5

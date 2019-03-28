@@ -1,0 +1,488 @@
+frac_random_reads: 0.15
+BCH_bits: 2
+sync: AGT
+del_prob: 0.01
+overall rate: 1.2610837438423645 bpb
+num oligos: 121800
+oligo length: 100 bases
+bases per oligo for index + index parity: 15
+fraction of oligos used for parity check: 0.23103448275862068
+number of LDPC blocks: 60
+Encoded 60 blocks, source block size 256000, encoded block size 332800
+coverage: 3.0
+num_reads: 460800
+Number of unique oligos = 116940
+Number of random reads = 69120
+overall rate: 1.2610837438423645 bpb
+num oligos: 121800
+oligo length: 100 bases
+bases per oligo for index + index parity: 15
+fraction of oligos used for parity check: 0.23103448275862068
+number of LDPC blocks: 60
+Successfully decoded 370599 indices
+Deletion corrected 22196
+Failed to decode 90201 indices
+Number of unique indices: 115999
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 111393
+Number of indices with incorrect length consensus: 4606
+Number of reads utilized in the counts 363234
+Number of reads not utilized in the counts 7365
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 9% bit changes
+Decoded 1 blocks, 1 valid.  Average 64.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 46.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 9% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 9% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 64.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 33.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 9% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 24.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 9% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 9% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 9% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 35.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 24.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 33.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 38.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+coverage: 3.1
+num_reads: 476160
+Number of unique oligos = 117477
+Number of random reads = 71424
+overall rate: 1.2610837438423645 bpb
+num oligos: 121800
+oligo length: 100 bases
+bases per oligo for index + index parity: 15
+fraction of oligos used for parity check: 0.23103448275862068
+number of LDPC blocks: 60
+Successfully decoded 382892 indices
+Deletion corrected 23121
+Failed to decode 93268 indices
+Number of unique indices: 116622
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 112392
+Number of indices with incorrect length consensus: 4230
+Number of reads utilized in the counts 376109
+Number of reads not utilized in the counts 6783
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 55.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 26.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 26.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 22.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 35.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 48.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 34.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 41.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 7% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 29.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 56.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 27.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 23.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 32.0 iterations, 8% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 24.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 20.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 7% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 22.0 iterations, 8% bit changes
+coverage: 3.2
+num_reads: 491520
+Number of unique oligos = 117885
+Number of random reads = 73728
+overall rate: 1.2610837438423645 bpb
+num oligos: 121800
+oligo length: 100 bases
+bases per oligo for index + index parity: 15
+fraction of oligos used for parity check: 0.23103448275862068
+number of LDPC blocks: 60
+Successfully decoded 395789 indices
+Deletion corrected 23950
+Failed to decode 95731 indices
+Number of unique indices: 117138
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 112901
+Number of indices with incorrect length consensus: 4237
+Number of reads utilized in the counts 388680
+Number of reads not utilized in the counts 7109
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 21.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 0 valid.  Average 100.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 35.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 22.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 21.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 23.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 19.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 52.0 iterations, 8% bit changes
+coverage: 3.3000000000000003
+num_reads: 506880
+Number of unique oligos = 118208
+Number of random reads = 76032
+overall rate: 1.2610837438423645 bpb
+num oligos: 121800
+oligo length: 100 bases
+bases per oligo for index + index parity: 15
+fraction of oligos used for parity check: 0.23103448275862068
+number of LDPC blocks: 60
+Successfully decoded 407669 indices
+Deletion corrected 24279
+Failed to decode 99211 indices
+Number of unique indices: 117454
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 113622
+Number of indices with incorrect length consensus: 3832
+Number of reads utilized in the counts 401224
+Number of reads not utilized in the counts 6445
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 8.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 22.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 7% bit changes
+Number of unique oligos = 118216
+Number of random reads = 76032
+overall rate: 1.2610837438423645 bpb
+num oligos: 121800
+oligo length: 100 bases
+bases per oligo for index + index parity: 15
+fraction of oligos used for parity check: 0.23103448275862068
+number of LDPC blocks: 60
+Successfully decoded 407769 indices
+Deletion corrected 24635
+Failed to decode 99111 indices
+Number of unique indices: 117517
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 113530
+Number of indices with incorrect length consensus: 3987
+Number of reads utilized in the counts 401147
+Number of reads not utilized in the counts 6622
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 8.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Number of unique oligos = 118295
+Number of random reads = 76032
+overall rate: 1.2610837438423645 bpb
+num oligos: 121800
+oligo length: 100 bases
+bases per oligo for index + index parity: 15
+fraction of oligos used for parity check: 0.23103448275862068
+number of LDPC blocks: 60
+Successfully decoded 407408 indices
+Deletion corrected 24446
+Failed to decode 99472 indices
+Number of unique indices: 117530
+Running Kalign for MSA for each index
+Computing counts from Kalign output
+Number of indices with correct length consensus: 113619
+Number of indices with incorrect length consensus: 3911
+Number of reads utilized in the counts 400960
+Number of reads not utilized in the counts 6448
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 8% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 8.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 16.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 8.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 14.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 9.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 18.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 17.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 13.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 10.0 iterations, 6% bit changes
+Decoded 1 blocks, 1 valid.  Average 11.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 15.0 iterations, 7% bit changes
+Decoded 1 blocks, 1 valid.  Average 12.0 iterations, 7% bit changes
+min_coverage 3.3000000000000003
