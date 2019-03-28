@@ -1,0 +1,12 @@
+cd LDPC-codes
+./make-ldpc matrices/ldpc_33_new.pchk 25600 281600 42 evenboth 3 no4cycle
+./make-gen matrices/ldpc_33_new.pchk matrices/ldpc_33_new.gen dense
+./extract_systematic matrices/ldpc_33_new.gen matrices/ldpc_33_new.systematic
+
+./make-ldpc matrices/ldpc_9_new.pchk 128000 384000 42 evenboth 3 no4cycle
+./make-gen matrices/ldpc_9_new.pchk matrices/ldpc_9_new.gen dense
+./extract_systematic matrices/ldpc_9_new.gen matrices/ldpc_9_new.systematic
+
+./make-ldpc matrices/ldpc_13_new.pchk 76800 332800 42 evenboth 3 no4cycle
+./make-gen matrices/ldpc_13_new.pchk matrices/ldpc_13_new.gen dense
+./extract_systematic matrices/ldpc_13_new.gen matrices/ldpc_13_new.systematic

@@ -653,10 +653,12 @@ def simulate_indelsubs(read, sub_prob=0.0, del_prob=0.0, ins_prob=0.0):
     return ''.join(new_char_list)
 
 
-def sample_reads_indel(infile, outfile, num_reads, sub_prob=0.0, del_prob=0.0, ins_prob=0.0):
+def sample_reads_indel(infile, outfile, num_reads, sub_prob=0.0, del_prob=0.0, ins_prob=0.0,frac_random_reads=0.0):
     '''
     Sample num_reads (with indels and substitutions) from oligos in infile and write to outfile.
     '''
+    num_good_reads = int((1-frac_random_reads)*num_reads)
+    num_random_reads = num_reads - num_good_reads
     dna2int = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
     int2dna = {0: 'A', 1: 'C', 2: 'G', 3: 'T'}
     f_in = open(infile, 'r')
@@ -664,18 +666,25 @@ def sample_reads_indel(infile, outfile, num_reads, sub_prob=0.0, del_prob=0.0, i
     input_lines = f_in.readlines()
     f_in.close()
     unique_reads = set([])
-    for i in range(num_reads):
+    for i in range(num_good_reads):
         clean_sample = random.choice(input_lines).rstrip('\n')
+        oligo_len = len(clean_sample)
         unique_reads.add(clean_sample)
         output_sample = simulate_indelsubs(
             clean_sample, sub_prob=sub_prob, del_prob=del_prob, ins_prob=ins_prob)
         f_out.write("%s\n" % output_sample)
+    # random reads below (to simulate effect of unaligned/improperly aligned reads
+    # even after barcode removal which can harm if not detected.
+    for i in range(num_random_reads):
+        clean_sample = ''.join(np.random.choice(['A','C','G','T'],oligo_len))
+        f_out.write("%s\n" % clean_sample)
     f_out.close()
-    print('Number of unique oligos = ', len(unique_reads))
+    print('Number of unique oligos =', len(unique_reads))
+    print('Number of random reads =',num_random_reads)
     return
 
 
-def find_min_coverage(infile_data, oligo_length, BCH_bits, LDPC_alpha, LDPC_prefix, bin_index_len, file_size, sub_prob, eps_decode, num_experiments, ins_prob=0.0, del_prob=0.0, start_coverage=1.0, sync='', sync_pos=-1, max_bitflips_sub=None, max_bitflips_indel=0):
+def find_min_coverage(infile_data, oligo_length, BCH_bits, LDPC_alpha, LDPC_prefix, bin_index_len, file_size, sub_prob, eps_decode, num_experiments, ins_prob=0.0, del_prob=0.0, start_coverage=1.0, sync='', sync_pos=-1, max_bitflips_sub=None, max_bitflips_indel=0, frac_random_reads=0.0):
     '''
     Find minimum coverage (in steps of 0.1) (coverage in base/bit) when we have 100% successes in num_experiment trials with the given parameters.
     '''
@@ -696,7 +705,7 @@ def find_min_coverage(infile_data, oligo_length, BCH_bits, LDPC_alpha, LDPC_pref
         num_successes = 0
         for _ in range(num_experiments):
             sample_reads_indel(outfile_oligos, outfile_reads, num_reads,
-                               sub_prob=sub_prob, del_prob=del_prob, ins_prob=ins_prob)
+                               sub_prob=sub_prob, del_prob=del_prob, ins_prob=ins_prob, frac_random_reads=frac_random_reads)
             status = decode_data(outfile_reads, oligo_length, outfile_dec, bin_index_len, BCH_bits, LDPC_alpha,
                                        LDPC_prefix, file_size, eps_decode, sync=sync, sync_pos=sync_pos, max_bitflips_sub = max_bitflips_sub, max_bitflips_indel=max_bitflips_indel)
             if status == 0:
