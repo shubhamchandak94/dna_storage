@@ -16,6 +16,7 @@ LDPC_dim = 256000
 BCH_POLYNOMIAL = 67
 BCH_bits_per_error = 6
 LDPC_max_iter = 100
+REPO_PATH = '/raid/nanopore/shubham/dna_storage/'
 
 # parameters for PRP x -> ax+b mod 2^n (n even so conversion to DNA works)
 # obtained by running np.random.randint(2**n)
@@ -413,7 +414,7 @@ def encode_data(infile, oligo_length, outfile, BCH_bits, LDPC_alpha, LDPC_prefix
     f_LDPC_input = open(outfile+'.tmp.1', 'w')
     f_LDPC_input.write(bin_data)
     f_LDPC_input.close()
-    subprocess.call(["./LDPC-codes/encode "+LDPC_prefix+".pchk " +
+    subprocess.call([REPO_PATH+"LDPC-codes/encode "+LDPC_prefix+".pchk " +
                      LDPC_prefix+".gen "+outfile+'.tmp.1 '+outfile+'.tmp.2'], shell=True)
     # read parity bits
     f_LDPC_output = open(outfile+'.tmp.2', 'r')
@@ -537,7 +538,7 @@ def decode_data(infile, oligo_length, outfile, bin_index_len, BCH_bits, LDPC_alp
     suffix_kalign = '.kalign.fasta'
     print('Running Kalign for MSA for each index')
     for index in index_set:
-        subprocess.run(['./kalign2_current/kalign', tmp_dir+'/'+str(index)+suffix_fasta,
+        subprocess.run([REPO_PATH+'kalign2_current/kalign', tmp_dir+'/'+str(index)+suffix_fasta,
                         tmp_dir+'/'+str(index)+suffix_kalign, '-quiet'])
     num_indices_correct_len = 0
     num_reads_utilized = 0
@@ -600,7 +601,7 @@ def decode_data(infile, oligo_length, outfile, bin_index_len, BCH_bits, LDPC_alp
         for j in range(LDPC_dim+parity_bits_per_LDPC_block):
             f_out.write(str(llr[i][j])+' ')
         f_out.close()
-        subprocess.run(["./LDPC-codes/decode "+LDPC_prefix+".pchk "+outfile+'.tmp ' +
+        subprocess.run([REPO_PATH+"LDPC-codes/decode "+LDPC_prefix+".pchk "+outfile+'.tmp ' +
                         outfile+'.tmp.1 '+"misc 0.0 prprp "+str(LDPC_max_iter)], shell=True)
         f_in = open(outfile+'.tmp.1', 'r')
         LDPC_decoded_str = f_in.read().rstrip('\n')
